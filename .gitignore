@@ -6,7 +6,6 @@
 *.ptx
 *_ptx.h
 *.a
-*.d
 *.x
 *.exe
 *.sif
