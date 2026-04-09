@@ -125,59 +125,103 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   // nsamples = 0;
 
-  // for (int i = 0; i < Nq; i++){
-  //   utils::logmesg(lmp,"DEBUG :: round1 = {}, round2 = {}\n", round(pow(10, (logqmax-logqmin)*i/(Nq) + logqmin)), round(pow(10, (logqmax-logqmin)*(i-1)/(Nq) + logqmin)));
-  //   if (i == 0){
-  //     nsamples++;
-  //   } else if (round(pow(10, (logqmax-logqmin)*i/(Nq) + logqmin)) != round(pow(10, (logqmax-logqmin)*(i-1)/(Nq) + logqmin))){
-  //     nsamples++;
-  //   }
-  // }
+  const double* boxlo = domain->boxlo;
+  const double* boxhi = domain->boxhi;
+  auto boxdim = new double [3];
 
-  // utils::logmesg(lmp,"DEBUG :: nsamples = {}\n", nsamples);  
+  // calculate box lengths
+  for (int i = 0; i < 3; i++){
+    boxdim[i] = boxhi[i] - boxlo[i];
+  }
 
-  // auto tempksqs = new int[nsamples];
+  double twopi_L = 2.0*mypi/boxdim[0];
+  ksqmin = round((logqmin/twopi_L)*(logqmin/twopi_L));
+  ksqmax = round((logqmax/twopi_L)*(logqmax/twopi_L));
 
-  // nsamples = 0;
-  // for (int i = 0; i < Nq; i++){
-  //   if (i == 0){
-  //     tempksqs[0] = round(pow(10, logqmin));
-  //     nsamples++;
-  //   } else if (round(pow(10, (logqmax-logqmin)*i/Nq + logqmin)) != round(pow(10, (logqmax-logqmin)*(i-1)/Nq + logqmin))){
-  //     tempksqs[nsamples] = round(pow(10, (logqmax-logqmin)*i/Nq + logqmin));
-  //     nsamples++;
-  //   }
-  // }
+  logdist = 0;
+  if (logdist) {
+    nsamples = 0;
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        nsamples++;
+      } else if (round(pow(10, (ksqmax-ksqmin)*i/Nq + ksqmin)) != round(pow(10, (ksqmax-ksqmin)*(i-1)/Nq + ksqmin))){
+        nsamples++;
+      }
+    }
+  } else {
+    nsamples = 0;
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        nsamples++;
+      } else if (round((ksqmax-ksqmin)*i/Nq + ksqmin) != round((ksqmax-ksqmin)*(i-1)/Nq + ksqmin)){
+        nsamples++;
+      }
+    }
 
-  // nk = 0;
-  // int tempksq;
-  // // calculate the number of vectors to allocate arrays
-  // for (int n = 0; n < nsamples; n++){
-  //    for (int ix = 0; ix <= kmax; ix++) {
-  //     for (int iy = -kmax; iy <= kmax; iy++) {
-  //       for (int iz = -kmax; iz <= kmax; iz++) {
-  //           tempksq = ix*ix + iy*iy + iz*iz;
-  //           if (tempksq == tempksqs[n]) {
-  //             nk++;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  
+  }
 
-  // delete[] tempksqs;
-  
+  utils::logmesg(lmp,"DEBUG :: nsamples = {}\n", nsamples);  
+
+  auto tempksqs = new int[nsamples];
+
+  if (logdist) {
+    nsamples = 0;
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        tempksqs[0] = round(pow(10, ksqmin));
+        nsamples++;
+      } else if (round(pow(10, (ksqmax-ksqmin)*i/Nq + ksqmin)) != round(pow(10, (ksqmax-ksqmin)*(i-1)/Nq + ksqmin))){
+        tempksqs[nsamples] = round(pow(10, (ksqmax-ksqmin)*i/Nq + ksqmin));
+        nsamples++;
+      }
+    }
+  } else {
+    nsamples = 0;
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        tempksqs[0] = round(ksqmin);
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", tempksqs[nsamples]); 
+        nsamples++;
+      } else if (round((ksqmax-ksqmin)*i/Nq + ksqmin) != round((ksqmax-ksqmin)*(i-1)/Nq + ksqmin)){
+        tempksqs[nsamples] = round((ksqmax-ksqmin)*i/Nq + ksqmin);
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", tempksqs[nsamples]); 
+        nsamples++;
+      }
+    }
+
+  }
+
   nk = 0;
-  for (int ix = 0; ix <= kmax; ix++) {
-    for (int iy = -kmax; iy <= kmax; iy++) {
-      for (int iz = -kmax; iz <= kmax; iz++) {
-        if (abs(ix)+abs(iy)+abs(iz) != 0) {
-          nk++;
+  double slice_thickness = 0.2;
+  int tempksq;
+  // calculate the number of vectors to allocate arrays
+  for (int n = 0; n < nsamples; n++){
+     for (int ix = 0; ix <= kmax; ix++) {
+      for (int iy = -kmax; iy <= kmax; iy++) {
+        for (int iz = -kmax; iz <= kmax; iz++) {
+            tempksq = ix*ix + iy*iy + iz*iz;
+            if (twopi_L*abs(tempksq - tempksqs[n]) < slice_thickness) {
+              nk++;
+            }
+          }
         }
       }
     }
-  }
+  
+
+  delete[] tempksqs;
+  delete[] boxdim;
+  
+  // nk = 0;
+  // for (int ix = 0; ix <= kmax; ix++) {
+  //   for (int iy = -kmax; iy <= kmax; iy++) {
+  //     for (int iz = -kmax; iz <= kmax; iz++) {
+  //       if (abs(ix)+abs(iy)+abs(iz) != 0) {
+  //         nk++;
+  //       }
+  //     }
+  //   }
+  // }
 
   utils::logmesg(lmp,"DEBUG :: starting wavevectors\n");
   
@@ -194,7 +238,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   int ksq_vector_size = nk;
 
-  int nRows = ksqmax; // = 300
+  int nRows = nsamples; // = 300
   int nCols = 3;
 
   size_array_rows = nRows;
@@ -213,13 +257,21 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
 
   memory->create(k,k_vector_size,"sans:k");
-  memory->create(ksq,ksq_vector_size,"sans:ksq");
-  //memory->create(iksq, ksq_vector_size,"sans:iksq");
-  memory->create(skdeg, ksqmax,"sans:skdeg");
-  memory->create(modk,ksqmax,"sans:modk");
-  memory->create(skproc,ksqmax,"sans:skproc");
-  memory->create(sktotal,ksqmax,"sans:sktotal");
+  memory->create(ksq,nsamples,"sans:ksq");
+  memory->create(iksq, nk,"sans:iksq");
+  memory->create(skdeg, nsamples,"sans:skdeg");
+  memory->create(modk,nsamples,"sans:modk");
+  memory->create(skproc,nsamples,"sans:skproc");
+  memory->create(sktotal,nsamples,"sans:sktotal");
   memory->create(array, nRows, nCols, "sans:array");
+
+  // Initialize arrays to zero
+  for (int i = 0; i < nsamples; i++) {
+    skdeg[i] = 0.0;
+    modk[i] = 0.0;
+    skproc[i] = 0.0;
+    sktotal[i] = 0.0;
+  }
 
   ///// CHECK THE WAVEVECTORS /////
   utils::logmesg(lmp,"DEBUG :: nRows = {}\n", nRows);
@@ -265,82 +317,104 @@ void ComputeSANS::init()
   utils::logmesg(lmp,"DEBUG :: 2pi_L = {}\n", twopi_L); 
   utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax); 
 
-  // // new wavevector setup
-  // nsamples = 0;
-  // for (int i = 0; i < Nq; i++){
-  //   if (i == 0){
-  //     ksqs[0] = round(pow(10, logqmin));
-  //     utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksqs[nsamples]); 
-  //     nsamples++;
-  //   } else if (round(pow(10, (logqmax-logqmin)*i/Nq + logqmin)) != round(pow(10, (logqmax-logqmin)*(i-1)/Nq + logqmin))){
-  //     ksqs[nsamples] = round(pow(10, (logqmax-logqmin)*i/Nq + logqmin));
-  //     utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksqs[nsamples]); 
-  //     nsamples++;
-  //   }
-  // }
+  ksqmin = round((logqmin/twopi_L)*(logqmin/twopi_L));
+  ksqmax = round((logqmax/twopi_L)*(logqmax/twopi_L));
+
+  // new wavevector setup
+  // distributed the wavevectors evenly on a logscale if logdist is true
+  // else they are distributed linearly
+  logdist = 0;
+
+  nsamples = 0;
+  if (logdist) {
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        ksq[0] = round(pow(10, ksqmin));
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nsamples]); 
+        nsamples++;
+      } else if (round(pow(10, (ksqmax-ksqmin)*i/Nq + ksqmin)) != round(pow(10, (ksqmax-ksqmin)*(i-1)/Nq + ksqmin))){
+        ksq[nsamples] = round(pow(10, (ksqmax-ksqmin)*i/Nq + ksqmin));
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nsamples]); 
+        nsamples++;
+      }
+    }
+  } else {
+    for (int i = 0; i < Nq; i++){
+      if (i == 0){
+        ksq[0] = round(ksqmin);
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nsamples]); 
+        nsamples++;
+      } else if (round((ksqmax-ksqmin)*i/Nq + ksqmin) != round((ksqmax-ksqmin)*(i-1)/Nq + ksqmin)){
+        ksq[nsamples] = round((ksqmax-ksqmin)*i/Nq + ksqmin);
+        // utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nsamples]); 
+        nsamples++;
+      }
+    }
+
+  }
 
 
-  // int tempksq;
-  // nk = 0;
-  // for (int n = 0; n < nsamples; n++){
-  //   for (int ix = 0; ix <= kmax; ix++) {
-  //     for (int iy = -kmax; iy <= kmax; iy++) {
-  //       for (int iz = -kmax; iz <= kmax; iz++) {
-  //           tempksq = ix*ix + iy*iy + iz*iz;
-  //           if (tempksq == ksqs[n]) {
-  //             k[3*nk+0] = twopi_L*ix;
-  //             k[3*nk+1] = twopi_L*iy;
-  //             k[3*nk+2] = twopi_L*iz;
-  //             iksq[nk] = n;
-  //             skdeg[iksq[nk]] = skdeg[iksq[nk]] + 1.0;
-  //             modk[iksq[nk]] = twopi_L*sqrt(1.0*tempksq);
-  //             if (iksq[nk] == 1) {
-  //                utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-  //                utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-  //                utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksqs[iksq[nk]]); 
-  //                utils::logmesg(lmp,"DEBUG :: skdeg = {}\n", skdeg[iksq[nk]]); 
-  //             }
-  //             nk++;
-  //           }
-  //         }
-  //       }
-  //     }
-  //     //utils::logmesg(lmp,"DEBUG :: ksq = {}, modk = {}, skdeg = {}\n", ksqs[n], modk[n], skdeg[n]); 
-  //   }
+  int tempksq;
+  double slice_thickness = 0.2;
+  nk = 0;
+  for (int n = 0; n < nsamples; n++){
+    for (int ix = 0; ix <= kmax; ix++) {
+      for (int iy = -kmax; iy <= kmax; iy++) {
+        for (int iz = -kmax; iz <= kmax; iz++) {
+            tempksq = ix*ix + iy*iy + iz*iz;
+            if (twopi_L*abs(tempksq - ksq[n]) < slice_thickness) {
+              k[3*nk+0] = twopi_L*ix;
+              k[3*nk+1] = twopi_L*iy;
+              k[3*nk+2] = twopi_L*iz;
+              iksq[nk] = n;
+              modk[n] = twopi_L*sqrt(1.0*tempksq);
+              skdeg[iksq[nk]] = skdeg[iksq[nk]] + 1.0;
+              // if (iksq[nk] == 1) {
+              //    utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
+              //    utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
+              //    utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksqs[iksq[nk]]); 
+              //    utils::logmesg(lmp,"DEBUG :: skdeg = {}\n", skdeg[iksq[nk]]); 
+              nk++;
+              }
+            }
+          }
+        }
+      }
+      //utils::logmesg(lmp,"DEBUG :: ksq = {}, modk = {}, skdeg = {}\n", ksqs[n], modk[n], skdeg[n]); 
 
 
   // old wavevector setup
 
-  // setup wavevectors
-  int nk = 0;
-  for (int ix = 0; ix <= kmax; ix++) {
-    for (int iy = -kmax; iy <= kmax; iy++) {
-      for (int iz = -kmax; iz <= kmax; iz++) {
-        if (abs(ix)+abs(iy)+abs(iz) != 0) {
-          //utils::logmesg(lmp,"debug :: nk = {} \n", nk); 
-          //utils::logmesg(lmp,"debug :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-          //utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-          k[3*nk+0] = twopi_L*ix;
-          k[3*nk+1] = twopi_L*iy;
-          k[3*nk+2] = twopi_L*iz;
-          //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-          //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-          ksq[nk] = ix*ix + iy*iy + iz*iz;
-          //utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
-          skdeg[ksq[nk]] = skdeg[ksq[nk]] + 1.0;
-          modk[ksq[nk]] = twopi_L*sqrt(1.0*ksq[nk]);
+  // // setup wavevectors
+  // int nk = 0;
+  // for (int ix = 0; ix <= kmax; ix++) {
+  //   for (int iy = -kmax; iy <= kmax; iy++) {
+  //     for (int iz = -kmax; iz <= kmax; iz++) {
+  //       if (abs(ix)+abs(iy)+abs(iz) != 0) {
+  //         //utils::logmesg(lmp,"debug :: nk = {} \n", nk); 
+  //         //utils::logmesg(lmp,"debug :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
+  //         //utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
+  //         k[3*nk+0] = twopi_L*ix;
+  //         k[3*nk+1] = twopi_L*iy;
+  //         k[3*nk+2] = twopi_L*iz;
+  //         //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
+  //         //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
+  //         ksq[nk] = ix*ix + iy*iy + iz*iz;
+  //         //utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
+  //         skdeg[ksq[nk]] = skdeg[ksq[nk]] + 1.0;
+  //         modk[ksq[nk]] = twopi_L*sqrt(1.0*ksq[nk]);
 
-           // if (ix==0 || iy ==0 || iz==0){
-           //   utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-           //   utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-           //   utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
-           // }
+  //          // if (ix==0 || iy ==0 || iz==0){
+  //          //   utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
+  //          //   utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
+  //          //   utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
+  //          // }
 
-          nk++;
-        }
-      }
-    }
-  }
+  //         nk++;
+  //       }
+  //     }
+  //   }
+  // }
 
 
 utils::logmesg(lmp,"DEBUG :: nk = {}\n", nk);  
@@ -374,6 +448,11 @@ void ComputeSANS::compute_array()
     utils::logmesg(lmp,"-----\nComputing SANS intensities\n");
 
   double t0 = platform::walltime();
+
+  // Initialize sktotal for this compute step
+  for (int i = 0; i < nsamples; i++) {
+    sktotal[i] = 0.0;
+  }
 
   //int nk = 0;
 
@@ -435,9 +514,9 @@ void ComputeSANS::compute_array()
 
   // Create separate arrays for cos and sin components
   // We accumulate these separately, then square AFTER MPI_Allreduce (not before you numpty)
-  auto cossum_ksq = new double[ksqmax];
-  auto sinsum_ksq = new double[ksqmax];
-  for (int i = 0; i < ksqmax; i++) {
+  auto cossum_ksq = new double[nsamples];
+  auto sinsum_ksq = new double[nsamples];
+  for (int i = 0; i < nsamples; i++) {
     cossum_ksq[i] = 0.0;
     sinsum_ksq[i] = 0.0;
   }
@@ -475,8 +554,8 @@ for (int ik = 0; ik < nk; ik++){
 
     // Accumulate cos and sin components separately (not squared yet)
     // This will be reduced across all MPI ranks, then squared after reduction
-    cossum_ksq[ksq[ik]] += cossum;
-    sinsum_ksq[ksq[ik]] += sinsum;
+    cossum_ksq[iksq[ik]] += cossum;
+    sinsum_ksq[iksq[ik]] += sinsum;
 }
 
   utils::logmesg(lmp,"DEBUG :: dot prod calc done\n"); 
@@ -484,20 +563,20 @@ for (int ik = 0; ik < nk; ik++){
   utils::logmesg(lmp,"DEBUG :: MPI_Allreduce starting\n"); 
 
   // Reduce cos and sin components separately across all MPI ranks
-  auto cossum_total = new double[ksqmax];
-  auto sinsum_total = new double[ksqmax];
+  auto cossum_total = new double[nsamples];
+  auto sinsum_total = new double[nsamples];
 
-  for (int i = 0; i < ksqmax; i++) {
+  for (int i = 0; i < nsamples; i++) {
     cossum_total[i] = 0.0;
     sinsum_total[i] = 0.0;
   }
 
-  MPI_Allreduce(cossum_ksq, cossum_total, ksqmax, MPI_DOUBLE, MPI_SUM, world);
-  MPI_Allreduce(sinsum_ksq, sinsum_total, ksqmax, MPI_DOUBLE, MPI_SUM, world);
+  MPI_Allreduce(cossum_ksq, cossum_total, nsamples, MPI_DOUBLE, MPI_SUM, world);
+  MPI_Allreduce(sinsum_ksq, sinsum_total, nsamples, MPI_DOUBLE, MPI_SUM, world);
   
   // Now compute intensity from reduced cos/sin components
   // All ranks will compute the same result from the same global sums
-  for (int i = 0; i < ksqmax; i++) {
+  for (int i = 0; i < nsamples; i++) {
     sktotal[i] = cossum_total[i]*cossum_total[i] + sinsum_total[i]*sinsum_total[i];
   }
   
@@ -508,13 +587,13 @@ for (int ik = 0; ik < nk; ik++){
   utils::logmesg(lmp,"DEBUG :: WRITING FINAL ARRAY\n");
 
   // normalise the output
-  for (int i = 0; i < ksqmax; i++){
+  for (int i = 0; i < nsamples; i++){
     array[i][0] = i;
     array[i][1] = modk[i];
     array[i][2] = sktotal[i]/skdeg[i]/natoms;
-    utils::logmesg(lmp,"iksq = {}, sktotal = {}\n",i, sktotal[i]);
-    utils::logmesg(lmp,"modk = {}, skdeg = {}\n", modk[i], skdeg[i]);
-    utils::logmesg(lmp,"result = {}\n", sktotal[i]/skdeg[i]/natoms);
+    // utils::logmesg(lmp,"iksq = {}, sktotal = {}\n",i, sktotal[i]);
+    // utils::logmesg(lmp,"modk = {}, skdeg = {}\n", modk[i], skdeg[i]);
+    // utils::logmesg(lmp,"result = {}\n", sktotal[i]/skdeg[i]/natoms);
   }
 
   utils::logmesg(lmp,"DEBUG :: normalisation done\n"); 

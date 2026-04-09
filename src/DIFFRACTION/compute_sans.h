@@ -46,14 +46,16 @@ class ComputeSANS : public Compute {
   double logqmin;      // spacing of reciprocal points in each dimension
   int Nq;      // maximum integer value for K points in each dimension
   double kmax;       // Maximum reciprocal distance to explore
-  int ksqmax;
+  int ksqmin, ksqmax;
 
   double mypi = 3.141592653589;
+
+  bool logdist;
 
   int ntypes, nsamples, nk;
   int nlocalgroup;
   int nRows, nCols;
-  int *ksq;
+  int *iksq, *ksq;
   double *k, *modk, *skdeg, *skproc, *sktotal;
 };
 
