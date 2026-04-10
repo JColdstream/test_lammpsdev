@@ -42,21 +42,22 @@ class ComputeSANS : public Compute {
   bool manual;          // Turn on manual recpiprocal map
 
   double R_Ewald;    // Radius of Ewald sphere (distance units)
-  double logqmax;     // Radiation wavelenght (distance units)
-  double logqmin;      // spacing of reciprocal points in each dimension
+  double qmin, qmax;     // min and max Radiation frequency (inverse distance units)
   int Nq;      // maximum integer value for K points in each dimension
   double kmax;       // Maximum reciprocal distance to explore
   int ksqmin, ksqmax;
+  int maxdeg;
+  double logqmin, logqmax;
 
   double mypi = 3.141592653589;
 
   bool logdist;
 
-  int ntypes, nsamples, nk;
+  int ntypes, nk;
   int nlocalgroup;
   int nRows, nCols;
   int *iksq, *ksq;
-  double *k, *modk, *skdeg, *skproc, *sktotal;
+  double *k, *q, *skdeg, *skproc, *sktotal;
 };
 
 }    // namespace LAMMPS_NS
