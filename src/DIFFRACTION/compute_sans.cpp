@@ -122,8 +122,8 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     } else if (strcmp(arg[iarg],"maxdeg") == 0) {
       if (iarg+2 > narg) error->all(FLERR,"Illegal Compute SANS Command");
       maxdeg = utils::numeric(FLERR,arg[iarg+1],false,lmp);
-      if (maxdeg < 0)
-        error->all(FLERR,"Compute SANS: maxdeg must be greater than or equal to 0");
+      if (maxdeg < 1)
+        error->all(FLERR,"Compute SANS: maxdeg must be greater than 0");
       iarg += 2;
 
     } else if (strcmp(arg[iarg],"logdist") == 0) {
@@ -171,7 +171,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     }
   
     if (dR_Ewald > q[1]-q[0]){
-      utils::logmesg(lmp, "q1-q0 = {}, dR_Ewald = {}", q[1]-q[0], dR_Ewald);
+      utils::logmesg(lmp, "q1-q0 = {}, dR_Ewald = {}\n", q[1]-q[0], dR_Ewald);
       error->all(FLERR,"Compute SANS: dR_Ewald must be smaller than the smallest difference between q values");
     }
 
@@ -193,7 +193,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
           }
         }
       }
-      if (skdeg[iq] > maxdeg) {
+      if (skdeg[iq] >= maxdeg) {
         nk = nk + maxdeg;
       } else {
         nk = nk + skdeg[iq];
@@ -219,10 +219,10 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   utils::logmesg(lmp,"DEBUG :: nk = {}\n", nk);  
   utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax);
+  utils::logmesg(lmp,"DEBUG :: maxdeg = {}\n", maxdeg);
 
 
   // allocate memory 4 fat arrays //
-  int nkmax = (kmax+1)*(2*kmax+1)*(2*kmax+1);
   ksqmax = 3*kmax*kmax;
 
   int k_vector_size = 3*nk; // = 4350 * 3
@@ -237,7 +237,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   
   utils::logmesg(lmp,"DEBUG :: k vector size = {}\n", k_vector_size);
-  utils::logmesg(lmp,"DEBUG :: nkmax = {}\n", nkmax);
   utils::logmesg(lmp,"DEBUG :: ksqmax = {}\n", ksqmax);
   utils::logmesg(lmp,"DEBUG :: ksq_vector_size = {}\n", ksq_vector_size);
   utils::logmesg(lmp,"DEBUG :: nCols = {}\n", nCols);
@@ -297,8 +296,8 @@ void ComputeSANS::init()
   }
 
   double twopi_L = 2.0*mypi/boxdim[0];
-  utils::logmesg(lmp,"DEBUG :: 2pi_L = {}\n", twopi_L); 
-  utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax); 
+  // utils::logmesg(lmp,"DEBUG :: 2pi_L = {}\n", twopi_L); 
+  // utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax); 
 
 
   if (logdist) {
@@ -315,7 +314,7 @@ void ComputeSANS::init()
   
 
   nk = 0;
-  int tempksq, tempnk;
+  int tempksq;
   double tempmodk;
   std::vector<std::vector<int>> tempk;
   // calculate the number of vectors to allocate arrays
@@ -332,7 +331,7 @@ void ComputeSANS::init()
           }
         }
       }
-      if (skdeg[iq] > maxdeg) {
+      if (skdeg[iq] >= maxdeg) {
         std::shuffle(tempk.begin(), tempk.end(), std::default_random_engine{});
         tempk.resize(maxdeg);
         skdeg[iq] = maxdeg;
@@ -353,12 +352,11 @@ void ComputeSANS::init()
             nk++;
           }
       }
-      tempk.clear();
     }
 
-  for (int i=0; i<Nq; i++) {
-    utils::logmesg(lmp,"DEBUG :: q = {}, skdeg[{}] = {}\n", q[i], i, skdeg[i]);
-  }
+  // for (int i=0; i<Nq; i++) {
+  //   utils::logmesg(lmp,"DEBUG :: q = {}, skdeg[{}] = {}\n", q[i], i, skdeg[i]);
+  // }
 
   // old wavevector setup
 
@@ -394,8 +392,8 @@ void ComputeSANS::init()
   // }
 
 
-utils::logmesg(lmp,"DEBUG :: nk = {}\n", nk);  
-utils::logmesg(lmp,"DEBUG :: wavevectors calculated\n");
+// utils::logmesg(lmp,"DEBUG :: proc nk = {}\n", nk);  
+// utils::logmesg(lmp,"DEBUG :: proc wavevectors calculated\n");
 
 //  ink = 0;
 //
@@ -430,8 +428,6 @@ void ComputeSANS::compute_array()
   for (int i = 0; i < Nq; i++) {
     sktotal[i] = 0.0;
   }
-
-  //int nk = 0;
 
   ntypes = atom->ntypes;
   const auto nlocal = atom->nlocal;
@@ -484,7 +480,6 @@ void ComputeSANS::compute_array()
     }
   }
   // utils::logmesg(lmp,"DEBUG :: nk = {}\n", nk); 
-  // utils::logmesg(lmp,"DEBUG :: nsamples = {}\n", nsamples); 
 
 
 //if (me == 0 && echo) utils::logmesg(lmp,"\n");
@@ -508,7 +503,7 @@ for (int ik = 0; ik < nk; ik++){
   kx = k[3*ik+0];
   ky = k[3*ik+1];
   kz = k[3*ik+2];
-  // utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}, ksq = {}\n", kx, ky, kz, ksq[ik]); 
+  // utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}, ksq = {}\n", kx, ky, kz, iksq[ik]); 
   // utils::logmesg(lmp,"DEBUG :: Nq = {}\n", Nq); 
   cossum=0.0;
   sinsum=0.0;
@@ -559,7 +554,7 @@ for (int ik = 0; ik < nk; ik++){
   
   // utils::logmesg(lmp,"DEBUG :: MPI_Allreduce done\n"); 
   
-  //utils::logmesg(lmp,"DEBUG :: ksqmax = {}\n", ksqmax);
+  // utils::logmesg(lmp,"DEBUG :: ksqmax = {}\n", ksqmax);
 
   // utils::logmesg(lmp,"DEBUG :: WRITING FINAL ARRAY\n");
 
