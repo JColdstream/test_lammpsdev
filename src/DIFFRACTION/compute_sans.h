@@ -45,19 +45,18 @@ class ComputeSANS : public Compute {
   double qmin, qmax;     // min and max Radiation frequency (inverse distance units)
   int Nq;      // maximum integer value for K points in each dimension
   double kmax;       // Maximum reciprocal distance to explore
-  int ksqmin, ksqmax;
   int maxdeg;
-  double logqmin, logqmax;
 
   double mypi = 3.141592653589;
 
   bool logdist;
 
   int ntypes, nk;
+  int ncombinations;
   int nlocalgroup;
   int nRows, nCols;
   int *iksq, *ksq;
-  double *k, *q, *skdeg, *skproc, *sktotal;
+  double *k, *q, *skdeg, *sktotal;
 };
 
 }    // namespace LAMMPS_NS
