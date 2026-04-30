@@ -48,15 +48,19 @@ class ComputeSANS : public Compute {
   int maxdeg;
 
   double mypi = 3.141592653589;
+  double scatteringsum;
 
-  bool logdist;
+  bool logdist = false;
+  bool scatteringlengths = false;
 
-  int ntypes, nk;
+  const char *filename = nullptr;
+
+  int ntypes;
   int ncombinations;
   int nlocalgroup;
   int nRows, nCols;
   int *iksq, *ksq;
-  double *k, *q, *skdeg, *sktotal;
+  double *k, *q, *skdeg, *sktotal, *b;
 };
 
 }    // namespace LAMMPS_NS

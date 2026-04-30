@@ -5,13 +5,14 @@
 #include "atom.h" 
 #include "citeme.h" 
 #include "comm.h" 
-#include "compute_sans_consts.h" 
+//#include "compute_sans_consts.h" 
 #include "domain.h" 
 #include "error.h" 
 #include "group.h" 
 #include "math_const.h"
 #include "memory.h"
 #include "update.h"
+#include "text_file_reader.h"
 
 #include <cmath>
 #include <cstring>
@@ -44,7 +45,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   // Checking errors specific to the compute
   if (dimension == 2)
     error->all(FLERR,"Compute SANS does not work with 2d structures");
-  if (narg < 4+ntypes)
+  if (narg < 4)
     error->all(FLERR,"Illegal Compute SANS Command");
   if (triclinic == 1)
     error->all(FLERR,"Compute SANS does not work with triclinic structures");
@@ -63,22 +64,25 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   // Define atom types for atomic scattering factor coefficients
   // first arg after required
   int iarg = 4;
-  ztype = new int[ntypes];
-  for (int i = 0; i < ntypes; i++) {
-    ztype[i] = SANSmaxType + 1;
-  }
-  // checks to see if the type in the argument is the same as any in the saved SANStypeList, and sets the atom type in the simulation equal to the one in the SANStypeList for future reference.
-  for (int i=0; i<ntypes; i++) {
-     for (int j = 0; j < SANSmaxType; j++) {
-       if (utils::lowercase(arg[iarg]) == utils::lowercase(SANStypeList[j])) {
-         ztype[i] = j;
-       }
-     }
-     // if index goes above number of saved types then it isn't included and throws an error.
-     if (ztype[i] == SANSmaxType + 1)
-       error->all(FLERR,"Compute SANS: Invalid ASF atom type");
-    iarg++;
-  }
+  // auto b = new int[ntypes];
+  // for (int i = 0; i < ntypes; i++) {
+  //   b[i] = SANSmaxType + 1;
+  // }
+  // // checks to see if the type in the argument is the same as any in the saved SANStypeList, and sets the atom type in the simulation equal to the one in the SANStypeList for future reference.
+  // for (int i=0; i<ntypes; i++) {
+  //    for (int j = 0; j < SANSmaxType; j++) {
+  //      if (utils::lowercase(arg[iarg]) == utils::lowercase(SANStypeList[j])) {
+  //        ztype[i] = j;
+  //      }
+  //    }
+  //    // if index goes above number of saved types then it isn't included and throws an error.
+  //    if (ztype[i] == SANSmaxType + 1)
+  //      error->all(FLERR,"Compute SANS: Invalid ASF atom type");
+  //   iarg++;
+  // }
+  // iarg++;
+  // iarg++;
+  // iarg++;
 
   utils::logmesg(lmp,"READ INPUT VALUES");
   
@@ -88,6 +92,9 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   Nq = 50;
   dR_Ewald = 0.0;
   logdist = 0;
+
+  utils::logmesg(lmp,"arg[0] = {}\n", arg[0]);
+
 
 
   // Process optional args
@@ -130,7 +137,78 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       logdist = true;
       iarg += 1;
 
+    } else if (strcmp(arg[iarg],"lengthpath") == 0) {
+      if (iarg+2 > narg) error->all(FLERR,"Illegal Compute SANS Command");
+      scatteringlengths = true;
+      filename = arg[iarg+1];
+      iarg += 2;
+
     } else error->all(FLERR,"Illegal Compute SANS Command");
+  }
+
+  utils::logmesg(lmp, "DEBUG :: Reading scattering lengths \n");
+  utils::logmesg(lmp, "DEBUG :: scatteringlengths = {} \n", scatteringlengths);
+
+  // Read custom scattering lengths if required and assign them to the array b.
+
+  // value 2*i holds ith scattering length density, value 2*i+1 holds a flag to check if it has been assigned
+  memory->create(b, 2*ntypes, "sans:b");
+
+  // initialise array to -1.0
+  for (int i = 0; i < 2*ntypes; i++) {
+    b[i] = -1.0;
+  }
+
+  if (comm->me == 0) {
+    if (scatteringlengths) {
+      int typeindex;
+      utils::logmesg(lmp, "DEBUG :: Reading scattering lengths from {}\n", filename);
+
+      FILE *fp = fopen(filename, "rb");
+      if (fp == nullptr) error->one(FLERR, "Failed to open {}. Check your file path.", filename);
+
+      TextFileReader reader(fp, "Scattering Lengths");
+      reader.skip_line();
+
+        while (bool eof = false){
+
+        char *line = reader.next_line();
+        // check to see if we are at end of file
+        if (line == nullptr) {
+          eof = true;
+          break;
+        }
+
+        std::vector<std::string> values = utils::split_words(line);
+
+        if (values.size() < 2) {
+          error->one(FLERR, "Invalid line in scattering lengths file: {}", line);
+        } else if (values.size() > 2) {
+          error->one(FLERR, "Invalid line in scattering lengths file: {}", line);
+        } else if (!utils::is_integer(values[0])) {
+          error->one(FLERR, "Invalid atom type in scattering lengths file: {}", line);
+        } else if (!utils::is_double(values[1])) {
+          error->one(FLERR, "Invalid scattering length in scattering lengths file: {}", line);
+        } else
+  
+        typeindex = utils::numeric(FLERR, values[0], false, lmp)-1;
+        if (typeindex >= ntypes) {
+          error->one(FLERR, "Invalid atom type in scattering lengths file: {}", line);
+        }
+
+        b[2*typeindex] = utils::numeric(FLERR, values[1], false, lmp);
+        b[2*typeindex+1] = 1.0; // mark as assigned
+      } 
+
+
+    if (fp) fclose(fp);
+
+    // if we don't have custom scattering lengths set all to 1.0.
+    } else {
+      for (int i = 0; i < 2*ntypes; i++) {
+        b[i] = 1.0;
+      }
+    }
   }
 
 
@@ -209,6 +287,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   delete[] boxdim;
   delete[] tempskdeg;
+
 
   
   // nk = 0;
@@ -335,6 +414,33 @@ void ComputeSANS::init()
       utils::logmesg(lmp,"DEBUG :: initnk = {}, ncombinations = {}\n", initnk, ncombinations);
       error->all(FLERR,"ComputeSANS: Number of wavevectors is inconsistent. Contact the developers.");
     }
+
+  const auto natoms = group->count(igroup);
+
+  // calculate total scattering sum
+  // equal to number of atoms if lengths are not set by the user
+  if (scatteringlengths) {
+    double proc_scatteringsum = 0.0;
+    ntypes = atom->ntypes;
+    const auto nlocal = atom->nlocal;
+    const auto *type  = atom->type;
+    const auto *mask = atom->mask;
+
+    // checks to see if atoms are included in group for compute
+    for (int ii = 0; ii < nlocal; ii++) {
+      if (mask[ii] & groupbit) {
+        // throw error if the atom type hasn't been assigned.
+        if (b[2*type[ii]+1] < 0.0) {
+          error->all(FLERR,"COMPUTE SANS: atom type {} has no scattering length assigned\n", type[ii]);
+        }
+        proc_scatteringsum += b[2*type[ii]];
+      }
+    }
+
+    MPI_Reduce(&proc_scatteringsum, &scatteringsum, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+  } else {
+    scatteringsum = natoms;
+  }
   // for (int i=0; i<Nq; i++) {
   //   utils::logmesg(lmp,"DEBUG :: q = {}, skdeg[{}] = {}\n", q[i], i, skdeg[i]);
   // }
@@ -477,6 +583,11 @@ void ComputeSANS::compute_array()
   double cossum, sinsum;
   double kdotr;
 
+  auto *blocal = new double[2*ntypes];
+  for (int i = 0; i < 2*ntypes; i++) {
+    blocal[i] = b[i];
+  }
+
 for (int ik = 0; ik < ncombinations; ik++){
   // set up wavevectors, check to see if reassigning these slows performance
   kx = k[3*ik+0];
@@ -499,8 +610,11 @@ for (int ik = 0; ik < ncombinations; ik++){
       // }
 
       // unweighted calculation, multiply by b for neutron scattering
-      cossum += cos(kdotr);
-      sinsum += sin(kdotr);
+      cossum += blocal[2*typelocal[ii]]*cos(kdotr);
+      sinsum += blocal[2*typelocal[ii]]*sin(kdotr);
+
+      // cossum += cos(kdotr);
+      // sinsum += sin(kdotr);
     }
 
     // Accumulate cos and sin components separately (not squared yet)
@@ -537,7 +651,7 @@ for (int ik = 0; ik < ncombinations; ik++){
   // normalise the output
   for (int i = 0; i < Nq; i++){
     array[i][0] = q[i];
-    array[i][1] = sktotal[i]/skdeg[i]/natoms;
+    array[i][1] = sktotal[i]/skdeg[i]/scatteringsum;
     // utils::logmesg(lmp,"iksq = {}, sktotal = {}\n",i, sktotal[i]);
     // utils::logmesg(lmp,"modk = {}, skdeg = {}\n", modk[i], skdeg[i]);
     // utils::logmesg(lmp,"result = {}\n", sktotal[i]/skdeg[i]/natoms);
@@ -549,6 +663,7 @@ for (int ik = 0; ik < ncombinations; ik++){
   delete[] typelocal;
   delete[] cossinsum_ksq;
   delete[] cossinsum_total;
+  delete[] blocal;
   //delete[] boxdim;
 
   // utils::logmesg(lmp,"DEBUG :: delete memory done\n"); 
