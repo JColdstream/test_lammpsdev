@@ -93,7 +93,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   dR_Ewald = 0.0;
   logdist = 0;
 
-  utils::logmesg(lmp,"arg[0] = {}\n", arg[0]);
+  // utils::logmesg(lmp,"arg[0] = {}\n", arg[0]);
 
 
 
@@ -151,7 +151,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   // Read custom scattering lengths if required and assign them to the array b.
 
-  // value 2*i holds ith scattering length density, value 2*i+1 holds a flag to check if it has been assigned
+  // value i holds ith scattering length density, value ntypes+i holds a flag to check if it has been assigned
   memory->create(b, 2*ntypes, "sans:b");
 
   // initialise array to -1.0
@@ -159,7 +159,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     b[i] = -1.0;
   }
 
-  if (comm->me == 0) {
+  //if (comm->me == 0) {
     if (scatteringlengths) {
       int typeindex;
       utils::logmesg(lmp, "DEBUG :: Reading scattering lengths from {}\n", filename);
@@ -170,7 +170,8 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       TextFileReader reader(fp, "Scattering Lengths");
       reader.skip_line();
 
-        while (bool eof = false){
+      bool eof = false;
+      while (!eof){
 
         char *line = reader.next_line();
         // check to see if we are at end of file
@@ -178,6 +179,8 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
           eof = true;
           break;
         }
+
+        utils::logmesg(lmp, "READING FILE.\n");
 
         std::vector<std::string> values = utils::split_words(line);
 
@@ -196,8 +199,13 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
           error->one(FLERR, "Invalid atom type in scattering lengths file: {}", line);
         }
 
-        b[2*typeindex] = utils::numeric(FLERR, values[1], false, lmp);
-        b[2*typeindex+1] = 1.0; // mark as assigned
+        b[typeindex] = utils::numeric(FLERR, values[1], false, lmp);
+        b[ntypes+typeindex] = 1.0; // mark as assigned
+
+        utils::logmesg(lmp, "DEBUG :: typeindex = {}\n", typeindex);
+        utils::logmesg(lmp, "DEBUG :: ntypes = {}\n", ntypes);
+        utils::logmesg(lmp, "DEBUG :: b[{}] = {}\n", typeindex, b[typeindex]);
+        utils::logmesg(lmp, "DEBUG :: bflag[{}] = {}\n", ntypes+typeindex, b[ntypes+typeindex]);
       } 
 
 
@@ -209,6 +217,10 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
         b[i] = 1.0;
       }
     }
+  //}
+
+  for (int i = 0; i < 2*ntypes; i++) {
+    utils::logmesg(lmp, "DEBUG :: b[{}] = {}\n", i, b[i]);
   }
 
 
@@ -290,25 +302,15 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
 
   
-  // nk = 0;
-  // for (int ix = 0; ix <= kmax; ix++) {
-  //   for (int iy = -kmax; iy <= kmax; iy++) {
-  //     for (int iz = -kmax; iz <= kmax; iz++) {
-  //       if (abs(ix)+abs(iy)+abs(iz) != 0) {
-  //         nk++;
-  //       }
-  //     }
-  //   }
-  // }
   int myrank;
   MPI_Comm_rank(world, &myrank);
-  utils::logmesg(lmp, "DEBUG :: PROCESS NAME: {}\n", myrank);
-  utils::logmesg(lmp,"DEBUG :: starting wavevectors\n");
+  //utils::logmesg(lmp, "DEBUG :: PROCESS NAME: {}\n", myrank);
+  //utils::logmesg(lmp,"DEBUG :: starting wavevectors\n");
   
 
-  utils::logmesg(lmp,"DEBUG :: tempnk = {}\n", tempnk);  
-  utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax);
-  utils::logmesg(lmp,"DEBUG :: maxdeg = {}\n", maxdeg);
+  //utils::logmesg(lmp,"DEBUG :: tempnk = {}\n", tempnk);  
+  //utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax);
+  //utils::logmesg(lmp,"DEBUG :: maxdeg = {}\n", maxdeg);
 
 
   // allocate memory 4 fat arrays //
@@ -320,12 +322,12 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   size_array_rows = nRows;
   size_array_cols = nCols;
 
-  utils::logmesg(lmp,"DEBUG :: ncombinations = {}\n", ncombinations);
-  utils::logmesg(lmp,"DEBUG :: nCols = {}\n", nCols);
-  utils::logmesg(lmp,"DEBUG :: nRows = {}\n", nRows);
+  // utils::logmesg(lmp,"DEBUG :: ncombinations = {}\n", ncombinations);
+  // utils::logmesg(lmp,"DEBUG :: nCols = {}\n", nCols);
+  // utils::logmesg(lmp,"DEBUG :: nRows = {}\n", nRows);
 
   ///// CHECK THE WAVEVECTORS /////
-  utils::logmesg(lmp,"DEBUG :: number of wavevectors calculated\n"); 
+  // utils::logmesg(lmp,"DEBUG :: number of wavevectors calculated\n"); 
 
   memory->create(k,3*ncombinations,"sans:k");
   memory->create(iksq, ncombinations,"sans:iksq");
@@ -345,10 +347,13 @@ ComputeSANS::~ComputeSANS()
 {
 
   memory->destroy(k);
+  memory->destroy(iksq);
+  memory->destroy(b);
   memory->destroy(sktotal);
+  memory->destroy(skdeg);
   memory->destroy(array);
   //memory->destroy(store_tmp);
-  delete[] ztype;
+  // delete[] ztype;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -427,78 +432,25 @@ void ComputeSANS::init()
     const auto *mask = atom->mask;
 
     // checks to see if atoms are included in group for compute
+    // types are -1 so they correspond to the correct index
     for (int ii = 0; ii < nlocal; ii++) {
       if (mask[ii] & groupbit) {
+        // utils::logmesg(lmp,"DEBUG :: type[{}] = {}\n", ii, type[ii]);
+        // utils::logmesg(lmp,"DEBUG :: b[{}] = {}\n", type[ii]-1, b[type[ii]-1]);
+        // utils::logmesg(lmp,"DEBUG :: bflag[{}] = {}\n", type[ii]-1, b[ntypes+type[ii]-1]);
         // throw error if the atom type hasn't been assigned.
-        if (b[2*type[ii]+1] < 0.0) {
+        if (b[ntypes+type[ii]-1] < 0.0) {
           error->all(FLERR,"COMPUTE SANS: atom type {} has no scattering length assigned\n", type[ii]);
         }
-        proc_scatteringsum += b[2*type[ii]];
+        proc_scatteringsum += b[type[ii]-1];
       }
     }
 
-    MPI_Reduce(&proc_scatteringsum, &scatteringsum, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+    // calculate total scattering sum and broadcast to all processes
+    MPI_Allreduce(&proc_scatteringsum, &scatteringsum, 1, MPI_DOUBLE, MPI_SUM, world);
   } else {
     scatteringsum = natoms;
   }
-  // for (int i=0; i<Nq; i++) {
-  //   utils::logmesg(lmp,"DEBUG :: q = {}, skdeg[{}] = {}\n", q[i], i, skdeg[i]);
-  // }
-
-  // old wavevector setup
-
-  // // setup wavevectors
-  // int nk = 0;
-  // for (int ix = 0; ix <= kmax; ix++) {
-  //   for (int iy = -kmax; iy <= kmax; iy++) {
-  //     for (int iz = -kmax; iz <= kmax; iz++) {
-  //       if (abs(ix)+abs(iy)+abs(iz) != 0) {
-  //         //utils::logmesg(lmp,"debug :: nk = {} \n", nk); 
-  //         //utils::logmesg(lmp,"debug :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-  //         //utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-  //         k[3*nk+0] = twopi_L*ix;
-  //         k[3*nk+1] = twopi_L*iy;
-  //         k[3*nk+2] = twopi_L*iz;
-  //         //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-  //         //utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-  //         ksq[nk] = ix*ix + iy*iy + iz*iz;
-  //         //utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
-  //         skdeg[ksq[nk]] = skdeg[ksq[nk]] + 1.0;
-  //         modk[ksq[nk]] = twopi_L*sqrt(1.0*ksq[nk]);
-
-  //          // if (ix==0 || iy ==0 || iz==0){
-  //          //   utils::logmesg(lmp,"DEBUG :: ix = {}, iy = {}, iz = {}\n", ix, iy, iz); 
-  //          //   utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", k[3*nk+0], k[3*nk+1], k[3*nk+2]); 
-  //          //   utils::logmesg(lmp,"DEBUG :: ksq = {}\n", ksq[nk]); 
-  //          // }
-
-  //         nk++;
-  //       }
-  //     }
-  //   }
-  // }
-
-
-// utils::logmesg(lmp,"DEBUG :: proc nk = {}\n", nk);  
-// utils::logmesg(lmp,"DEBUG :: proc wavevectors calculated\n");
-
-//  ink = 0;
-//
-//  for (int ix = 0; ix <= kmax; ix++) {
-//    for (int iy = -kmax; iy <= kmax; iy++) {
-//      for (int iz = -kmax; iz <= kmax; iz++) {
-//        if (abs(ix)+abs(iy)+abs(iz) != 0) {
-//           utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n",k[3*ink+0],k[3*ink+1],k[ink+2]); 
-//           ink++;
-//        }
-//      }
-//    }
-//  }
-
-
-//utils::logmesg(lmp,"-----\nComputing :{} vectors, # of atoms:{}, # for sans\n", 
-//    nk,natoms);
-
 }
 
 
@@ -554,6 +506,7 @@ void ComputeSANS::compute_array()
   // positions and types for local atoms
   auto xlocal = new double [3*nlocalgroup];
   int *typelocal = new int [nlocalgroup];
+  auto *blocal = new double [nlocalgroup];
 
   // populate positions and types
   nlocalgroup = 0;
@@ -563,6 +516,7 @@ void ComputeSANS::compute_array()
      xlocal[3*nlocalgroup+1] = atom->x[ii][1];
      xlocal[3*nlocalgroup+2] = atom->x[ii][2];
      typelocal[nlocalgroup]=type[ii];
+     blocal[nlocalgroup]=b[type[ii]-1];
      nlocalgroup++;
     }
   }
@@ -582,11 +536,9 @@ void ComputeSANS::compute_array()
   double kx, ky, kz;
   double cossum, sinsum;
   double kdotr;
+  double templength;
 
-  auto *blocal = new double[2*ntypes];
-  for (int i = 0; i < 2*ntypes; i++) {
-    blocal[i] = b[i];
-  }
+  // only need the scattering lengths at this point as we have already checked if they were assigned earlier
 
 for (int ik = 0; ik < ncombinations; ik++){
   // set up wavevectors, check to see if reassigning these slows performance
@@ -601,24 +553,14 @@ for (int ik = 0; ik < ncombinations; ik++){
     for (int ii=0; ii < nlocalgroup; ii++) {
       kdotr = (kx*xlocal[3*ii+0] + ky*xlocal[3*ii+1] + kz*xlocal[3*ii+2]);
 
-      // if (iksq[ik] == 3){
-      //   utils::logmesg(lmp,"DEBUG :: kx = {}, ky = {}, kz = {}\n", kx, ky, kz); 
-      //   utils::logmesg(lmp,"DEBUG :: x = {}, y = {}, z = {}\n", xlocal[3*ii+0], xlocal[3*ii+1], xlocal[3*ii+2]); 
-      //   utils::logmesg(lmp,"DEBUG :: kx*x = {}, ky*y = {}, kz*z = {}\n", kx*xlocal[3*ii+0], ky*xlocal[3*ii+1], kz*xlocal[3*ii+2]);
-      //   utils::logmesg(lmp,"DEBUG :: kdotr = {}\n", kdotr);
-      //   utils::logmesg(lmp,"DEBUG :: cos(kdotr) = {}, sin(kdotr) = {}\n", cos(kdotr), sin(kdotr));
-      // }
+      cossum += blocal[ii]*cos(kdotr);
+      sinsum += blocal[ii]*sin(kdotr);
 
-      // unweighted calculation, multiply by b for neutron scattering
-      cossum += blocal[2*typelocal[ii]]*cos(kdotr);
-      sinsum += blocal[2*typelocal[ii]]*sin(kdotr);
-
+      // unweighted calculation
       // cossum += cos(kdotr);
       // sinsum += sin(kdotr);
     }
 
-    // Accumulate cos and sin components separately (not squared yet)
-    // This will be reduced across all MPI ranks, then squared after reduction
     cossinsum_ksq[2*iksq[ik]+0] += cossum;
     cossinsum_ksq[2*iksq[ik]+1] += sinsum;
 }
@@ -627,12 +569,7 @@ for (int ik = 0; ik < ncombinations; ik++){
 
   // utils::logmesg(lmp,"DEBUG :: MPI_Allreduce starting\n"); 
 
-  // Reduce cos and sin components separately across all MPI ranks
   auto cossinsum_total = new double[2*Nq];
-
-  for (int i = 0; i < 2*Nq; i++) {
-    cossinsum_total[i] = 0.0;
-  }
 
   MPI_Allreduce(cossinsum_ksq, cossinsum_total, 2*Nq, MPI_DOUBLE, MPI_SUM, world);
   
@@ -644,7 +581,7 @@ for (int ik = 0; ik < ncombinations; ik++){
   
   // utils::logmesg(lmp,"DEBUG :: MPI_Allreduce done\n"); 
   
-  // utils::logmesg(lmp,"DEBUG :: ksqmax = {}\n", ksqmax);
+  // utils::logmesg(lmp,"DEBUG :: scatteringsum = {}\n", scatteringsum);
 
   // utils::logmesg(lmp,"DEBUG :: WRITING FINAL ARRAY\n");
 
@@ -652,19 +589,20 @@ for (int ik = 0; ik < ncombinations; ik++){
   for (int i = 0; i < Nq; i++){
     array[i][0] = q[i];
     array[i][1] = sktotal[i]/skdeg[i]/scatteringsum;
+    // array[i][1] = sktotal[i]/skdeg[i]/natoms;
     // utils::logmesg(lmp,"iksq = {}, sktotal = {}\n",i, sktotal[i]);
     // utils::logmesg(lmp,"modk = {}, skdeg = {}\n", modk[i], skdeg[i]);
-    // utils::logmesg(lmp,"result = {}\n", sktotal[i]/skdeg[i]/natoms);
+    // utils::logmesg(lmp,"s([{}]) = {}\n", q[i], sktotal[i]/skdeg[i]/scatteringsum);
   }
 
   // utils::logmesg(lmp,"DEBUG :: normalisation done\n"); 
 
   delete[] xlocal;
   delete[] typelocal;
+  delete[] blocal;
   delete[] cossinsum_ksq;
   delete[] cossinsum_total;
-  delete[] blocal;
-  //delete[] boxdim;
+  // delete[] boxdim;
 
   // utils::logmesg(lmp,"DEBUG :: delete memory done\n"); 
 
