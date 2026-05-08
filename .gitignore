@@ -63,3 +63,5 @@ src/Makefile.package.settings-e
 
 #lammps test
 /sans_test*
+/doc/docenv*
+/doc/doctrees*
