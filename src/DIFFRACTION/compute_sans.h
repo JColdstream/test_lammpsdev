@@ -50,8 +50,8 @@ class ComputeSANS : public Compute {
   double mypi = 3.141592653589;
   double scatteringsum;
 
-  bool logdist = false;
-  bool scatteringlengths = false;
+  bool logdist;
+  bool scatteringlengths;
 
   const char *filename = nullptr;
 
@@ -59,8 +59,8 @@ class ComputeSANS : public Compute {
   int ncombinations;
   int nlocalgroup;
   int nRows, nCols;
-  int *iksq, *ksq;
-  double *k, *q, *skdeg, *sktotal, *b;
+  int *iksq;
+  double *k, *q, *skdeg, *b;
 };
 
 }    // namespace LAMMPS_NS

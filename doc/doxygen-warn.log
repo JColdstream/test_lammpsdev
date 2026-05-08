@@ -1,0 +1,41 @@
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:690: warning: no matching file member found for 
+template void bounds(const char *, int, const std::string &, int64_t, int64_t, int &, int &, Error *)
+Possible candidates:
+ 'void bounds(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, Error *error)' at line 331 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:692: warning: no matching file member found for 
+template void bounds(const char *, int, const std::string &, int64_t, int64_t, long &, long &, Error *)
+Possible candidates:
+ 'void bounds(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, Error *error)' at line 331 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:694: warning: no matching file member found for 
+template void bounds(const char *, int, const std::string &, int64_t, int64_t, long long &, long long &, Error *)
+Possible candidates:
+ 'void bounds(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, Error *error)' at line 331 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:723: warning: no matching file member found for 
+template void bounds_typelabel(const char *, int, const std::string &, int64_t, int64_t, int &, int &, LAMMPS *, int)
+Possible candidates:
+ 'void bounds_typelabel(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, LAMMPS *lmp, int mode)' at line 357 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:725: warning: no matching file member found for 
+template void bounds_typelabel(const char *, int, const std::string &, int64_t, int64_t, long &, long &, LAMMPS *, int)
+Possible candidates:
+ 'void bounds_typelabel(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, LAMMPS *lmp, int mode)' at line 357 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp:727: warning: no matching file member found for 
+template void bounds_typelabel(const char *, int, const std::string &, int64_t, int64_t, long long &, long long &, LAMMPS *, int)
+Possible candidates:
+ 'void bounds_typelabel(const char *file, int line, const std::string &str, bigint nmin, bigint nmax, TYPE &nlo, TYPE &nhi, LAMMPS *lmp, int mode)' at line 357 of file /home/coldstream/LAMMPS/test_lammpsdev/src/utils.h
+
+/home/coldstream/LAMMPS/test_lammpsdev/src/lammps.h:90: warning: return type of member LAMMPS_NS::LAMMPS::argv_pointers is not documented
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.h:414: warning: argument 'verify' of command @param is not found in the argument list of LAMMPS_NS::utils::check_grid_reference(char *errstr, char *ref, int nevery, char *&id, int &igrid, int &idata, int &index, LAMMPS *lmp)
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.h:435: warning: The following parameters of LAMMPS_NS::utils::check_grid_reference(char *errstr, char *ref, int nevery, char *&id, int &igrid, int &idata, int &index, LAMMPS *lmp) are not documented:
+  parameter 'id'
+  parameter 'igrid'
+  parameter 'idata'
+  parameter 'index'
+/home/coldstream/LAMMPS/test_lammpsdev/src/utils.h:446: warning: The following parameters of LAMMPS_NS::utils::parse_grid_id(const char *file, int line, const std::string &name, Error *error) are not documented:
+  parameter 'file'
+  parameter 'line'
+  parameter 'error'

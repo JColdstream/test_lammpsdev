@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="unionudi__t" kind="union" language="C++" prot="public">
+    <compoundname>udi_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionudi__t_1a2e13cbaaba1951fdfe9e83d8b031e802" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="688" column="14" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="688" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionudi__t_1abbe80f7466003650930410066e54f959" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="689" column="14" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="689" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionudi__t_1abc24856c83895b07f89040230450dbf2" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t i0</definition>
+        <argsstring></argsstring>
+        <name>i0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="690" column="20" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="690" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionudi__t_1a478ed5a9a9d6b1f3738aebbe7d1fe68b" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t i1</definition>
+        <argsstring></argsstring>
+        <name>i1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="690" column="22" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="690" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionudi__t_1a4623e285a55bc90f4f17a3de91585b21" prot="public" static="no" mutable="no">
+        <type>struct udi_t::@11</type>
+        <definition>struct udi_t::@11 s</definition>
+        <argsstring></argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="690" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" line="686" column="1" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="687" bodyend="691"/>
+    <listofallmembers>
+      <member refid="unionudi__t_1a2e13cbaaba1951fdfe9e83d8b031e802" prot="public" virt="non-virtual"><scope>udi_t</scope><name>f</name></member>
+      <member refid="unionudi__t_1abc24856c83895b07f89040230450dbf2" prot="public" virt="non-virtual"><scope>udi_t</scope><name>i0</name></member>
+      <member refid="unionudi__t_1a478ed5a9a9d6b1f3738aebbe7d1fe68b" prot="public" virt="non-virtual"><scope>udi_t</scope><name>i1</name></member>
+      <member refid="unionudi__t_1a4623e285a55bc90f4f17a3de91585b21" prot="public" virt="non-virtual"><scope>udi_t</scope><name>s</name></member>
+      <member refid="unionudi__t_1abbe80f7466003650930410066e54f959" prot="public" virt="non-virtual"><scope>udi_t</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

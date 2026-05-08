@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceLAMMPS__NS_1_1MathSpecial" kind="namespace" language="C++">
+    <compoundname>LAMMPS_NS::MathSpecial</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="math__special_8h_1a9a6be409a4fa9407a40b40ab6d226a8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double factorial</definition>
+        <argsstring>(const int n)</argsstring>
+        <name>factorial</name>
+        <param>
+          <type>const int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast tabulated factorial function</para>
+<para>This function looks up pre-computed factorial values for arguments of n = 0 to a maximum of 167, which is the maximal value representable by a double precision floating point number. For other values of n a NaN value is returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument (valid: 0 &lt;= n &lt;= 167) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of n! as double precision number or NaN </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="32" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="191" bodyend="197" declfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" declline="32" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a46561242143bc684f0307a2260686505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double exp2_x86</definition>
+        <argsstring>(double x)</argsstring>
+        <name>exp2_x86</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast implementation of 2^x without argument checks for little endian CPUs</para>
+<para>This function implements an optimized version of pow(2.0, x) that does not check for valid arguments and thus may only be used where arguments are well behaved. The implementation makes assumptions about the layout of double precision floating point numbers in memory and thus will only work on little endian CPUs. If little endian cannot be safely detected, the result of calling pow(2.0, x) will be returned. This function also is the basis for the fast exponential fm_exp(x).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of 2^x as double precision number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="47" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="707" bodyend="733" declfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" declline="47" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a918af8d4a779a4da394bf9cc4a92d628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double fm_exp</definition>
+        <argsstring>(double x)</argsstring>
+        <name>fm_exp</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast implementation of exp(x) for little endian CPUs</para>
+<para>This function implements an optimized version of exp(x) for little endian CPUs. It calls the exp2_x86(x) function with a suitable prefactor to x to return exp(x). The implementation makes assumptions about the layout of double precision floating point numbers in memory and thus will only work on little endian CPUs. If little endian cannot be safely detected, the result of calling the exp(x) implementation in the standard math library will be returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of e^x as double precision number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="61" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="735" bodyend="744" declfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" declline="61" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a48db5e72213a23be32825d54907c2715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double erfcx_y100</definition>
+        <argsstring>(const double y100)</argsstring>
+        <name>erfcx_y100</name>
+        <param>
+          <type>const double</type>
+          <declname>y100</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="65" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.cpp" bodystart="252" bodyend="669" declfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" declline="65" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a4f48d97dbd22584d59e064996cbd0694" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::my_erfcx</definition>
+        <argsstring>(const double x)</argsstring>
+        <name>my_erfcx</name>
+        <param>
+          <type>const double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast scaled error function complement exp(x*x)*erfc(x) for coul/long styles</para>
+<para>This is a portable fast implementation of exp(x*x)*erfc(x) that can be used in coul/long pair styles as a replacement for the polynomial expansion that is/was widely used. Unlike the polynomial expansion, that is only accurate at the level of single precision floating point it provides full double precision accuracy, but at comparable speed (unlike the erfc() implementation shipped with GNU standard math library).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of e^(x*x)*erfc(x) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="79" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a7ccf069f22f9a4e9dfeed7e04f3ca447" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::expmsq</definition>
+        <argsstring>(double x)</argsstring>
+        <name>expmsq</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast implementation of exp(-x*x) for little endian CPUs for coul/long styles</para>
+<para>This function implements an optimized version of exp(-x*x) based on exp2_x86() for use with little endian CPUs. If little endian cannot be safely detected, the result of calling the exp(-x*x) implementation in the standard math library will be returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>value of e^(-x*x) as double precision number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="97" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="97" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1aa7dd862a7b7b244516c8ea1de509ee09" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::square</definition>
+        <argsstring>(const double &amp;x)</argsstring>
+        <name>square</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast inline version of pow(x, 2.0)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>x*x </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="113" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1ac0baf9eac8e92c1431410002ab7e6619" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::cube</definition>
+        <argsstring>(const double &amp;x)</argsstring>
+        <name>cube</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fast inline version of pow(x, 3.0)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>argument </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>x*x </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="123" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1acb0afe1baf4875b3a3fcaba95c88b0a3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::powsign</definition>
+        <argsstring>(const int n)</argsstring>
+        <name>powsign</name>
+        <param>
+          <type>const int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="133" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a1a7436c36200b55ffbfff5159a747964" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::powint</definition>
+        <argsstring>(const double &amp;x, const int n)</argsstring>
+        <name>powint</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="146" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="146" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="math__special_8h_1a151acd0bdb5ac0eca20cf6de0a9c1a0c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double LAMMPS_NS::MathSpecial::powsinxx</definition>
+        <argsstring>(const double &amp;x, int n)</argsstring>
+        <name>powsinxx</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="168" column="24" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" bodystart="168" bodyend="180"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/math_special.h" line="21" column="1"/>
+  </compounddef>
+</doxygen>

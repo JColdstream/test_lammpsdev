@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structregex__t" kind="struct" language="C++" prot="public">
+    <compoundname>regex_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structregex__t_1aa5044999f3339d2ba3b1bf22fa6cfe95" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1992" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="1992" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structregex__t_1a49725d2659c0161681c55e3763942f68" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char ch</definition>
+        <argsstring></argsstring>
+        <name>ch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1994" column="19" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="1994" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structregex__t_1aac14033a045597d425bf1f7d49f54987" prot="public" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* ccl</definition>
+        <argsstring></argsstring>
+        <name>ccl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1995" column="19" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="1995" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structregex__t_1af17803299e2c09002c4de0272003d2f9" prot="public" static="no" mutable="no">
+        <type>union regex_t::@1</type>
+        <definition>union regex_t::@1 u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1996" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1991" column="1" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="1991" bodyend="1997"/>
+    <listofallmembers>
+      <member refid="structregex__t_1aac14033a045597d425bf1f7d49f54987" prot="public" virt="non-virtual"><scope>regex_t</scope><name>ccl</name></member>
+      <member refid="structregex__t_1a49725d2659c0161681c55e3763942f68" prot="public" virt="non-virtual"><scope>regex_t</scope><name>ch</name></member>
+      <member refid="structregex__t_1aa5044999f3339d2ba3b1bf22fa6cfe95" prot="public" virt="non-virtual"><scope>regex_t</scope><name>type</name></member>
+      <member refid="structregex__t_1af17803299e2c09002c4de0272003d2f9" prot="public" virt="non-virtual"><scope>regex_t</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structLAMMPS__NS_1_1Atom_1_1PerAtom" kind="struct" language="C++" prot="public">
+    <compoundname>LAMMPS_NS::Atom::PerAtom</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a9b45b3e13bd9167aab02e17e08916231" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="234" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1ab96816d317aa5196e2ef198d9a8d621b" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="235" column="10" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a5b184253fb1bae6c35c7afb8532dd189" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* address_length</definition>
+        <argsstring></argsstring>
+        <name>address_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="236" column="10" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a7872442e11a0cb855d39ee176f625ac0" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* address_maxcols</definition>
+        <argsstring></argsstring>
+        <name>address_maxcols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="237" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a5d1502fc2354f6dafba8668cc79b19f3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int datatype</definition>
+        <argsstring></argsstring>
+        <name>datatype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="238" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a4407a60bc4387adae24cee658711f2d9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cols</definition>
+        <argsstring></argsstring>
+        <name>cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="239" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a949b4e58f029441443bb427f57f198c2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int collength</definition>
+        <argsstring></argsstring>
+        <name>collength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="240" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a6143658827b2653f8fd11e662122a104" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int threadflag</definition>
+        <argsstring></argsstring>
+        <name>threadflag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="241" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" line="233" column="3" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/atom.h" bodystart="233" bodyend="242"/>
+    <listofallmembers>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1ab96816d317aa5196e2ef198d9a8d621b" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>address</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a5b184253fb1bae6c35c7afb8532dd189" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>address_length</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a7872442e11a0cb855d39ee176f625ac0" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>address_maxcols</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a949b4e58f029441443bb427f57f198c2" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>collength</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a4407a60bc4387adae24cee658711f2d9" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>cols</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a5d1502fc2354f6dafba8668cc79b19f3" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>datatype</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a9b45b3e13bd9167aab02e17e08916231" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>name</name></member>
+      <member refid="structLAMMPS__NS_1_1Atom_1_1PerAtom_1a6143658827b2653f8fd11e662122a104" prot="public" virt="non-virtual"><scope>LAMMPS_NS::Atom::PerAtom</scope><name>threadflag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

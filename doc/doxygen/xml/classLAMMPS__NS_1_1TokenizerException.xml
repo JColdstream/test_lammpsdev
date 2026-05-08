@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classLAMMPS__NS_1_1TokenizerException" kind="class" language="C++" prot="public">
+    <compoundname>LAMMPS_NS::TokenizerException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">exception</basecompoundref>
+    <derivedcompoundref refid="classLAMMPS__NS_1_1InvalidFloatException" prot="public" virt="non-virtual">InvalidFloatException</derivedcompoundref>
+    <derivedcompoundref refid="classLAMMPS__NS_1_1InvalidIntegerException" prot="public" virt="non-virtual">InvalidIntegerException</derivedcompoundref>
+    <includes refid="tokenizer_8h" local="no">tokenizer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLAMMPS__NS_1_1TokenizerException_1a36bd74109f547f7f8198faf5a12d2879" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" line="59" column="15" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLAMMPS__NS_1_1TokenizerException_1a029374723bf07e5d4b7f2716c6546891" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TokenizerException</definition>
+        <argsstring>()=delete</argsstring>
+        <name>TokenizerException</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" line="63" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classLAMMPS__NS_1_1TokenizerException_1afcd938a3385e0b950738c2e24cdbc484" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TokenizerException</definition>
+        <argsstring>(const std::string &amp;msg, const std::string &amp;token)</argsstring>
+        <name>TokenizerException</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thrown during retrieving or skipping tokens</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String with error message </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String of the token/word that caused the error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" line="69" column="12" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classLAMMPS__NS_1_1TokenizerException_1aac1c33909e01e1dfc85617cf2477d3eb" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* what</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>what</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve message describing the thrown exception <simplesect kind="return"><para>string with error message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" line="73" column="14" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>General Tokenizer exception class </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>TokenizerException</label>
+        <link refid="classLAMMPS__NS_1_1TokenizerException"/>
+      </node>
+      <node id="2">
+        <label>InvalidFloatException</label>
+        <link refid="classLAMMPS__NS_1_1InvalidFloatException"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>InvalidIntegerException</label>
+        <link refid="classLAMMPS__NS_1_1InvalidIntegerException"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" line="58" column="1" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/tokenizer.h" bodystart="58" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classLAMMPS__NS_1_1TokenizerException_1a36bd74109f547f7f8198faf5a12d2879" prot="private" virt="non-virtual"><scope>LAMMPS_NS::TokenizerException</scope><name>message</name></member>
+      <member refid="classLAMMPS__NS_1_1TokenizerException_1a029374723bf07e5d4b7f2716c6546891" prot="public" virt="non-virtual"><scope>LAMMPS_NS::TokenizerException</scope><name>TokenizerException</name></member>
+      <member refid="classLAMMPS__NS_1_1TokenizerException_1afcd938a3385e0b950738c2e24cdbc484" prot="public" virt="non-virtual"><scope>LAMMPS_NS::TokenizerException</scope><name>TokenizerException</name></member>
+      <member refid="classLAMMPS__NS_1_1TokenizerException_1aac1c33909e01e1dfc85617cf2477d3eb" prot="public" virt="non-virtual"><scope>LAMMPS_NS::TokenizerException</scope><name>what</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

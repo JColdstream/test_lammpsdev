@@ -1,0 +1,2236 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter {\sphinxsymbolsname}
+  \item \spxentry{\_LMP\_STYLE\_CONST}\spxextra{C++ enum}, \hyperpage{597}
+  \item \spxentry{\_LMP\_TYPE\_CONST}\spxextra{C++ enum}, \hyperpage{597}
+  \item \spxentry{\_LMP\_VAR\_CONST}\spxextra{C++ enum}, \hyperpage{597}
+  \item \spxentry{\_\_version\_\_}\spxextra{in module lammps}, \hyperpage{703}
+
+  \indexspace
+  \bigletter A
+  \item \spxentry{accelerator\_config}\spxextra{lammps.lammps property}, \hyperpage{715}
+  \item \spxentry{angle\_coeff}, \hyperpage{911}
+  \item \spxentry{angle\_style}, \hyperpage{912}
+  \item \spxentry{angle\_style amoeba}, \hyperpage{2765}
+  \item \spxentry{angle\_style charmm}, \hyperpage{2767}
+  \item \spxentry{angle\_style charmm/intel}, \hyperpage{2767}
+  \item \spxentry{angle\_style charmm/kk}, \hyperpage{2767}
+  \item \spxentry{angle\_style charmm/omp}, \hyperpage{2767}
+  \item \spxentry{angle\_style class2}, \hyperpage{2768}
+  \item \spxentry{angle\_style class2/kk}, \hyperpage{2768}
+  \item \spxentry{angle\_style class2/omp}, \hyperpage{2768}
+  \item \spxentry{angle\_style class2/p6}, \hyperpage{2768}
+  \item \spxentry{angle\_style cosine}, \hyperpage{2771}
+  \item \spxentry{angle\_style cosine/buck6d}, \hyperpage{2772}
+  \item \spxentry{angle\_style cosine/delta}, \hyperpage{2773}
+  \item \spxentry{angle\_style cosine/delta/omp}, \hyperpage{2773}
+  \item \spxentry{angle\_style cosine/kk}, \hyperpage{2771}
+  \item \spxentry{angle\_style cosine/omp}, \hyperpage{2771}
+  \item \spxentry{angle\_style cosine/periodic}, \hyperpage{2774}
+  \item \spxentry{angle\_style cosine/periodic/omp}, \hyperpage{2774}
+  \item \spxentry{angle\_style cosine/shift}, \hyperpage{2776}
+  \item \spxentry{angle\_style cosine/shift/exp}, \hyperpage{2777}
+  \item \spxentry{angle\_style cosine/shift/exp/omp}, \hyperpage{2777}
+  \item \spxentry{angle\_style cosine/shift/omp}, \hyperpage{2776}
+  \item \spxentry{angle\_style cosine/squared}, \hyperpage{2778}
+  \item \spxentry{angle\_style cosine/squared/omp}, \hyperpage{2778}
+  \item \spxentry{angle\_style cosine/squared/restricted}, \hyperpage{2779}
+  \item \spxentry{angle\_style cosine/squared/restricted/omp}, \hyperpage{2779}
+  \item \spxentry{angle\_style cross}, \hyperpage{2781}
+  \item \spxentry{angle\_style dipole}, \hyperpage{2782}
+  \item \spxentry{angle\_style dipole/omp}, \hyperpage{2782}
+  \item \spxentry{angle\_style fourier}, \hyperpage{2784}
+  \item \spxentry{angle\_style fourier/omp}, \hyperpage{2784}
+  \item \spxentry{angle\_style fourier/simple}, \hyperpage{2785}
+  \item \spxentry{angle\_style fourier/simple/omp}, \hyperpage{2785}
+  \item \spxentry{angle\_style gaussian}, \hyperpage{2786}
+  \item \spxentry{angle\_style harmonic}, \hyperpage{2787}
+  \item \spxentry{angle\_style harmonic/intel}, \hyperpage{2787}
+  \item \spxentry{angle\_style harmonic/kk}, \hyperpage{2787}
+  \item \spxentry{angle\_style harmonic/omp}, \hyperpage{2787}
+  \item \spxentry{angle\_style hybrid}, \hyperpage{2789}
+  \item \spxentry{angle\_style hybrid/kk}, \hyperpage{2789}
+  \item \spxentry{angle\_style lepton}, \hyperpage{2791}
+  \item \spxentry{angle\_style lepton/omp}, \hyperpage{2791}
+  \item \spxentry{angle\_style mesocnt}, \hyperpage{2793}
+  \item \spxentry{angle\_style mm3}, \hyperpage{2795}
+  \item \spxentry{angle\_style none}, \hyperpage{2796}
+  \item \spxentry{angle\_style quartic}, \hyperpage{2797}
+  \item \spxentry{angle\_style quartic/omp}, \hyperpage{2797}
+  \item \spxentry{angle\_style spica}, \hyperpage{2799}
+  \item \spxentry{angle\_style spica/kk}, \hyperpage{2799}
+  \item \spxentry{angle\_style spica/omp}, \hyperpage{2799}
+  \item \spxentry{angle\_style table}, \hyperpage{2800}
+  \item \spxentry{angle\_style table/omp}, \hyperpage{2800}
+  \item \spxentry{angle\_style zero}, \hyperpage{2803}
+  \item \spxentry{angle\_write}, \hyperpage{914}
+  \item \spxentry{angular\_momentum}\spxextra{lammps.Atom property}, \hyperpage{731}
+  \item \spxentry{append\_cmd\_history()}\spxextra{lammps.PyLammps method}, \hyperpage{727}
+  \item \spxentry{ArgInfo}\spxextra{C++ class}, \hyperpage{883}
+  \item \spxentry{ArgInfo::ArgInfo}\spxextra{C++ function}, \hyperpage{885}
+  \item \spxentry{ArgInfo::ArgTypes}\spxextra{C++ enum}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::BIN1D}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::BIN2D}\spxextra{C++ enumerator}, \hyperpage{885}
+  \item \spxentry{ArgInfo::ArgTypes::BIN3D}\spxextra{C++ enumerator}, \hyperpage{885}
+  \item \spxentry{ArgInfo::ArgTypes::BINCYLINDER}\spxextra{C++ enumerator}, \hyperpage{885}
+  \item \spxentry{ArgInfo::ArgTypes::BINSPHERE}\spxextra{C++ enumerator}, \hyperpage{885}
+  \item \spxentry{ArgInfo::ArgTypes::COMPUTE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::DENSITY\_MASS}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::DENSITY\_NUMBER}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::DNAME}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::ERROR}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::F}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::FIX}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::INAME}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::KEYWORD}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::MASS}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::MOLECULE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::NONE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::TEMPERATURE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::TYPE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::UNKNOWN}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::V}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::VARIABLE}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::ArgTypes::X}\spxextra{C++ enumerator}, \hyperpage{884}
+  \item \spxentry{ArgInfo::copy\_name}\spxextra{C++ function}, \hyperpage{886}
+  \item \spxentry{ArgInfo::get\_dim}\spxextra{C++ function}, \hyperpage{885}
+  \item \spxentry{ArgInfo::get\_index1}\spxextra{C++ function}, \hyperpage{885}
+  \item \spxentry{ArgInfo::get\_index2}\spxextra{C++ function}, \hyperpage{885}
+  \item \spxentry{ArgInfo::get\_name}\spxextra{C++ function}, \hyperpage{886}
+  \item \spxentry{ArgInfo::get\_type}\spxextra{C++ function}, \hyperpage{885}
+  \item \spxentry{Atom}\spxextra{C++ class}, \hyperpage{848}
+  \item \spxentry{Atom}\spxextra{class in lammps}, \hyperpage{729}
+  \item \spxentry{Atom2D}\spxextra{class in lammps}, \hyperpage{731}
+  \item \spxentry{Atom::add\_custom}\spxextra{C++ function}, \hyperpage{849}
+  \item \spxentry{Atom::Atom}\spxextra{C++ function}, \hyperpage{848}
+  \item \spxentry{Atom::extract}\spxextra{C++ function}, \hyperpage{849}
+  \item \spxentry{Atom::extract\_datatype}\spxextra{C++ function}, \hyperpage{851}
+  \item \spxentry{Atom::find\_custom}\spxextra{C++ function}, \hyperpage{848}
+  \item \spxentry{Atom::find\_custom\_ghost}\spxextra{C++ function}, \hyperpage{848}
+  \item \spxentry{Atom::PerAtom}\spxextra{C++ struct}, \hyperpage{851}
+  \item \spxentry{Atom::remove\_custom}\spxextra{C++ function}, \hyperpage{849}
+  \item \spxentry{atom\_modify}, \hyperpage{916}
+  \item \spxentry{atom\_style}, \hyperpage{919}
+  \item \spxentry{AtomList}\spxextra{class in lammps}, \hyperpage{729}
+  \item \spxentry{atoms}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+  \item \spxentry{available\_ids()}\spxextra{lammps.lammps method}, \hyperpage{716}
+  \item \spxentry{available\_plugins()}\spxextra{lammps.lammps method}, \hyperpage{717}
+  \item \spxentry{available\_styles()}\spxextra{lammps.lammps method}, \hyperpage{716}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{balance}, \hyperpage{925}
+  \item \spxentry{bond\_coeff}, \hyperpage{932}
+  \item \spxentry{bond\_style}, \hyperpage{934}
+  \item \spxentry{bond\_style bpm/rotational}, \hyperpage{2723}
+  \item \spxentry{bond\_style bpm/spring}, \hyperpage{2726}
+  \item \spxentry{bond\_style class2}, \hyperpage{2729}
+  \item \spxentry{bond\_style class2/kk}, \hyperpage{2729}
+  \item \spxentry{bond\_style class2/omp}, \hyperpage{2729}
+  \item \spxentry{bond\_style fene}, \hyperpage{2731}
+  \item \spxentry{bond\_style fene/expand}, \hyperpage{2733}
+  \item \spxentry{bond\_style fene/expand/omp}, \hyperpage{2733}
+  \item \spxentry{bond\_style fene/intel}, \hyperpage{2731}
+  \item \spxentry{bond\_style fene/kk}, \hyperpage{2731}
+  \item \spxentry{bond\_style fene/nm}, \hyperpage{2731}
+  \item \spxentry{bond\_style fene/omp}, \hyperpage{2731}
+  \item \spxentry{bond\_style gaussian}, \hyperpage{2734}
+  \item \spxentry{bond\_style gromos}, \hyperpage{2735}
+  \item \spxentry{bond\_style gromos/omp}, \hyperpage{2735}
+  \item \spxentry{bond\_style harmonic}, \hyperpage{2737}
+  \item \spxentry{bond\_style harmonic/intel}, \hyperpage{2737}
+  \item \spxentry{bond\_style harmonic/kk}, \hyperpage{2737}
+  \item \spxentry{bond\_style harmonic/omp}, \hyperpage{2737}
+  \item \spxentry{bond\_style harmonic/restrain}, \hyperpage{2738}
+  \item \spxentry{bond\_style harmonic/shift}, \hyperpage{2739}
+  \item \spxentry{bond\_style harmonic/shift/cut}, \hyperpage{2740}
+  \item \spxentry{bond\_style harmonic/shift/cut/omp}, \hyperpage{2740}
+  \item \spxentry{bond\_style harmonic/shift/omp}, \hyperpage{2739}
+  \item \spxentry{bond\_style hybrid}, \hyperpage{2742}
+  \item \spxentry{bond\_style hybrid/kk}, \hyperpage{2742}
+  \item \spxentry{bond\_style lepton}, \hyperpage{2743}
+  \item \spxentry{bond\_style lepton/omp}, \hyperpage{2743}
+  \item \spxentry{bond\_style mesocnt}, \hyperpage{2746}
+  \item \spxentry{bond\_style mm3}, \hyperpage{2747}
+  \item \spxentry{bond\_style morse}, \hyperpage{2748}
+  \item \spxentry{bond\_style morse/omp}, \hyperpage{2748}
+  \item \spxentry{bond\_style none}, \hyperpage{2750}
+  \item \spxentry{bond\_style nonlinear}, \hyperpage{2751}
+  \item \spxentry{bond\_style nonlinear/omp}, \hyperpage{2751}
+  \item \spxentry{bond\_style oxdna/fene}, \hyperpage{2752}
+  \item \spxentry{bond\_style oxdna2/fene}, \hyperpage{2752}
+  \item \spxentry{bond\_style oxrna2/fene}, \hyperpage{2752}
+  \item \spxentry{bond\_style quartic}, \hyperpage{2755}
+  \item \spxentry{bond\_style quartic/omp}, \hyperpage{2755}
+  \item \spxentry{bond\_style rheo/shell}, \hyperpage{2757}
+  \item \spxentry{bond\_style special}, \hyperpage{2759}
+  \item \spxentry{bond\_style table}, \hyperpage{2761}
+  \item \spxentry{bond\_style table/omp}, \hyperpage{2761}
+  \item \spxentry{bond\_style zero}, \hyperpage{2763}
+  \item \spxentry{bond\_write}, \hyperpage{936}
+  \item \spxentry{boundary}, \hyperpage{937}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{change\_box}, \hyperpage{939}
+  \item \spxentry{charge}\spxextra{lammps.Atom property}, \hyperpage{731}
+  \item \spxentry{clear}, \hyperpage{944}
+  \item \spxentry{clear\_cmd\_history()}\spxextra{lammps.PyLammps method}, \hyperpage{727}
+  \item \spxentry{close()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{638}
+  \item \spxentry{close()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{close()}\spxextra{lammps.PyLammps method}, \hyperpage{726}
+  \item \spxentry{comm\_modify}, \hyperpage{945}
+  \item \spxentry{comm\_style}, \hyperpage{948}
+  \item \spxentry{command()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{638}
+  \item \spxentry{command()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{command()}\spxextra{lammps.PyLammps method}, \hyperpage{727}
+  \item \spxentry{commands\_list()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{638}
+  \item \spxentry{commands\_list()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{commands\_string()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{639}
+  \item \spxentry{commands\_string()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{communication}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+  \item \spxentry{compute}, \hyperpage{949}
+  \item \spxentry{compute ackland/atom}, \hyperpage{1975}
+  \item \spxentry{compute adf}, \hyperpage{1976}
+  \item \spxentry{compute aggregate/atom}, \hyperpage{2010}
+  \item \spxentry{compute angle}, \hyperpage{1979}
+  \item \spxentry{compute angle/local}, \hyperpage{1981}
+  \item \spxentry{compute angmom/chunk}, \hyperpage{1983}
+  \item \spxentry{compute ave/sphere/atom}, \hyperpage{1984}
+  \item \spxentry{compute ave/sphere/atom/kk}, \hyperpage{1984}
+  \item \spxentry{compute basal/atom}, \hyperpage{1986}
+  \item \spxentry{compute body/local}, \hyperpage{1987}
+  \item \spxentry{compute bond}, \hyperpage{1989}
+  \item \spxentry{compute bond/local}, \hyperpage{1990}
+  \item \spxentry{compute born/matrix}, \hyperpage{1993}
+  \item \spxentry{compute centro/atom}, \hyperpage{1996}
+  \item \spxentry{compute centroid/stress/atom}, \hyperpage{2195}
+  \item \spxentry{compute chunk/atom}, \hyperpage{1998}
+  \item \spxentry{compute chunk/spread/atom}, \hyperpage{2007}
+  \item \spxentry{compute cluster/atom}, \hyperpage{2010}
+  \item \spxentry{compute cna/atom}, \hyperpage{2012}
+  \item \spxentry{compute cnp/atom}, \hyperpage{2014}
+  \item \spxentry{compute com}, \hyperpage{2016}
+  \item \spxentry{compute com/chunk}, \hyperpage{2017}
+  \item \spxentry{compute composition/atom}, \hyperpage{2019}
+  \item \spxentry{compute composition/atom/kk}, \hyperpage{2019}
+  \item \spxentry{compute contact/atom}, \hyperpage{2021}
+  \item \spxentry{compute coord/atom}, \hyperpage{2022}
+  \item \spxentry{compute coord/atom/kk}, \hyperpage{2022}
+  \item \spxentry{compute count/type}, \hyperpage{2024}
+  \item \spxentry{compute damage/atom}, \hyperpage{2026}
+  \item \spxentry{compute dihedral}, \hyperpage{2027}
+  \item \spxentry{compute dihedral/local}, \hyperpage{2028}
+  \item \spxentry{compute dilatation/atom}, \hyperpage{2030}
+  \item \spxentry{compute dipole}, \hyperpage{2031}
+  \item \spxentry{compute dipole/chunk}, \hyperpage{2033}
+  \item \spxentry{compute dipole/tip4p}, \hyperpage{2031}
+  \item \spxentry{compute dipole/tip4p/chunk}, \hyperpage{2033}
+  \item \spxentry{compute displace/atom}, \hyperpage{2034}
+  \item \spxentry{compute dpd}, \hyperpage{2037}
+  \item \spxentry{compute dpd/atom}, \hyperpage{2038}
+  \item \spxentry{compute edpd/temp/atom}, \hyperpage{2039}
+  \item \spxentry{compute efield/atom}, \hyperpage{2040}
+  \item \spxentry{compute efield/wolf/atom}, \hyperpage{2042}
+  \item \spxentry{compute entropy/atom}, \hyperpage{2043}
+  \item \spxentry{compute erotate/asphere}, \hyperpage{2045}
+  \item \spxentry{compute erotate/rigid}, \hyperpage{2047}
+  \item \spxentry{compute erotate/sphere}, \hyperpage{2048}
+  \item \spxentry{compute erotate/sphere/atom}, \hyperpage{2049}
+  \item \spxentry{compute erotate/sphere/kk}, \hyperpage{2048}
+  \item \spxentry{compute event/displace}, \hyperpage{2050}
+  \item \spxentry{compute fabric}, \hyperpage{2051}
+  \item \spxentry{compute fep}, \hyperpage{2054}
+  \item \spxentry{compute fep/ta}, \hyperpage{2058}
+  \item \spxentry{compute force/tally}, \hyperpage{2205}
+  \item \spxentry{compute fragment/atom}, \hyperpage{2010}
+  \item \spxentry{compute global/atom}, \hyperpage{2060}
+  \item \spxentry{compute group/group}, \hyperpage{2063}
+  \item \spxentry{compute gyration}, \hyperpage{2065}
+  \item \spxentry{compute gyration/chunk}, \hyperpage{2067}
+  \item \spxentry{compute gyration/shape}, \hyperpage{2069}
+  \item \spxentry{compute gyration/shape/chunk}, \hyperpage{2070}
+  \item \spxentry{compute heat/flux}, \hyperpage{2072}
+  \item \spxentry{compute heat/flux/tally}, \hyperpage{2205}
+  \item \spxentry{compute heat/flux/virial/tally}, \hyperpage{2205}
+  \item \spxentry{compute hexorder/atom}, \hyperpage{2076}
+  \item \spxentry{compute hma}, \hyperpage{2077}
+  \item \spxentry{compute improper}, \hyperpage{2080}
+  \item \spxentry{compute improper/local}, \hyperpage{2081}
+  \item \spxentry{compute inertia/chunk}, \hyperpage{2083}
+  \item \spxentry{compute ke}, \hyperpage{2084}
+  \item \spxentry{compute ke/atom}, \hyperpage{2085}
+  \item \spxentry{compute ke/atom/eff}, \hyperpage{2086}
+  \item \spxentry{compute ke/eff}, \hyperpage{2087}
+  \item \spxentry{compute ke/rigid}, \hyperpage{2089}
+  \item \spxentry{compute mliap}, \hyperpage{2090}
+  \item \spxentry{compute momentum}, \hyperpage{2092}
+  \item \spxentry{compute msd}, \hyperpage{2093}
+  \item \spxentry{compute msd/chunk}, \hyperpage{2095}
+  \item \spxentry{compute msd/nongauss}, \hyperpage{2097}
+  \item \spxentry{compute nbond/atom}, \hyperpage{2099}
+  \item \spxentry{compute omega/chunk}, \hyperpage{2100}
+  \item \spxentry{compute orientorder/atom}, \hyperpage{2101}
+  \item \spxentry{compute orientorder/atom/kk}, \hyperpage{2101}
+  \item \spxentry{compute pace}, \hyperpage{2104}
+  \item \spxentry{compute pair}, \hyperpage{2108}
+  \item \spxentry{compute pair/local}, \hyperpage{2109}
+  \item \spxentry{compute pe}, \hyperpage{2112}
+  \item \spxentry{compute pe/atom}, \hyperpage{2113}
+  \item \spxentry{compute pe/mol/tally}, \hyperpage{2205}
+  \item \spxentry{compute pe/tally}, \hyperpage{2205}
+  \item \spxentry{compute plasticity/atom}, \hyperpage{2115}
+  \item \spxentry{compute pod/atom}, \hyperpage{2116}
+  \item \spxentry{compute pod/global}, \hyperpage{2116}
+  \item \spxentry{compute pod/local}, \hyperpage{2116}
+  \item \spxentry{compute podd/atom}, \hyperpage{2116}
+  \item \spxentry{compute pressure}, \hyperpage{2118}
+  \item \spxentry{compute pressure/alchemy}, \hyperpage{2120}
+  \item \spxentry{compute pressure/uef}, \hyperpage{2122}
+  \item \spxentry{compute property/atom}, \hyperpage{2123}
+  \item \spxentry{compute property/chunk}, \hyperpage{2126}
+  \item \spxentry{compute property/grid}, \hyperpage{2128}
+  \item \spxentry{compute property/local}, \hyperpage{2130}
+  \item \spxentry{compute ptm/atom}, \hyperpage{2132}
+  \item \spxentry{compute rattlers/atom}, \hyperpage{2135}
+  \item \spxentry{compute rdf}, \hyperpage{2136}
+  \item \spxentry{compute reaxff/atom}, \hyperpage{2139}
+  \item \spxentry{compute reaxff/atom/kk}, \hyperpage{2139}
+  \item \spxentry{compute reduce}, \hyperpage{2141}
+  \item \spxentry{compute reduce/chunk}, \hyperpage{2144}
+  \item \spxentry{compute reduce/region}, \hyperpage{2141}
+  \item \spxentry{compute rheo/property/atom}, \hyperpage{2147}
+  \item \spxentry{compute rigid/local}, \hyperpage{2149}
+  \item \spxentry{compute saed}, \hyperpage{2152}
+  \item \spxentry{compute sans}, \hyperpage{2155}
+  \item \spxentry{compute slcsa/atom}, \hyperpage{2157}
+  \item \spxentry{compute slice}, \hyperpage{2160}
+  \item \spxentry{compute smd/contact/radius}, \hyperpage{2162}
+  \item \spxentry{compute smd/damage}, \hyperpage{2163}
+  \item \spxentry{compute smd/hourglass/error}, \hyperpage{2164}
+  \item \spxentry{compute smd/internal/energy}, \hyperpage{2165}
+  \item \spxentry{compute smd/plastic/strain}, \hyperpage{2166}
+  \item \spxentry{compute smd/plastic/strain/rate}, \hyperpage{2167}
+  \item \spxentry{compute smd/rho}, \hyperpage{2168}
+  \item \spxentry{compute smd/tlsph/defgrad}, \hyperpage{2169}
+  \item \spxentry{compute smd/tlsph/dt}, \hyperpage{2170}
+  \item \spxentry{compute smd/tlsph/num/neighs}, \hyperpage{2171}
+  \item \spxentry{compute smd/tlsph/shape}, \hyperpage{2172}
+  \item \spxentry{compute smd/tlsph/strain}, \hyperpage{2173}
+  \item \spxentry{compute smd/tlsph/strain/rate}, \hyperpage{2174}
+  \item \spxentry{compute smd/tlsph/stress}, \hyperpage{2175}
+  \item \spxentry{compute smd/triangle/vertices}, \hyperpage{2176}
+  \item \spxentry{compute smd/ulsph/effm}, \hyperpage{2177}
+  \item \spxentry{compute smd/ulsph/num/neighs}, \hyperpage{2178}
+  \item \spxentry{compute smd/ulsph/strain}, \hyperpage{2179}
+  \item \spxentry{compute smd/ulsph/strain/rate}, \hyperpage{2180}
+  \item \spxentry{compute smd/ulsph/stress}, \hyperpage{2181}
+  \item \spxentry{compute smd/vol}, \hyperpage{2182}
+  \item \spxentry{compute sna/atom}, \hyperpage{2183}
+  \item \spxentry{compute sna/grid}, \hyperpage{2183}
+  \item \spxentry{compute sna/grid/local}, \hyperpage{2183}
+  \item \spxentry{compute snad/atom}, \hyperpage{2183}
+  \item \spxentry{compute snap}, \hyperpage{2183}
+  \item \spxentry{compute snav/atom}, \hyperpage{2183}
+  \item \spxentry{compute sph/e/atom}, \hyperpage{2191}
+  \item \spxentry{compute sph/rho/atom}, \hyperpage{2192}
+  \item \spxentry{compute sph/t/atom}, \hyperpage{2193}
+  \item \spxentry{compute spin}, \hyperpage{2194}
+  \item \spxentry{compute stress/atom}, \hyperpage{2195}
+  \item \spxentry{compute stress/cartesian}, \hyperpage{2199}
+  \item \spxentry{compute stress/cylinder}, \hyperpage{2201}
+  \item \spxentry{compute stress/mop}, \hyperpage{2203}
+  \item \spxentry{compute stress/mop/profile}, \hyperpage{2203}
+  \item \spxentry{compute stress/spherical}, \hyperpage{2201}
+  \item \spxentry{compute stress/tally}, \hyperpage{2205}
+  \item \spxentry{compute tdpd/cc/atom}, \hyperpage{2208}
+  \item \spxentry{compute temp}, \hyperpage{2209}
+  \item \spxentry{compute temp/asphere}, \hyperpage{2211}
+  \item \spxentry{compute temp/body}, \hyperpage{2214}
+  \item \spxentry{compute temp/chunk}, \hyperpage{2216}
+  \item \spxentry{compute temp/com}, \hyperpage{2219}
+  \item \spxentry{compute temp/cs}, \hyperpage{2221}
+  \item \spxentry{compute temp/deform}, \hyperpage{2222}
+  \item \spxentry{compute temp/deform/eff}, \hyperpage{2225}
+  \item \spxentry{compute temp/deform/kk}, \hyperpage{2222}
+  \item \spxentry{compute temp/drude}, \hyperpage{2226}
+  \item \spxentry{compute temp/eff}, \hyperpage{2227}
+  \item \spxentry{compute temp/kk}, \hyperpage{2209}
+  \item \spxentry{compute temp/partial}, \hyperpage{2229}
+  \item \spxentry{compute temp/profile}, \hyperpage{2231}
+  \item \spxentry{compute temp/ramp}, \hyperpage{2234}
+  \item \spxentry{compute temp/region}, \hyperpage{2235}
+  \item \spxentry{compute temp/region/eff}, \hyperpage{2237}
+  \item \spxentry{compute temp/rotate}, \hyperpage{2238}
+  \item \spxentry{compute temp/sphere}, \hyperpage{2240}
+  \item \spxentry{compute temp/uef}, \hyperpage{2242}
+  \item \spxentry{compute ti}, \hyperpage{2243}
+  \item \spxentry{compute torque/chunk}, \hyperpage{2245}
+  \item \spxentry{compute vacf}, \hyperpage{2247}
+  \item \spxentry{compute vcm/chunk}, \hyperpage{2248}
+  \item \spxentry{compute viscosity/cos}, \hyperpage{2249}
+  \item \spxentry{compute voronoi/atom}, \hyperpage{2251}
+  \item \spxentry{compute xrd}, \hyperpage{2255}
+  \item \spxentry{compute\_modify}, \hyperpage{956}
+  \item \spxentry{computes}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+  \item \spxentry{config\_accelerator()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{667}
+  \item \spxentry{config\_has\_exceptions()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{666}
+  \item \spxentry{config\_has\_ffmpeg\_support()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{665}
+  \item \spxentry{config\_has\_gzip\_support()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{665}
+  \item \spxentry{config\_has\_jpeg\_support()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{665}
+  \item \spxentry{config\_has\_mpi\_support()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{664}
+  \item \spxentry{config\_has\_package()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{666}
+  \item \spxentry{config\_has\_png\_support()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{665}
+  \item \spxentry{config\_package\_count()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{666}
+  \item \spxentry{config\_package\_name()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{667}
+  \item \spxentry{create\_atoms}, \hyperpage{957}
+  \item \spxentry{create\_atoms()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{661}
+  \item \spxentry{create\_atoms()}\spxextra{lammps.lammps method}, \hyperpage{713}
+  \item \spxentry{create\_bonds}, \hyperpage{966}
+  \item \spxentry{create\_box}, \hyperpage{969}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{decode\_image\_flags()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{672}
+  \item \spxentry{decode\_image\_flags()}\spxextra{lammps.lammps method}, \hyperpage{712}
+  \item \spxentry{delete\_atoms}, \hyperpage{972}
+  \item \spxentry{delete\_bonds}, \hyperpage{975}
+  \item \spxentry{dielectric}, \hyperpage{978}
+  \item \spxentry{dihedral\_coeff}, \hyperpage{978}
+  \item \spxentry{dihedral\_style}, \hyperpage{980}
+  \item \spxentry{dihedral\_style charmm}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style charmm/intel}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style charmm/kk}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style charmm/omp}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style charmmfsw}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style charmmfsw/kk}, \hyperpage{2805}
+  \item \spxentry{dihedral\_style class2}, \hyperpage{2807}
+  \item \spxentry{dihedral\_style class2/kk}, \hyperpage{2807}
+  \item \spxentry{dihedral\_style class2/omp}, \hyperpage{2807}
+  \item \spxentry{dihedral\_style cosine/shift/exp}, \hyperpage{2810}
+  \item \spxentry{dihedral\_style cosine/shift/exp/omp}, \hyperpage{2810}
+  \item \spxentry{dihedral\_style cosine/squared/restricted}, \hyperpage{2812}
+  \item \spxentry{dihedral\_style fourier}, \hyperpage{2813}
+  \item \spxentry{dihedral\_style fourier/intel}, \hyperpage{2813}
+  \item \spxentry{dihedral\_style fourier/omp}, \hyperpage{2813}
+  \item \spxentry{dihedral\_style harmonic}, \hyperpage{2814}
+  \item \spxentry{dihedral\_style harmonic/intel}, \hyperpage{2814}
+  \item \spxentry{dihedral\_style harmonic/kk}, \hyperpage{2814}
+  \item \spxentry{dihedral\_style harmonic/omp}, \hyperpage{2814}
+  \item \spxentry{dihedral\_style helix}, \hyperpage{2816}
+  \item \spxentry{dihedral\_style helix/omp}, \hyperpage{2816}
+  \item \spxentry{dihedral\_style hybrid}, \hyperpage{2817}
+  \item \spxentry{dihedral\_style hybrid/kk}, \hyperpage{2817}
+  \item \spxentry{dihedral\_style lepton}, \hyperpage{2819}
+  \item \spxentry{dihedral\_style lepton/omp}, \hyperpage{2819}
+  \item \spxentry{dihedral\_style multi/harmonic}, \hyperpage{2821}
+  \item \spxentry{dihedral\_style multi/harmonic/omp}, \hyperpage{2821}
+  \item \spxentry{dihedral\_style nharmonic}, \hyperpage{2823}
+  \item \spxentry{dihedral\_style nharmonic/omp}, \hyperpage{2823}
+  \item \spxentry{dihedral\_style none}, \hyperpage{2824}
+  \item \spxentry{dihedral\_style opls}, \hyperpage{2825}
+  \item \spxentry{dihedral\_style opls/intel}, \hyperpage{2825}
+  \item \spxentry{dihedral\_style opls/kk}, \hyperpage{2825}
+  \item \spxentry{dihedral\_style opls/omp}, \hyperpage{2825}
+  \item \spxentry{dihedral\_style quadratic}, \hyperpage{2826}
+  \item \spxentry{dihedral\_style quadratic/omp}, \hyperpage{2826}
+  \item \spxentry{dihedral\_style spherical}, \hyperpage{2827}
+  \item \spxentry{dihedral\_style table}, \hyperpage{2829}
+  \item \spxentry{dihedral\_style table/cut}, \hyperpage{2829}
+  \item \spxentry{dihedral\_style table/omp}, \hyperpage{2829}
+  \item \spxentry{dihedral\_style zero}, \hyperpage{2833}
+  \item \spxentry{dihedral\_write}, \hyperpage{983}
+  \item \spxentry{dimension}, \hyperpage{984}
+  \item \spxentry{displace\_atoms}, \hyperpage{985}
+  \item \spxentry{dump}, \hyperpage{2857}
+  \item \spxentry{dump atom}, \hyperpage{2857}
+  \item \spxentry{dump atom/adios}, \hyperpage{2870}
+  \item \spxentry{dump atom/gz}, \hyperpage{2857}
+  \item \spxentry{dump atom/zstd}, \hyperpage{2857}
+  \item \spxentry{dump cfg}, \hyperpage{2857}
+  \item \spxentry{dump cfg/gz}, \hyperpage{2857}
+  \item \spxentry{dump cfg/uef}, \hyperpage{2871}
+  \item \spxentry{dump cfg/zstd}, \hyperpage{2857}
+  \item \spxentry{dump custom}, \hyperpage{2857}
+  \item \spxentry{dump custom/adios}, \hyperpage{2870}
+  \item \spxentry{dump custom/gz}, \hyperpage{2857}
+  \item \spxentry{dump custom/zstd}, \hyperpage{2857}
+  \item \spxentry{dump dcd}, \hyperpage{2857}
+  \item \spxentry{dump grid}, \hyperpage{2857}
+  \item \spxentry{dump grid/vtk}, \hyperpage{2857}
+  \item \spxentry{dump h5md}, \hyperpage{2872}
+  \item \spxentry{dump image}, \hyperpage{2874}
+  \item \spxentry{dump local}, \hyperpage{2857}
+  \item \spxentry{dump local/gz}, \hyperpage{2857}
+  \item \spxentry{dump local/zstd}, \hyperpage{2857}
+  \item \spxentry{dump molfile}, \hyperpage{2905}
+  \item \spxentry{dump movie}, \hyperpage{2874}
+  \item \spxentry{dump netcdf}, \hyperpage{2907}
+  \item \spxentry{dump netcdf/mpiio}, \hyperpage{2907}
+  \item \spxentry{dump vtk}, \hyperpage{2908}
+  \item \spxentry{dump xtc}, \hyperpage{2857}
+  \item \spxentry{dump xyz}, \hyperpage{2857}
+  \item \spxentry{dump xyz/gz}, \hyperpage{2857}
+  \item \spxentry{dump xyz/zstd}, \hyperpage{2857}
+  \item \spxentry{dump yaml}, \hyperpage{2857}
+  \item \spxentry{dump\_modify}, \hyperpage{2892}
+  \item \spxentry{dumps}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+  \item \spxentry{dynamical\_matrix}, \hyperpage{987}
+  \item \spxentry{dynamical\_matrix/kk}, \hyperpage{987}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{echo}, \hyperpage{989}
+  \item \spxentry{enable\_cmd\_history}\spxextra{lammps.PyLammps property}, \hyperpage{727}
+  \item \spxentry{encode\_image\_flags()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{671}
+  \item \spxentry{encode\_image\_flags()}\spxextra{lammps.lammps method}, \hyperpage{712}
+  \item \spxentry{error()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{638}
+  \item \spxentry{error()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{eval()}\spxextra{lammps.PyLammps method}, \hyperpage{729}
+  \item \spxentry{extract\_atom()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{645}
+  \item \spxentry{extract\_atom()}\spxextra{lammps.lammps method}, \hyperpage{708}
+  \item \spxentry{extract\_atom()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{722}
+  \item \spxentry{extract\_atom\_datatype()}\spxextra{lammps.lammps method}, \hyperpage{708}
+  \item \spxentry{extract\_box()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{641}
+  \item \spxentry{extract\_box()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{extract\_compute()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{646}
+  \item \spxentry{extract\_compute()}\spxextra{lammps.lammps method}, \hyperpage{709}
+  \item \spxentry{extract\_compute()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{722}
+  \item \spxentry{extract\_fix()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{648}
+  \item \spxentry{extract\_fix()}\spxextra{lammps.lammps method}, \hyperpage{709}
+  \item \spxentry{extract\_fix()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{723}
+  \item \spxentry{extract\_global()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{643}
+  \item \spxentry{extract\_global()}\spxextra{lammps.lammps method}, \hyperpage{707}
+  \item \spxentry{extract\_global\_datatype()}\spxextra{lammps.lammps method}, \hyperpage{706}
+  \item \spxentry{extract\_pair()}\spxextra{lammps.lammps method}, \hyperpage{707}
+  \item \spxentry{extract\_pair\_dimension()}\spxextra{lammps.lammps method}, \hyperpage{707}
+  \item \spxentry{extract\_setting()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{643}
+  \item \spxentry{extract\_setting()}\spxextra{lammps.lammps method}, \hyperpage{706}
+  \item \spxentry{extract\_variable()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{650}
+  \item \spxentry{extract\_variable()}\spxextra{lammps.lammps method}, \hyperpage{710}
+  \item \spxentry{extract\_variable()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{723}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{file()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{638}
+  \item \spxentry{file()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{file()}\spxextra{lammps.PyLammps method}, \hyperpage{726}
+  \item \spxentry{finalize()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{find()}\spxextra{lammps.NeighList method}, \hyperpage{734}
+  \item \spxentry{find()}\spxextra{lammps.numpy\_wrapper.NumPyNeighList method}, \hyperpage{735}
+  \item \spxentry{find\_compute\_neighlist()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{663}
+  \item \spxentry{find\_compute\_neighlist()}\spxextra{lammps.lammps method}, \hyperpage{721}
+  \item \spxentry{find\_fix\_neighlist()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{663}
+  \item \spxentry{find\_fix\_neighlist()}\spxextra{lammps.lammps method}, \hyperpage{721}
+  \item \spxentry{find\_pair\_neighlist()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{662}
+  \item \spxentry{find\_pair\_neighlist()}\spxextra{lammps.lammps method}, \hyperpage{720}
+  \item \spxentry{fitpod}, \hyperpage{1003}
+  \item \spxentry{fix}, \hyperpage{990}
+  \item \spxentry{fix accelerate/cos}, \hyperpage{1313}
+  \item \spxentry{fix acks2/reaxff}, \hyperpage{1314}
+  \item \spxentry{fix acks2/reaxff/kk}, \hyperpage{1314}
+  \item \spxentry{fix adapt}, \hyperpage{1317}
+  \item \spxentry{fix adapt/fep}, \hyperpage{1323}
+  \item \spxentry{fix add/heat}, \hyperpage{1327}
+  \item \spxentry{fix addforce}, \hyperpage{1329}
+  \item \spxentry{fix addtorque}, \hyperpage{1331}
+  \item \spxentry{fix alchemy}, \hyperpage{1333}
+  \item \spxentry{fix amoeba/bitorsion}, \hyperpage{1336}
+  \item \spxentry{fix amoeba/pitorsion}, \hyperpage{1338}
+  \item \spxentry{fix append/atoms}, \hyperpage{1340}
+  \item \spxentry{fix atc}, \hyperpage{1342}
+  \item \spxentry{fix atom/swap}, \hyperpage{1348}
+  \item \spxentry{fix ave/atom}, \hyperpage{1351}
+  \item \spxentry{fix ave/chunk}, \hyperpage{1354}
+  \item \spxentry{fix ave/correlate}, \hyperpage{1361}
+  \item \spxentry{fix ave/correlate/long}, \hyperpage{1366}
+  \item \spxentry{fix ave/grid}, \hyperpage{1368}
+  \item \spxentry{fix ave/histo}, \hyperpage{1375}
+  \item \spxentry{fix ave/histo/weight}, \hyperpage{1375}
+  \item \spxentry{fix ave/time}, \hyperpage{1380}
+  \item \spxentry{fix aveforce}, \hyperpage{1386}
+  \item \spxentry{fix balance}, \hyperpage{1387}
+  \item \spxentry{fix bocs}, \hyperpage{1394}
+  \item \spxentry{fix bond/break}, \hyperpage{1396}
+  \item \spxentry{fix bond/create}, \hyperpage{1398}
+  \item \spxentry{fix bond/create/angle}, \hyperpage{1398}
+  \item \spxentry{fix bond/react}, \hyperpage{1402}
+  \item \spxentry{fix bond/swap}, \hyperpage{1412}
+  \item \spxentry{fix box/relax}, \hyperpage{1416}
+  \item \spxentry{fix brownian}, \hyperpage{1421}
+  \item \spxentry{fix brownian/asphere}, \hyperpage{1421}
+  \item \spxentry{fix brownian/sphere}, \hyperpage{1421}
+  \item \spxentry{fix charge/regulation}, \hyperpage{1424}
+  \item \spxentry{fix cmap}, \hyperpage{1429}
+  \item \spxentry{fix colvars}, \hyperpage{1431}
+  \item \spxentry{fix controller}, \hyperpage{1434}
+  \item \spxentry{fix damping/cundall}, \hyperpage{1437}
+  \item \spxentry{fix deform}, \hyperpage{1439}
+  \item \spxentry{fix deform/kk}, \hyperpage{1439}
+  \item \spxentry{fix deform/pressure}, \hyperpage{1447}
+  \item \spxentry{fix deposit}, \hyperpage{1453}
+  \item \spxentry{fix dpd/energy}, \hyperpage{1458}
+  \item \spxentry{fix dpd/energy/kk}, \hyperpage{1458}
+  \item \spxentry{fix drag}, \hyperpage{1461}
+  \item \spxentry{fix drude}, \hyperpage{1462}
+  \item \spxentry{fix drude/transform/direct}, \hyperpage{1463}
+  \item \spxentry{fix drude/transform/inverse}, \hyperpage{1463}
+  \item \spxentry{fix dt/reset}, \hyperpage{1466}
+  \item \spxentry{fix dt/reset/kk}, \hyperpage{1466}
+  \item \spxentry{fix edpd/source}, \hyperpage{1459}
+  \item \spxentry{fix efield}, \hyperpage{1468}
+  \item \spxentry{fix efield/kk}, \hyperpage{1468}
+  \item \spxentry{fix efield/tip4p}, \hyperpage{1468}
+  \item \spxentry{fix ehex}, \hyperpage{1471}
+  \item \spxentry{fix electrode/conp}, \hyperpage{1474}
+  \item \spxentry{fix electrode/conp/intel}, \hyperpage{1474}
+  \item \spxentry{fix electrode/conq}, \hyperpage{1474}
+  \item \spxentry{fix electrode/conq/intel}, \hyperpage{1474}
+  \item \spxentry{fix electrode/thermo}, \hyperpage{1474}
+  \item \spxentry{fix electrode/thermo/intel}, \hyperpage{1474}
+  \item \spxentry{fix electron/stopping}, \hyperpage{1480}
+  \item \spxentry{fix electron/stopping/fit}, \hyperpage{1480}
+  \item \spxentry{fix enforce2d}, \hyperpage{1483}
+  \item \spxentry{fix enforce2d/kk}, \hyperpage{1483}
+  \item \spxentry{fix eos/cv}, \hyperpage{1484}
+  \item \spxentry{fix eos/table}, \hyperpage{1485}
+  \item \spxentry{fix eos/table/rx}, \hyperpage{1487}
+  \item \spxentry{fix eos/table/rx/kk}, \hyperpage{1487}
+  \item \spxentry{fix evaporate}, \hyperpage{1490}
+  \item \spxentry{fix external}, \hyperpage{1492}
+  \item \spxentry{fix ffl}, \hyperpage{1494}
+  \item \spxentry{fix filter/corotate}, \hyperpage{1496}
+  \item \spxentry{fix flow/gauss}, \hyperpage{1497}
+  \item \spxentry{fix freeze}, \hyperpage{1500}
+  \item \spxentry{fix freeze/kk}, \hyperpage{1500}
+  \item \spxentry{fix gcmc}, \hyperpage{1501}
+  \item \spxentry{fix gld}, \hyperpage{1508}
+  \item \spxentry{fix gle}, \hyperpage{1510}
+  \item \spxentry{fix gravity}, \hyperpage{1512}
+  \item \spxentry{fix gravity/kk}, \hyperpage{1512}
+  \item \spxentry{fix gravity/omp}, \hyperpage{1512}
+  \item \spxentry{fix grem}, \hyperpage{1515}
+  \item \spxentry{fix halt}, \hyperpage{1516}
+  \item \spxentry{fix heat}, \hyperpage{1519}
+  \item \spxentry{fix heat/flow}, \hyperpage{1521}
+  \item \spxentry{fix hyper/global}, \hyperpage{1522}
+  \item \spxentry{fix hyper/local}, \hyperpage{1526}
+  \item \spxentry{fix imd}, \hyperpage{1533}
+  \item \spxentry{fix indent}, \hyperpage{1535}
+  \item \spxentry{fix ipi}, \hyperpage{1539}
+  \item \spxentry{fix langevin}, \hyperpage{1541}
+  \item \spxentry{fix langevin/drude}, \hyperpage{1546}
+  \item \spxentry{fix langevin/eff}, \hyperpage{1550}
+  \item \spxentry{fix langevin/kk}, \hyperpage{1541}
+  \item \spxentry{fix langevin/spin}, \hyperpage{1552}
+  \item \spxentry{fix lb/fluid}, \hyperpage{1553}
+  \item \spxentry{fix lb/momentum}, \hyperpage{1559}
+  \item \spxentry{fix lb/viscous}, \hyperpage{1561}
+  \item \spxentry{fix lineforce}, \hyperpage{1562}
+  \item \spxentry{fix manifoldforce}, \hyperpage{1563}
+  \item \spxentry{fix mdi/qm}, \hyperpage{1564}
+  \item \spxentry{fix mdi/qmmm}, \hyperpage{1568}
+  \item \spxentry{fix meso/move}, \hyperpage{1572}
+  \item \spxentry{fix mol/swap}, \hyperpage{1640}
+  \item \spxentry{fix momentum}, \hyperpage{1643}
+  \item \spxentry{fix momentum/chunk}, \hyperpage{1643}
+  \item \spxentry{fix momentum/kk}, \hyperpage{1643}
+  \item \spxentry{fix move}, \hyperpage{1645}
+  \item \spxentry{fix msst}, \hyperpage{1649}
+  \item \spxentry{fix mvv/dpd}, \hyperpage{1651}
+  \item \spxentry{fix mvv/edpd}, \hyperpage{1651}
+  \item \spxentry{fix mvv/tdpd}, \hyperpage{1651}
+  \item \spxentry{fix neb}, \hyperpage{1653}
+  \item \spxentry{fix neb/spin}, \hyperpage{1657}
+  \item \spxentry{fix nonaffine/displacement}, \hyperpage{1673}
+  \item \spxentry{fix nph}, \hyperpage{1658}
+  \item \spxentry{fix nph/asphere}, \hyperpage{1676}
+  \item \spxentry{fix nph/asphere/omp}, \hyperpage{1676}
+  \item \spxentry{fix nph/body}, \hyperpage{1678}
+  \item \spxentry{fix nph/eff}, \hyperpage{1667}
+  \item \spxentry{fix nph/kk}, \hyperpage{1658}
+  \item \spxentry{fix nph/omp}, \hyperpage{1658}
+  \item \spxentry{fix nph/sphere}, \hyperpage{1680}
+  \item \spxentry{fix nph/sphere/omp}, \hyperpage{1680}
+  \item \spxentry{fix nphug}, \hyperpage{1682}
+  \item \spxentry{fix nphug/omp}, \hyperpage{1682}
+  \item \spxentry{fix npt}, \hyperpage{1658}
+  \item \spxentry{fix npt/asphere}, \hyperpage{1686}
+  \item \spxentry{fix npt/asphere/omp}, \hyperpage{1686}
+  \item \spxentry{fix npt/body}, \hyperpage{1688}
+  \item \spxentry{fix npt/cauchy}, \hyperpage{1690}
+  \item \spxentry{fix npt/eff}, \hyperpage{1667}
+  \item \spxentry{fix npt/gpu}, \hyperpage{1658}
+  \item \spxentry{fix npt/intel}, \hyperpage{1658}
+  \item \spxentry{fix npt/kk}, \hyperpage{1658}
+  \item \spxentry{fix npt/omp}, \hyperpage{1658}
+  \item \spxentry{fix npt/sphere}, \hyperpage{1698}
+  \item \spxentry{fix npt/sphere/omp}, \hyperpage{1698}
+  \item \spxentry{fix npt/uef}, \hyperpage{1670}
+  \item \spxentry{fix numdiff}, \hyperpage{1701}
+  \item \spxentry{fix numdiff/virial}, \hyperpage{1703}
+  \item \spxentry{fix nve}, \hyperpage{1704}
+  \item \spxentry{fix nve/asphere}, \hyperpage{1706}
+  \item \spxentry{fix nve/asphere/gpu}, \hyperpage{1706}
+  \item \spxentry{fix nve/asphere/intel}, \hyperpage{1706}
+  \item \spxentry{fix nve/asphere/noforce}, \hyperpage{1707}
+  \item \spxentry{fix nve/awpmd}, \hyperpage{1708}
+  \item \spxentry{fix nve/body}, \hyperpage{1709}
+  \item \spxentry{fix nve/bpm/sphere}, \hyperpage{1710}
+  \item \spxentry{fix nve/dot}, \hyperpage{1712}
+  \item \spxentry{fix nve/dotc/langevin}, \hyperpage{1713}
+  \item \spxentry{fix nve/eff}, \hyperpage{1715}
+  \item \spxentry{fix nve/gpu}, \hyperpage{1704}
+  \item \spxentry{fix nve/intel}, \hyperpage{1704}
+  \item \spxentry{fix nve/kk}, \hyperpage{1704}
+  \item \spxentry{fix nve/limit}, \hyperpage{1716}
+  \item \spxentry{fix nve/line}, \hyperpage{1717}
+  \item \spxentry{fix nve/manifold/rattle}, \hyperpage{1718}
+  \item \spxentry{fix nve/noforce}, \hyperpage{1720}
+  \item \spxentry{fix nve/omp}, \hyperpage{1704}
+  \item \spxentry{fix nve/sphere}, \hyperpage{1721}
+  \item \spxentry{fix nve/sphere/kk}, \hyperpage{1721}
+  \item \spxentry{fix nve/sphere/omp}, \hyperpage{1721}
+  \item \spxentry{fix nve/spin}, \hyperpage{1723}
+  \item \spxentry{fix nve/tri}, \hyperpage{1724}
+  \item \spxentry{fix nvk}, \hyperpage{1726}
+  \item \spxentry{fix nvt}, \hyperpage{1658}
+  \item \spxentry{fix nvt/asphere}, \hyperpage{1727}
+  \item \spxentry{fix nvt/asphere/omp}, \hyperpage{1727}
+  \item \spxentry{fix nvt/body}, \hyperpage{1729}
+  \item \spxentry{fix nvt/eff}, \hyperpage{1667}
+  \item \spxentry{fix nvt/gpu}, \hyperpage{1658}
+  \item \spxentry{fix nvt/intel}, \hyperpage{1658}
+  \item \spxentry{fix nvt/kk}, \hyperpage{1658}
+  \item \spxentry{fix nvt/manifold/rattle}, \hyperpage{1731}
+  \item \spxentry{fix nvt/omp}, \hyperpage{1658}
+  \item \spxentry{fix nvt/sllod}, \hyperpage{1732}
+  \item \spxentry{fix nvt/sllod/eff}, \hyperpage{1735}
+  \item \spxentry{fix nvt/sllod/intel}, \hyperpage{1732}
+  \item \spxentry{fix nvt/sllod/kk}, \hyperpage{1732}
+  \item \spxentry{fix nvt/sllod/omp}, \hyperpage{1732}
+  \item \spxentry{fix nvt/sphere}, \hyperpage{1737}
+  \item \spxentry{fix nvt/sphere/omp}, \hyperpage{1737}
+  \item \spxentry{fix nvt/uef}, \hyperpage{1670}
+  \item \spxentry{fix oneway}, \hyperpage{1739}
+  \item \spxentry{fix orient/bcc}, \hyperpage{1740}
+  \item \spxentry{fix orient/eco}, \hyperpage{1743}
+  \item \spxentry{fix orient/fcc}, \hyperpage{1740}
+  \item \spxentry{fix pafi}, \hyperpage{1745}
+  \item \spxentry{fix pair}, \hyperpage{1747}
+  \item \spxentry{fix phonon}, \hyperpage{1749}
+  \item \spxentry{fix pimd/langevin}, \hyperpage{1752}
+  \item \spxentry{fix pimd/nvt}, \hyperpage{1752}
+  \item \spxentry{fix planeforce}, \hyperpage{1760}
+  \item \spxentry{fix plumed}, \hyperpage{1761}
+  \item \spxentry{fix poems}, \hyperpage{1763}
+  \item \spxentry{fix polarize/bem/gmres}, \hyperpage{1765}
+  \item \spxentry{fix polarize/bem/icc}, \hyperpage{1765}
+  \item \spxentry{fix polarize/functional}, \hyperpage{1765}
+  \item \spxentry{fix pour}, \hyperpage{1768}
+  \item \spxentry{fix precession/spin}, \hyperpage{1772}
+  \item \spxentry{fix press/berendsen}, \hyperpage{1775}
+  \item \spxentry{fix press/langevin}, \hyperpage{1778}
+  \item \spxentry{fix print}, \hyperpage{1783}
+  \item \spxentry{fix propel/self}, \hyperpage{1785}
+  \item \spxentry{fix property/atom}, \hyperpage{1787}
+  \item \spxentry{fix property/atom/kk}, \hyperpage{1787}
+  \item \spxentry{fix python/invoke}, \hyperpage{1792}
+  \item \spxentry{fix python/move}, \hyperpage{1793}
+  \item \spxentry{fix qbmsst}, \hyperpage{1795}
+  \item \spxentry{fix qeq/comb}, \hyperpage{1802}
+  \item \spxentry{fix qeq/comb/omp}, \hyperpage{1802}
+  \item \spxentry{fix qeq/dynamic}, \hyperpage{1799}
+  \item \spxentry{fix qeq/fire}, \hyperpage{1799}
+  \item \spxentry{fix qeq/point}, \hyperpage{1799}
+  \item \spxentry{fix qeq/reaxff}, \hyperpage{1804}
+  \item \spxentry{fix qeq/reaxff/kk}, \hyperpage{1804}
+  \item \spxentry{fix qeq/reaxff/omp}, \hyperpage{1804}
+  \item \spxentry{fix qeq/shielded}, \hyperpage{1799}
+  \item \spxentry{fix qeq/slater}, \hyperpage{1799}
+  \item \spxentry{fix qmmm}, \hyperpage{1807}
+  \item \spxentry{fix qtb}, \hyperpage{1808}
+  \item \spxentry{fix rattle}, \hyperpage{1861}
+  \item \spxentry{fix reaxff/bonds}, \hyperpage{1810}
+  \item \spxentry{fix reaxff/bonds/kk}, \hyperpage{1810}
+  \item \spxentry{fix reaxff/species}, \hyperpage{1812}
+  \item \spxentry{fix reaxff/species/kk}, \hyperpage{1812}
+  \item \spxentry{fix recenter}, \hyperpage{1816}
+  \item \spxentry{fix restrain}, \hyperpage{1818}
+  \item \spxentry{fix rheo}, \hyperpage{1822}
+  \item \spxentry{fix rheo/oxidation}, \hyperpage{1824}
+  \item \spxentry{fix rheo/pressure}, \hyperpage{1825}
+  \item \spxentry{fix rheo/thermal}, \hyperpage{1827}
+  \item \spxentry{fix rheo/viscosity}, \hyperpage{1829}
+  \item \spxentry{fix rhok}, \hyperpage{1831}
+  \item \spxentry{fix rigid}, \hyperpage{1832}
+  \item \spxentry{fix rigid/meso}, \hyperpage{1844}
+  \item \spxentry{fix rigid/nph}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nph/omp}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nph/small}, \hyperpage{1832}
+  \item \spxentry{fix rigid/npt}, \hyperpage{1832}
+  \item \spxentry{fix rigid/npt/omp}, \hyperpage{1832}
+  \item \spxentry{fix rigid/npt/small}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nve}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nve/omp}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nve/small}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nvt}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nvt/omp}, \hyperpage{1832}
+  \item \spxentry{fix rigid/nvt/small}, \hyperpage{1832}
+  \item \spxentry{fix rigid/omp}, \hyperpage{1832}
+  \item \spxentry{fix rigid/small}, \hyperpage{1832}
+  \item \spxentry{fix rigid/small/omp}, \hyperpage{1832}
+  \item \spxentry{fix rx}, \hyperpage{1849}
+  \item \spxentry{fix rx/kk}, \hyperpage{1849}
+  \item \spxentry{fix saed/vtk}, \hyperpage{1853}
+  \item \spxentry{fix setforce}, \hyperpage{1855}
+  \item \spxentry{fix setforce/kk}, \hyperpage{1855}
+  \item \spxentry{fix setforce/spin}, \hyperpage{1855}
+  \item \spxentry{fix sgcmc}, \hyperpage{1858}
+  \item \spxentry{fix shake}, \hyperpage{1861}
+  \item \spxentry{fix shake/kk}, \hyperpage{1861}
+  \item \spxentry{fix shardlow}, \hyperpage{1865}
+  \item \spxentry{fix shardlow/kk}, \hyperpage{1865}
+  \item \spxentry{fix smd}, \hyperpage{1866}
+  \item \spxentry{fix smd/adjust\_dt}, \hyperpage{1869}
+  \item \spxentry{fix smd/integrate\_tlsph}, \hyperpage{1870}
+  \item \spxentry{fix smd/integrate\_ulsph}, \hyperpage{1871}
+  \item \spxentry{fix smd/move\_tri\_surf}, \hyperpage{1872}
+  \item \spxentry{fix smd/setvel}, \hyperpage{1874}
+  \item \spxentry{fix smd/wall\_surface}, \hyperpage{1875}
+  \item \spxentry{fix sph}, \hyperpage{1876}
+  \item \spxentry{fix sph/stationary}, \hyperpage{1877}
+  \item \spxentry{fix spring}, \hyperpage{1878}
+  \item \spxentry{fix spring/chunk}, \hyperpage{1880}
+  \item \spxentry{fix spring/rg}, \hyperpage{1882}
+  \item \spxentry{fix spring/self}, \hyperpage{1883}
+  \item \spxentry{fix spring/self/kk}, \hyperpage{1883}
+  \item \spxentry{fix srd}, \hyperpage{1885}
+  \item \spxentry{fix store/force}, \hyperpage{1890}
+  \item \spxentry{fix store/state}, \hyperpage{1891}
+  \item \spxentry{fix tdpd/source}, \hyperpage{1459}
+  \item \spxentry{fix temp/berendsen}, \hyperpage{1894}
+  \item \spxentry{fix temp/berendsen/kk}, \hyperpage{1894}
+  \item \spxentry{fix temp/csld}, \hyperpage{1896}
+  \item \spxentry{fix temp/csvr}, \hyperpage{1896}
+  \item \spxentry{fix temp/rescale}, \hyperpage{1899}
+  \item \spxentry{fix temp/rescale/eff}, \hyperpage{1902}
+  \item \spxentry{fix temp/rescale/kk}, \hyperpage{1899}
+  \item \spxentry{fix tfmc}, \hyperpage{1903}
+  \item \spxentry{fix tgnpt/drude}, \hyperpage{1905}
+  \item \spxentry{fix tgnvt/drude}, \hyperpage{1905}
+  \item \spxentry{fix thermal/conductivity}, \hyperpage{1910}
+  \item \spxentry{fix ti/spring}, \hyperpage{1912}
+  \item \spxentry{fix tmd}, \hyperpage{1914}
+  \item \spxentry{fix ttm}, \hyperpage{1916}
+  \item \spxentry{fix ttm/grid}, \hyperpage{1916}
+  \item \spxentry{fix ttm/mod}, \hyperpage{1916}
+  \item \spxentry{fix tune/kspace}, \hyperpage{1922}
+  \item \spxentry{fix vector}, \hyperpage{1924}
+  \item \spxentry{fix viscosity}, \hyperpage{1926}
+  \item \spxentry{fix viscous}, \hyperpage{1929}
+  \item \spxentry{fix viscous/kk}, \hyperpage{1929}
+  \item \spxentry{fix viscous/sphere}, \hyperpage{1931}
+  \item \spxentry{fix wall/body/polygon}, \hyperpage{1941}
+  \item \spxentry{fix wall/body/polyhedron}, \hyperpage{1943}
+  \item \spxentry{fix wall/colloid}, \hyperpage{1932}
+  \item \spxentry{fix wall/ees}, \hyperpage{1945}
+  \item \spxentry{fix wall/flow}, \hyperpage{1947}
+  \item \spxentry{fix wall/flow/kk}, \hyperpage{1947}
+  \item \spxentry{fix wall/gran}, \hyperpage{1950}
+  \item \spxentry{fix wall/gran/kk}, \hyperpage{1950}
+  \item \spxentry{fix wall/gran/region}, \hyperpage{1954}
+  \item \spxentry{fix wall/harmonic}, \hyperpage{1932}
+  \item \spxentry{fix wall/lepton}, \hyperpage{1932}
+  \item \spxentry{fix wall/lj1043}, \hyperpage{1932}
+  \item \spxentry{fix wall/lj126}, \hyperpage{1932}
+  \item \spxentry{fix wall/lj93}, \hyperpage{1932}
+  \item \spxentry{fix wall/lj93/kk}, \hyperpage{1932}
+  \item \spxentry{fix wall/morse}, \hyperpage{1932}
+  \item \spxentry{fix wall/piston}, \hyperpage{1958}
+  \item \spxentry{fix wall/reflect}, \hyperpage{1960}
+  \item \spxentry{fix wall/reflect/kk}, \hyperpage{1960}
+  \item \spxentry{fix wall/reflect/stochastic}, \hyperpage{1963}
+  \item \spxentry{fix wall/region}, \hyperpage{1965}
+  \item \spxentry{fix wall/region/ees}, \hyperpage{1945}
+  \item \spxentry{fix wall/srd}, \hyperpage{1968}
+  \item \spxentry{fix wall/table}, \hyperpage{1932}
+  \item \spxentry{fix widom}, \hyperpage{1971}
+  \item \spxentry{fix\_external\_get\_force()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{674}
+  \item \spxentry{fix\_external\_get\_force()}\spxextra{lammps.lammps method}, \hyperpage{718}
+  \item \spxentry{fix\_external\_get\_force()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{724}
+  \item \spxentry{fix\_external\_set\_energy\_global()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{674}
+  \item \spxentry{fix\_external\_set\_energy\_global()}\spxextra{lammps.lammps method}, 
+		\hyperpage{718}
+  \item \spxentry{fix\_external\_set\_energy\_peratom()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{675}
+  \item \spxentry{fix\_external\_set\_energy\_peratom()}\spxextra{lammps.lammps method}, 
+		\hyperpage{718}
+  \item \spxentry{fix\_external\_set\_energy\_peratom()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{725}
+  \item \spxentry{fix\_external\_set\_vector()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{676}
+  \item \spxentry{fix\_external\_set\_vector()}\spxextra{lammps.lammps method}, \hyperpage{719}
+  \item \spxentry{fix\_external\_set\_vector\_length()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{676}
+  \item \spxentry{fix\_external\_set\_vector\_length()}\spxextra{lammps.lammps method}, 
+		\hyperpage{719}
+  \item \spxentry{fix\_external\_set\_virial\_global()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{675}
+  \item \spxentry{fix\_external\_set\_virial\_global()}\spxextra{lammps.lammps method}, 
+		\hyperpage{718}
+  \item \spxentry{fix\_external\_set\_virial\_peratom()}\spxextra{lammps.lammps method}, 
+		\hyperpage{719}
+  \item \spxentry{fix\_external\_set\_virial\_peratom()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{725}
+  \item \spxentry{fix\_modify}, \hyperpage{1000}
+  \item \spxentry{fix\_modify AtC add\_molecule}, \hyperpage{1575}
+  \item \spxentry{fix\_modify AtC add\_species}, \hyperpage{1576}
+  \item \spxentry{fix\_modify AtC atom\_element\_map}, \hyperpage{1577}
+  \item \spxentry{fix\_modify AtC atom\_weight}, \hyperpage{1578}
+  \item \spxentry{fix\_modify AtC atomic\_charge}, \hyperpage{1579}
+  \item \spxentry{fix\_modify AtC boundary type}, \hyperpage{1582}
+  \item \spxentry{fix\_modify AtC boundary\_dynamics}, \hyperpage{1580}
+  \item \spxentry{fix\_modify AtC boundary\_faceset}, \hyperpage{1581}
+  \item \spxentry{fix\_modify AtC computes}, \hyperpage{1594}
+  \item \spxentry{fix\_modify AtC consistent\_fe\_initialization}, \hyperpage{1582}
+  \item \spxentry{fix\_modify AtC control localized\_lambda}, \hyperpage{1583}
+  \item \spxentry{fix\_modify AtC control lumped\_lambda\_solve}, \hyperpage{1606}
+  \item \spxentry{fix\_modify AtC control mask\_direction}, \hyperpage{1607}
+  \item \spxentry{fix\_modify AtC control momentum}, \hyperpage{1584}
+  \item \spxentry{fix\_modify AtC control thermal}, \hyperpage{1585}
+  \item \spxentry{fix\_modify AtC decomposition}, \hyperpage{1587}
+  \item \spxentry{fix\_modify AtC equilibrium\_start}, \hyperpage{1588}
+  \item \spxentry{fix\_modify AtC extrinsic electron\_integration}, \hyperpage{1588}
+  \item \spxentry{fix\_modify AtC extrinsic exchange}, \hyperpage{1589}
+  \item \spxentry{fix\_modify AtC fe\_md\_boundary}, \hyperpage{1590}
+  \item \spxentry{fix\_modify AtC fields}, \hyperpage{1595}
+  \item \spxentry{fix\_modify AtC filter}, \hyperpage{1634}
+  \item \spxentry{fix\_modify AtC filter scale}, \hyperpage{1591}
+  \item \spxentry{fix\_modify AtC filter type}, \hyperpage{1592}
+  \item \spxentry{fix\_modify AtC fix}, \hyperpage{1593}
+  \item \spxentry{fix\_modify AtC fix\_flux}, \hyperpage{1593}
+  \item \spxentry{fix\_modify AtC gradients}, \hyperpage{1597}
+  \item \spxentry{fix\_modify AtC initial}, \hyperpage{1602}
+  \item \spxentry{fix\_modify AtC internal\_element\_set}, \hyperpage{1603}
+  \item \spxentry{fix\_modify AtC internal\_quadrature}, \hyperpage{1604}
+  \item \spxentry{fix\_modify AtC kernel}, \hyperpage{1599}
+  \item \spxentry{fix\_modify AtC kernel\_bandwidth}, \hyperpage{1605}
+  \item \spxentry{fix\_modify AtC mass\_matrix}, \hyperpage{1607}
+  \item \spxentry{fix\_modify AtC material}, \hyperpage{1608}
+  \item \spxentry{fix\_modify AtC mesh add\_to\_nodeset}, \hyperpage{1609}
+  \item \spxentry{fix\_modify AtC mesh create}, \hyperpage{1610}
+  \item \spxentry{fix\_modify AtC mesh create\_elementset}, \hyperpage{1611}
+  \item \spxentry{fix\_modify AtC mesh create\_faceset box}, \hyperpage{1612}
+  \item \spxentry{fix\_modify AtC mesh create\_faceset plane}, \hyperpage{1613}
+  \item \spxentry{fix\_modify AtC mesh create\_nodeset}, \hyperpage{1613}
+  \item \spxentry{fix\_modify AtC mesh delete\_elements}, \hyperpage{1614}
+  \item \spxentry{fix\_modify AtC mesh nodeset\_to\_elementset}, \hyperpage{1615}
+  \item \spxentry{fix\_modify AtC mesh output}, \hyperpage{1616}
+  \item \spxentry{fix\_modify AtC mesh quadrature}, \hyperpage{1617}
+  \item \spxentry{fix\_modify AtC mesh read}, \hyperpage{1618}
+  \item \spxentry{fix\_modify AtC mesh write}, \hyperpage{1618}
+  \item \spxentry{fix\_modify AtC on\_the\_fly}, \hyperpage{1600}
+  \item \spxentry{fix\_modify AtC output}, \hyperpage{1619}
+  \item \spxentry{fix\_modify AtC output boundary\_integral}, \hyperpage{1620}
+  \item \spxentry{fix\_modify AtC output contour\_integral}, \hyperpage{1621}
+  \item \spxentry{fix\_modify AtC output nodeset}, \hyperpage{1622}
+  \item \spxentry{fix\_modify AtC output volume\_integral}, \hyperpage{1623}
+  \item \spxentry{fix\_modify AtC pair\_interactions}, \hyperpage{1624}
+  \item \spxentry{fix\_modify AtC poisson\_solver}, \hyperpage{1625}
+  \item \spxentry{fix\_modify AtC rates}, \hyperpage{1601}
+  \item \spxentry{fix\_modify AtC read\_restart}, \hyperpage{1626}
+  \item \spxentry{fix\_modify AtC remove\_molecule}, \hyperpage{1626}
+  \item \spxentry{fix\_modify AtC remove\_source}, \hyperpage{1627}
+  \item \spxentry{fix\_modify AtC remove\_species}, \hyperpage{1628}
+  \item \spxentry{fix\_modify AtC reset\_atomic\_reference\_positions}, \hyperpage{1629}
+  \item \spxentry{fix\_modify AtC reset\_time}, \hyperpage{1630}
+  \item \spxentry{fix\_modify AtC sample\_frequency}, \hyperpage{1630}
+  \item \spxentry{fix\_modify AtC set reference\_potential\_energy}, \hyperpage{1631}
+  \item \spxentry{fix\_modify AtC source}, \hyperpage{1632}
+  \item \spxentry{fix\_modify AtC source\_integration}, \hyperpage{1633}
+  \item \spxentry{fix\_modify AtC temperature\_definition}, \hyperpage{1634}
+  \item \spxentry{fix\_modify AtC time\_integration}, \hyperpage{1635}
+  \item \spxentry{fix\_modify AtC track\_displacement}, \hyperpage{1636}
+  \item \spxentry{fix\_modify AtC unfix}, \hyperpage{1637}
+  \item \spxentry{fix\_modify AtC unfix\_flux}, \hyperpage{1638}
+  \item \spxentry{fix\_modify AtC write\_atom\_weights}, \hyperpage{1639}
+  \item \spxentry{fix\_modify AtC write\_restart}, \hyperpage{1639}
+  \item \spxentry{fixes}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+  \item \spxentry{flush\_buffers()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{677}
+  \item \spxentry{flush\_buffers()}\spxextra{lammps.lammps method}, \hyperpage{710}
+  \item \spxentry{force}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{force}\spxextra{lammps.Atom2D property}, \hyperpage{731}
+  \item \spxentry{force\_timeout()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{677}
+  \item \spxentry{force\_timeout()}\spxextra{lammps.lammps method}, \hyperpage{714}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{gather()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{657}
+  \item \spxentry{gather\_angles()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{656}
+  \item \spxentry{gather\_angles()}\spxextra{lammps.lammps method}, \hyperpage{711}
+  \item \spxentry{gather\_angles()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{724}
+  \item \spxentry{gather\_atoms()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{652}
+  \item \spxentry{gather\_atoms\_concat()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{653}
+  \item \spxentry{gather\_atoms\_subset()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{654}
+  \item \spxentry{gather\_bonds()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{655}
+  \item \spxentry{gather\_bonds()}\spxextra{lammps.lammps method}, \hyperpage{711}
+  \item \spxentry{gather\_bonds()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{723}
+  \item \spxentry{gather\_concat()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{659}
+  \item \spxentry{gather\_dihedrals()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{657}
+  \item \spxentry{gather\_dihedrals()}\spxextra{lammps.lammps method}, \hyperpage{712}
+  \item \spxentry{gather\_dihedrals()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{724}
+  \item \spxentry{gather\_impropers()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{658}
+  \item \spxentry{gather\_impropers()}\spxextra{lammps.lammps method}, \hyperpage{712}
+  \item \spxentry{gather\_impropers()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{724}
+  \item \spxentry{gather\_subset()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{659}
+  \item \spxentry{get()}\spxextra{lammps.NeighList method}, \hyperpage{734}
+  \item \spxentry{get()}\spxextra{lammps.numpy\_wrapper.NumPyNeighList method}, \hyperpage{734}
+  \item \spxentry{get\_gpu\_device\_info()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{668}
+  \item \spxentry{get\_gpu\_device\_info()}\spxextra{lammps.lammps method}, \hyperpage{715}
+  \item \spxentry{get\_last\_error\_message()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{678}
+  \item \spxentry{get\_mpi\_comm()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{642}
+  \item \spxentry{get\_mpi\_comm()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{get\_natoms()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{639}
+  \item \spxentry{get\_natoms()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{get\_neighlist()}\spxextra{lammps.lammps method}, \hyperpage{720}
+  \item \spxentry{get\_neighlist()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{725}
+  \item \spxentry{get\_neighlist\_element\_neighbors()}\spxextra{lammps.lammps method}, 
+		\hyperpage{720}
+  \item \spxentry{get\_neighlist\_element\_neighbors()}\spxextra{lammps.numpy\_wrapper.numpy\_wrapper method}, 
+		\hyperpage{725}
+  \item \spxentry{get\_neighlist\_size()}\spxextra{lammps.lammps method}, \hyperpage{720}
+  \item \spxentry{get\_os\_info()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{664}
+  \item \spxentry{get\_os\_info()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{get\_thermo()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{639}
+  \item \spxentry{get\_thermo()}\spxextra{lammps.lammps method}, \hyperpage{706}
+  \item \spxentry{geturl}, \hyperpage{1007}
+  \item \spxentry{group}, \hyperpage{1008}
+  \item \spxentry{group2ndx}, \hyperpage{1013}
+  \item \spxentry{groups}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+
+  \indexspace
+  \bigletter H
+  \item \spxentry{has\_curl\_support}\spxextra{lammps.lammps property}, \hyperpage{715}
+  \item \spxentry{has\_error()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{678}
+  \item \spxentry{has\_exceptions}\spxextra{lammps.lammps property}, \hyperpage{714}
+  \item \spxentry{has\_ffmpeg\_support}\spxextra{lammps.lammps property}, \hyperpage{714}
+  \item \spxentry{has\_gpu\_device}\spxextra{lammps.lammps property}, \hyperpage{715}
+  \item \spxentry{has\_gpu\_device()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{668}
+  \item \spxentry{has\_gzip\_support}\spxextra{lammps.lammps property}, \hyperpage{714}
+  \item \spxentry{has\_id()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{669}
+  \item \spxentry{has\_id()}\spxextra{lammps.lammps method}, \hyperpage{716}
+  \item \spxentry{has\_jpeg\_support}\spxextra{lammps.lammps property}, \hyperpage{714}
+  \item \spxentry{has\_mpi\_support}\spxextra{lammps.lammps property}, \hyperpage{713}
+  \item \spxentry{has\_package()}\spxextra{lammps.lammps method}, \hyperpage{715}
+  \item \spxentry{has\_png\_support}\spxextra{lammps.lammps property}, \hyperpage{714}
+  \item \spxentry{has\_style()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{668}
+  \item \spxentry{has\_style()}\spxextra{lammps.lammps method}, \hyperpage{716}
+  \item \spxentry{hyper}, \hyperpage{1015}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{id}\spxextra{lammps.Atom property}, \hyperpage{729}
+  \item \spxentry{id\_count()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{670}
+  \item \spxentry{id\_name()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{670}
+  \item \spxentry{if}, \hyperpage{1017}
+  \item \spxentry{image()}\spxextra{lammps.IPyLammps method}, \hyperpage{732}
+  \item \spxentry{improper\_coeff}, \hyperpage{1021}
+  \item \spxentry{improper\_style}, \hyperpage{1022}
+  \item \spxentry{improper\_style amoeba}, \hyperpage{2835}
+  \item \spxentry{improper\_style class2}, \hyperpage{2836}
+  \item \spxentry{improper\_style class2/kk}, \hyperpage{2836}
+  \item \spxentry{improper\_style class2/omp}, \hyperpage{2836}
+  \item \spxentry{improper\_style cossq}, \hyperpage{2838}
+  \item \spxentry{improper\_style cossq/omp}, \hyperpage{2838}
+  \item \spxentry{improper\_style cvff}, \hyperpage{2839}
+  \item \spxentry{improper\_style cvff/intel}, \hyperpage{2839}
+  \item \spxentry{improper\_style cvff/omp}, \hyperpage{2839}
+  \item \spxentry{improper\_style distance}, \hyperpage{2841}
+  \item \spxentry{improper\_style distharm}, \hyperpage{2842}
+  \item \spxentry{improper\_style fourier}, \hyperpage{2843}
+  \item \spxentry{improper\_style fourier/omp}, \hyperpage{2843}
+  \item \spxentry{improper\_style harmonic}, \hyperpage{2845}
+  \item \spxentry{improper\_style harmonic/intel}, \hyperpage{2845}
+  \item \spxentry{improper\_style harmonic/kk}, \hyperpage{2845}
+  \item \spxentry{improper\_style harmonic/omp}, \hyperpage{2845}
+  \item \spxentry{improper\_style hybrid}, \hyperpage{2846}
+  \item \spxentry{improper\_style hybrid/kk}, \hyperpage{2846}
+  \item \spxentry{improper\_style inversion/harmonic}, \hyperpage{2848}
+  \item \spxentry{improper\_style none}, \hyperpage{2849}
+  \item \spxentry{improper\_style ring}, \hyperpage{2850}
+  \item \spxentry{improper\_style ring/omp}, \hyperpage{2850}
+  \item \spxentry{improper\_style sqdistharm}, \hyperpage{2852}
+  \item \spxentry{improper\_style umbrella}, \hyperpage{2853}
+  \item \spxentry{improper\_style umbrella/omp}, \hyperpage{2853}
+  \item \spxentry{improper\_style zero}, \hyperpage{2855}
+  \item \spxentry{include}, \hyperpage{1024}
+  \item \spxentry{info}, \hyperpage{1025}
+  \item \spxentry{Input}\spxextra{C++ class}, \hyperpage{851}
+  \item \spxentry{Input::file}\spxextra{C++ function}, \hyperpage{852}
+  \item \spxentry{Input::Input}\spxextra{C++ function}, \hyperpage{852}
+  \item \spxentry{Input::one}\spxextra{C++ function}, \hyperpage{852}
+  \item \spxentry{installed\_packages}\spxextra{lammps.lammps property}, \hyperpage{716}
+  \item \spxentry{installed\_packages()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{667}
+  \item \spxentry{InvalidFloatException}\spxextra{C++ class}, \hyperpage{883}
+  \item \spxentry{InvalidFloatException::InvalidFloatException}\spxextra{C++ function}, 
+		\hyperpage{883}
+  \item \spxentry{InvalidIntegerException}\spxextra{C++ class}, \hyperpage{882}
+  \item \spxentry{InvalidIntegerException::InvalidIntegerException}\spxextra{C++ function}, 
+		\hyperpage{883}
+  \item \spxentry{IPyLammps}\spxextra{class in lammps}, \hyperpage{732}
+  \item \spxentry{is\_running}\spxextra{lammps.lammps property}, \hyperpage{713}
+  \item \spxentry{is\_running()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{677}
+
+  \indexspace
+  \bigletter J
+  \item \spxentry{jump}, \hyperpage{1027}
+
+  \indexspace
+  \bigletter K
+  \item \spxentry{kim\_commands}, \hyperpage{1030}
+  \item \spxentry{kspace\_modify}, \hyperpage{1049}
+  \item \spxentry{kspace\_style ewald}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/dipole}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/dipole/spin}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/disp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/disp/dipole}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/electrode}, \hyperpage{1056}
+  \item \spxentry{kspace\_style ewald/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style msm}, \hyperpage{1056}
+  \item \spxentry{kspace\_style msm/cg}, \hyperpage{1056}
+  \item \spxentry{kspace\_style msm/cg/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style msm/dielectric}, \hyperpage{1056}
+  \item \spxentry{kspace\_style msm/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/cg}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/cg/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/dielectric}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/dipole}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/dipole/spin}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp/dielectric}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp/intel}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp/tip4p}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/disp/tip4p/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/electrode}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/electrode/intel}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/gpu}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/intel}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/kk}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/stagger}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/tip4p}, \hyperpage{1056}
+  \item \spxentry{kspace\_style pppm/tip4p/omp}, \hyperpage{1056}
+  \item \spxentry{kspace\_style scafacos}, \hyperpage{1056}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{label}, \hyperpage{1063}
+  \item \spxentry{labelmap}, \hyperpage{1064}
+  \item \spxentry{lammps}
+    \subitem \spxentry{module}, \hyperpage{702}
+  \item \spxentry{LAMMPS}\spxextra{C++ class}, \hyperpage{846}
+  \item \spxentry{lammps}\spxextra{class in lammps}, \hyperpage{703}
+  \item \spxentry{lammps}\spxextra{fortran type}, \hyperindexformat{\spxpagem}{634}
+  \item \spxentry{lammps()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{636}
+  \item \spxentry{lammps.formats}
+    \subitem \spxentry{module}, \hyperpage{736}
+  \item \spxentry{LAMMPS::\textasciitilde{}LAMMPS}\spxextra{C++ function}, \hyperpage{847}
+  \item \spxentry{LAMMPS::argv\_pointers}\spxextra{C++ function}, \hyperpage{847}
+  \item \spxentry{LAMMPS::is\_installed\_pkg}\spxextra{C++ function}, \hyperpage{847}
+  \item \spxentry{LAMMPS::LAMMPS}\spxextra{C++ function}, \hyperpage{846}
+  \item \spxentry{LAMMPS::match\_style}\spxextra{C++ function}, \hyperpage{846}
+  \item \spxentry{LAMMPS::non\_pair\_suffix}\spxextra{C++ function}, \hyperpage{846}
+  \item \spxentry{lammps\_close}\spxextra{C++ function}, \hyperpage{573}
+  \item \spxentry{lammps\_command}\spxextra{C++ function}, \hyperpage{576}
+  \item \spxentry{lammps\_commands\_list}\spxextra{C++ function}, \hyperpage{577}
+  \item \spxentry{lammps\_commands\_string}\spxextra{C++ function}, \hyperpage{577}
+  \item \spxentry{lammps\_config\_accelerator}\spxextra{C++ function}, \hyperpage{618}
+  \item \spxentry{lammps\_config\_has\_exceptions}\spxextra{C++ function}, \hyperpage{617}
+  \item \spxentry{lammps\_config\_has\_ffmpeg\_support}\spxextra{C++ function}, \hyperpage{617}
+  \item \spxentry{lammps\_config\_has\_gzip\_support}\spxextra{C++ function}, \hyperpage{616}
+  \item \spxentry{lammps\_config\_has\_jpeg\_support}\spxextra{C++ function}, \hyperpage{616}
+  \item \spxentry{lammps\_config\_has\_mpi\_support}\spxextra{C++ function}, \hyperpage{616}
+  \item \spxentry{lammps\_config\_has\_package}\spxextra{C++ function}, \hyperpage{617}
+  \item \spxentry{lammps\_config\_has\_png\_support}\spxextra{C++ function}, \hyperpage{616}
+  \item \spxentry{lammps\_config\_package\_count}\spxextra{C++ function}, \hyperpage{617}
+  \item \spxentry{lammps\_config\_package\_name}\spxextra{C++ function}, \hyperpage{618}
+  \item \spxentry{lammps\_create\_atoms}\spxextra{C++ function}, \hyperpage{611}
+  \item \spxentry{lammps\_decode\_image\_flags}\spxextra{C++ function}, \hyperpage{622}
+  \item \spxentry{lammps\_encode\_image\_flags}\spxextra{C++ function}, \hyperpage{622}
+  \item \spxentry{lammps\_error}\spxextra{C++ function}, \hyperpage{575}
+  \item \spxentry{lammps\_extract\_atom}\spxextra{C++ function}, \hyperpage{589}
+  \item \spxentry{lammps\_extract\_atom\_datatype}\spxextra{C++ function}, \hyperpage{589}
+  \item \spxentry{lammps\_extract\_box}\spxextra{C++ function}, \hyperpage{580}
+  \item \spxentry{lammps\_extract\_compute}\spxextra{C++ function}, \hyperpage{590}
+  \item \spxentry{lammps\_extract\_fix}\spxextra{C++ function}, \hyperpage{591}
+  \item \spxentry{lammps\_extract\_global}\spxextra{C++ function}, \hyperpage{584}
+  \item \spxentry{lammps\_extract\_global\_datatype}\spxextra{C++ function}, \hyperpage{584}
+  \item \spxentry{lammps\_extract\_pair}\spxextra{C++ function}, \hyperpage{588}
+  \item \spxentry{lammps\_extract\_pair\_dimension}\spxextra{C++ function}, \hyperpage{587}
+  \item \spxentry{lammps\_extract\_setting}\spxextra{C++ function}, \hyperpage{582}
+  \item \spxentry{lammps\_extract\_variable}\spxextra{C++ function}, \hyperpage{593}
+  \item \spxentry{lammps\_extract\_variable\_datatype}\spxextra{C++ function}, \hyperpage{593}
+  \item \spxentry{lammps\_file}\spxextra{C++ function}, \hyperpage{576}
+  \item \spxentry{lammps\_find\_compute\_neighlist}\spxextra{C++ function}, \hyperpage{612}
+  \item \spxentry{lammps\_find\_fix\_neighlist}\spxextra{C++ function}, \hyperpage{612}
+  \item \spxentry{lammps\_find\_pair\_neighlist}\spxextra{C++ function}, \hyperpage{613}
+  \item \spxentry{lammps\_fix\_external\_get\_force}\spxextra{C++ function}, \hyperpage{623}
+  \item \spxentry{lammps\_fix\_external\_set\_energy\_global}\spxextra{C++ function}, 
+		\hyperpage{624}
+  \item \spxentry{lammps\_fix\_external\_set\_energy\_peratom}\spxextra{C++ function}, 
+		\hyperpage{624}
+  \item \spxentry{lammps\_fix\_external\_set\_vector}\spxextra{C++ function}, \hyperpage{626}
+  \item \spxentry{lammps\_fix\_external\_set\_vector\_length}\spxextra{C++ function}, 
+		\hyperpage{626}
+  \item \spxentry{lammps\_fix\_external\_set\_virial\_global}\spxextra{C++ function}, 
+		\hyperpage{625}
+  \item \spxentry{lammps\_fix\_external\_set\_virial\_peratom}\spxextra{C++ function}, 
+		\hyperpage{625}
+  \item \spxentry{lammps\_flush\_buffers}\spxextra{C++ function}, \hyperpage{627}
+  \item \spxentry{lammps\_force\_timeout}\spxextra{C++ function}, \hyperpage{627}
+  \item \spxentry{lammps\_free}\spxextra{C++ function}, \hyperpage{627}
+  \item \spxentry{lammps\_gather}\spxextra{C++ function}, \hyperpage{607}
+  \item \spxentry{lammps\_gather\_angles}\spxextra{C++ function}, \hyperpage{603}
+  \item \spxentry{lammps\_gather\_atoms}\spxextra{C++ function}, \hyperpage{599}
+  \item \spxentry{lammps\_gather\_atoms\_concat}\spxextra{C++ function}, \hyperpage{599}
+  \item \spxentry{lammps\_gather\_atoms\_subset}\spxextra{C++ function}, \hyperpage{600}
+  \item \spxentry{lammps\_gather\_bonds}\spxextra{C++ function}, \hyperpage{602}
+  \item \spxentry{lammps\_gather\_concat}\spxextra{C++ function}, \hyperpage{608}
+  \item \spxentry{lammps\_gather\_dihedrals}\spxextra{C++ function}, \hyperpage{605}
+  \item \spxentry{lammps\_gather\_impropers}\spxextra{C++ function}, \hyperpage{606}
+  \item \spxentry{lammps\_gather\_subset}\spxextra{C++ function}, \hyperpage{609}
+  \item \spxentry{lammps\_get\_gpu\_device\_info}\spxextra{C++ function}, \hyperpage{619}
+  \item \spxentry{lammps\_get\_last\_error\_message}\spxextra{C++ function}, \hyperpage{628}
+  \item \spxentry{lammps\_get\_mpi\_comm}\spxextra{C++ function}, \hyperpage{581}
+  \item \spxentry{lammps\_get\_natoms}\spxextra{C++ function}, \hyperpage{578}
+  \item \spxentry{lammps\_get\_os\_info}\spxextra{C++ function}, \hyperpage{615}
+  \item \spxentry{lammps\_get\_thermo}\spxextra{C++ function}, \hyperpage{579}
+  \item \spxentry{lammps\_has\_error}\spxextra{C++ function}, \hyperpage{628}
+  \item \spxentry{lammps\_has\_gpu\_device}\spxextra{C++ function}, \hyperpage{618}
+  \item \spxentry{lammps\_has\_id}\spxextra{C++ function}, \hyperpage{620}
+  \item \spxentry{lammps\_has\_style}\spxextra{C++ function}, \hyperpage{619}
+  \item \spxentry{lammps\_id\_count}\spxextra{C++ function}, \hyperpage{620}
+  \item \spxentry{lammps\_id\_name}\spxextra{C++ function}, \hyperpage{621}
+  \item \spxentry{lammps\_is\_running}\spxextra{C++ function}, \hyperpage{627}
+  \item \spxentry{lammps\_kokkos\_finalize}\spxextra{C++ function}, \hyperpage{574}
+  \item \spxentry{lammps\_last\_thermo}\spxextra{C++ function}, \hyperpage{579}
+  \item \spxentry{lammps\_map\_atom}\spxextra{C++ function}, \hyperpage{588}
+  \item \spxentry{lammps\_memory\_usage}\spxextra{C++ function}, \hyperpage{581}
+  \item \spxentry{lammps\_mpi\_finalize}\spxextra{C++ function}, \hyperpage{574}
+  \item \spxentry{lammps\_mpi\_init}\spxextra{C++ function}, \hyperpage{573}
+  \item \spxentry{lammps\_neighlist\_element\_neighbors}\spxextra{C++ function}, \hyperpage{613}
+  \item \spxentry{lammps\_neighlist\_num\_elements}\spxextra{C++ function}, \hyperpage{613}
+  \item \spxentry{lammps\_open}\spxextra{C++ function}, \hyperpage{571}
+  \item \spxentry{lammps\_open\_fortran}\spxextra{C++ function}, \hyperpage{573}
+  \item \spxentry{lammps\_open\_no\_mpi}\spxextra{C++ function}, \hyperpage{572}
+  \item \spxentry{lammps\_python\_api\_version}\spxextra{C++ function}, \hyperpage{629}
+  \item \spxentry{lammps\_python\_finalize}\spxextra{C++ function}, \hyperpage{574}
+  \item \spxentry{lammps\_reset\_box}\spxextra{C++ function}, \hyperpage{581}
+  \item \spxentry{lammps\_scatter}\spxextra{C++ function}, \hyperpage{610}
+  \item \spxentry{lammps\_scatter\_atoms}\spxextra{C++ function}, \hyperpage{601}
+  \item \spxentry{lammps\_scatter\_atoms\_subset}\spxextra{C++ function}, \hyperpage{601}
+  \item \spxentry{lammps\_scatter\_subset}\spxextra{C++ function}, \hyperpage{610}
+  \item \spxentry{lammps\_set\_fix\_external\_callback}\spxextra{C++ function}, \hyperpage{622}
+  \item \spxentry{lammps\_set\_internal\_variable}\spxextra{C++ function}, \hyperpage{595}
+  \item \spxentry{lammps\_set\_string\_variable}\spxextra{C++ function}, \hyperpage{595}
+  \item \spxentry{lammps\_set\_variable}\spxextra{C++ function}, \hyperpage{594}
+  \item \spxentry{lammps\_style}\spxextra{fortran type}, \hyperindexformat{\spxpagem}{637}
+  \item \spxentry{lammps\_style\_count}\spxextra{C++ function}, \hyperpage{619}
+  \item \spxentry{lammps\_style\_name}\spxextra{C++ function}, \hyperpage{619}
+  \item \spxentry{lammps\_type}\spxextra{fortran type}, \hyperindexformat{\spxpagem}{637}
+  \item \spxentry{lammps\_variable\_info}\spxextra{C++ function}, \hyperpage{595}
+  \item \spxentry{lammps\_version}\spxextra{C++ function}, \hyperpage{615}
+  \item \spxentry{last\_run}\spxextra{lammps.PyLammps property}, \hyperpage{727}
+  \item \spxentry{last\_thermo()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{639}
+  \item \spxentry{last\_thermo()}\spxextra{lammps.lammps method}, \hyperpage{706}
+  \item \spxentry{last\_thermo\_step}\spxextra{lammps.lammps property}, \hyperpage{706}
+  \item \spxentry{lattice}, \hyperpage{1066}
+  \item \spxentry{LIBLAMMPS}\spxextra{module}, \hyperindexformat{\spxpagem}{634}
+  \item \spxentry{lmp\_print()}\spxextra{lammps.PyLammps method}, \hyperpage{729}
+  \item \spxentry{LMP\_SIZE\_COLS}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_SIZE\_ROWS}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_SIZE\_VECTOR}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_STYLE\_ATOM}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_STYLE\_GLOBAL}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_STYLE\_LOCAL}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_TYPE\_ARRAY}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_TYPE\_SCALAR}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_TYPE\_VECTOR}\spxextra{C++ enumerator}, \hyperpage{597}
+  \item \spxentry{LMP\_VAR\_ATOM}\spxextra{C++ enumerator}, \hyperpage{598}
+  \item \spxentry{LMP\_VAR\_EQUAL}\spxextra{C++ enumerator}, \hyperpage{598}
+  \item \spxentry{LMP\_VAR\_STRING}\spxextra{C++ enumerator}, \hyperpage{598}
+  \item \spxentry{LMP\_VAR\_VECTOR}\spxextra{C++ enumerator}, \hyperpage{598}
+  \item \spxentry{log}, \hyperpage{1071}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{map\_atom()}\spxextra{lammps.lammps method}, \hyperpage{708}
+  \item \spxentry{mass}, \hyperpage{1072}
+  \item \spxentry{mass}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{MathEigen::jacobi3}\spxextra{C++ function}, \hyperpage{895}
+  \item \spxentry{MathSpecial::cube}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{MathSpecial::exp2\_x86}\spxextra{C++ function}, \hyperpage{876}
+  \item \spxentry{MathSpecial::expmsq}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{MathSpecial::factorial}\spxextra{C++ function}, \hyperpage{876}
+  \item \spxentry{MathSpecial::fm\_exp}\spxextra{C++ function}, \hyperpage{876}
+  \item \spxentry{MathSpecial::my\_erfcx}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{MathSpecial::powint}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{MathSpecial::powsign}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{MathSpecial::powsinxx}\spxextra{C++ function}, \hyperpage{878}
+  \item \spxentry{MathSpecial::square}\spxextra{C++ function}, \hyperpage{877}
+  \item \spxentry{mdi}, \hyperpage{1073}
+  \item \spxentry{memory\_usage()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{642}
+  \item \spxentry{min\_modify}, \hyperpage{1078}
+  \item \spxentry{min\_style}, \hyperpage{1083}
+  \item \spxentry{min\_style spin}, \hyperpage{1081}
+  \item \spxentry{minimize}, \hyperpage{1085}
+  \item \spxentry{minimize/kk}, \hyperpage{1085}
+  \item \spxentry{module}
+    \subitem \spxentry{lammps}, \hyperpage{702}
+    \subitem \spxentry{lammps.formats}, \hyperpage{736}
+  \item \spxentry{mol}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{molecule}, \hyperpage{1090}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST}\spxextra{C++ enum}, \hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_DOUBLE}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_DOUBLE\_2D}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_INT}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_INT64}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_INT64\_2D}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_INT\_2D}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_NONE}\spxextra{C++ enumerator}, 
+		\hyperpage{596}
+  \item \spxentry{multitype::\_LMP\_DATATYPE\_CONST::LAMMPS\_STRING}\spxextra{C++ enumerator}, 
+		\hyperpage{597}
+  \item \spxentry{MyPage}\spxextra{C++ class}, \hyperpage{891}
+  \item \spxentry{MyPage::get}\spxextra{C++ function}, \hyperpage{892}
+  \item \spxentry{MyPage::init}\spxextra{C++ function}, \hyperpage{892}
+  \item \spxentry{MyPage::MyPage}\spxextra{C++ function}, \hyperpage{892}
+  \item \spxentry{MyPage::reset}\spxextra{C++ function}, \hyperpage{893}
+  \item \spxentry{MyPage::size}\spxextra{C++ function}, \hyperpage{893}
+  \item \spxentry{MyPage::status}\spxextra{C++ function}, \hyperpage{893}
+  \item \spxentry{MyPage::vget}\spxextra{C++ function}, \hyperpage{892}
+  \item \spxentry{MyPage::vgot}\spxextra{C++ function}, \hyperpage{892}
+  \item \spxentry{MyPoolChunk}\spxextra{C++ class}, \hyperpage{893}
+  \item \spxentry{MyPoolChunk::\textasciitilde{}MyPoolChunk}\spxextra{C++ function}, 
+		\hyperpage{894}
+  \item \spxentry{MyPoolChunk::get}\spxextra{C++ function}, \hyperpage{894}
+  \item \spxentry{MyPoolChunk::MyPoolChunk}\spxextra{C++ function}, \hyperpage{893}
+  \item \spxentry{MyPoolChunk::put}\spxextra{C++ function}, \hyperpage{894}
+  \item \spxentry{MyPoolChunk::size}\spxextra{C++ function}, \hyperpage{894}
+  \item \spxentry{MyPoolChunk::status}\spxextra{C++ function}, \hyperpage{894}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{ndx2group}, \hyperpage{1013}
+  \item \spxentry{neb}, \hyperpage{1100}
+  \item \spxentry{neb/spin}, \hyperpage{1106}
+  \item \spxentry{neigh\_modify}, \hyperpage{1111}
+  \item \spxentry{neighbor}, \hyperpage{1115}
+  \item \spxentry{NeighList}\spxextra{class in lammps}, \hyperpage{734}
+  \item \spxentry{neighlist\_element\_neighbors()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{664}
+  \item \spxentry{neighlist\_num\_elements()}\spxextra{fortran function}, 
+		\hyperindexformat{\spxpagem}{663}
+  \item \spxentry{newton}, \hyperpage{1117}
+  \item \spxentry{next}, \hyperpage{1118}
+  \item \spxentry{numpy}\spxextra{lammps.lammps property}, \hyperpage{703}
+  \item \spxentry{numpy\_wrapper}\spxextra{class in lammps.numpy\_wrapper}, \hyperpage{721}
+  \item \spxentry{NumPyNeighList}\spxextra{class in lammps.numpy\_wrapper}, \hyperpage{734}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry{omega}\spxextra{lammps.Atom property}, \hyperpage{730}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{package}, \hyperpage{1121}
+  \item \spxentry{pair\_coeff}, \hyperpage{1131}
+  \item \spxentry{pair\_modify}, \hyperpage{1133}
+  \item \spxentry{pair\_style}, \hyperpage{1138}
+  \item \spxentry{pair\_style adp}, \hyperpage{2259}
+  \item \spxentry{pair\_style adp/kk}, \hyperpage{2259}
+  \item \spxentry{pair\_style adp/omp}, \hyperpage{2259}
+  \item \spxentry{pair\_style agni}, \hyperpage{2261}
+  \item \spxentry{pair\_style agni/omp}, \hyperpage{2261}
+  \item \spxentry{pair\_style aip/water/2dm}, \hyperpage{2263}
+  \item \spxentry{pair\_style aip/water/2dm/opt}, \hyperpage{2263}
+  \item \spxentry{pair\_style airebo}, \hyperpage{2266}
+  \item \spxentry{pair\_style airebo/intel}, \hyperpage{2266}
+  \item \spxentry{pair\_style airebo/morse}, \hyperpage{2266}
+  \item \spxentry{pair\_style airebo/morse/intel}, \hyperpage{2266}
+  \item \spxentry{pair\_style airebo/morse/omp}, \hyperpage{2266}
+  \item \spxentry{pair\_style airebo/omp}, \hyperpage{2266}
+  \item \spxentry{pair\_style amoeba}, \hyperpage{2270}
+  \item \spxentry{pair\_style amoeba/gpu}, \hyperpage{2270}
+  \item \spxentry{pair\_style atm}, \hyperpage{2274}
+  \item \spxentry{pair\_style awpmd/cut}, \hyperpage{2277}
+  \item \spxentry{pair\_style beck}, \hyperpage{2279}
+  \item \spxentry{pair\_style beck/gpu}, \hyperpage{2279}
+  \item \spxentry{pair\_style beck/omp}, \hyperpage{2279}
+  \item \spxentry{pair\_style body/nparticle}, \hyperpage{2281}
+  \item \spxentry{pair\_style body/rounded/polygon}, \hyperpage{2283}
+  \item \spxentry{pair\_style body/rounded/polyhedron}, \hyperpage{2286}
+  \item \spxentry{pair\_style bop}, \hyperpage{2289}
+  \item \spxentry{pair\_style born}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/dsf}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/dsf/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style born/coul/long}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/long/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style born/coul/long/cs/gpu}, \hyperpage{2340}
+  \item \spxentry{pair\_style born/coul/long/gpu}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/long/omp}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/msm}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/msm/omp}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/wolf}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/wolf/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style born/coul/wolf/cs/gpu}, \hyperpage{2340}
+  \item \spxentry{pair\_style born/coul/wolf/gpu}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/coul/wolf/omp}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/gauss}, \hyperpage{2298}
+  \item \spxentry{pair\_style born/gpu}, \hyperpage{2295}
+  \item \spxentry{pair\_style born/omp}, \hyperpage{2295}
+  \item \spxentry{pair\_style bpm/spring}, \hyperpage{2300}
+  \item \spxentry{pair\_style brownian}, \hyperpage{2302}
+  \item \spxentry{pair\_style brownian/omp}, \hyperpage{2302}
+  \item \spxentry{pair\_style brownian/poly}, \hyperpage{2302}
+  \item \spxentry{pair\_style brownian/poly/omp}, \hyperpage{2302}
+  \item \spxentry{pair\_style buck}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/cut}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/cut/gpu}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/cut/intel}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/cut/kk}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/cut/omp}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/long}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/long/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style buck/coul/long/gpu}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/long/intel}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/long/kk}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/long/omp}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/msm}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/coul/msm/omp}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/gpu}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/intel}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/kk}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck/long/coul/long}, \hyperpage{2309}
+  \item \spxentry{pair\_style buck/long/coul/long/omp}, \hyperpage{2309}
+  \item \spxentry{pair\_style buck/mdf}, \hyperpage{2512}
+  \item \spxentry{pair\_style buck/omp}, \hyperpage{2304}
+  \item \spxentry{pair\_style buck6d/coul/gauss/dsf}, \hyperpage{2307}
+  \item \spxentry{pair\_style buck6d/coul/gauss/long}, \hyperpage{2307}
+  \item \spxentry{pair\_style colloid}, \hyperpage{2319}
+  \item \spxentry{pair\_style colloid/gpu}, \hyperpage{2319}
+  \item \spxentry{pair\_style colloid/omp}, \hyperpage{2319}
+  \item \spxentry{pair\_style comb}, \hyperpage{2322}
+  \item \spxentry{pair\_style comb/omp}, \hyperpage{2322}
+  \item \spxentry{pair\_style comb3}, \hyperpage{2322}
+  \item \spxentry{pair\_style cosine/squared}, \hyperpage{2325}
+  \item \spxentry{pair\_style coul/cut}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style coul/cut/global}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/global/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/gpu}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/kk}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/cut/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style coul/cut/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style coul/debye}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/debye/gpu}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/debye/kk}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/debye/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/diel}, \hyperpage{2333}
+  \item \spxentry{pair\_style coul/diel/omp}, \hyperpage{2333}
+  \item \spxentry{pair\_style coul/dsf}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/dsf/gpu}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/dsf/kk}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/dsf/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/exclude}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/long}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/long/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style coul/long/cs/gpu}, \hyperpage{2340}
+  \item \spxentry{pair\_style coul/long/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style coul/long/gpu}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/long/kk}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/long/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style coul/long/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style coul/msm}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/msm/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/shield}, \hyperpage{2335}
+  \item \spxentry{pair\_style coul/slater}, \hyperpage{2337}
+  \item \spxentry{pair\_style coul/slater/cut}, \hyperpage{2337}
+  \item \spxentry{pair\_style coul/slater/long}, \hyperpage{2337}
+  \item \spxentry{pair\_style coul/slater/long/gpu}, \hyperpage{2337}
+  \item \spxentry{pair\_style coul/streitz}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/tt}, \hyperpage{2339}
+  \item \spxentry{pair\_style coul/wolf}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/wolf/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style coul/wolf/kk}, \hyperpage{2327}
+  \item \spxentry{pair\_style coul/wolf/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style dpd}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/coul/slater/long}, \hyperpage{2355}
+  \item \spxentry{pair\_style dpd/coul/slater/long/gpu}, \hyperpage{2355}
+  \item \spxentry{pair\_style dpd/ext}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/ext/kk}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/ext/omp}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/ext/tstat}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/ext/tstat/kk}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/ext/tstat/omp}, \hyperpage{2358}
+  \item \spxentry{pair\_style dpd/fdt}, \hyperpage{2361}
+  \item \spxentry{pair\_style dpd/fdt/energy}, \hyperpage{2361}
+  \item \spxentry{pair\_style dpd/fdt/energy/kk}, \hyperpage{2361}
+  \item \spxentry{pair\_style dpd/gpu}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/intel}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/kk}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/omp}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/tstat}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/tstat/gpu}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/tstat/kk}, \hyperpage{2352}
+  \item \spxentry{pair\_style dpd/tstat/omp}, \hyperpage{2352}
+  \item \spxentry{pair\_style drip}, \hyperpage{2364}
+  \item \spxentry{pair\_style dsmc}, \hyperpage{2366}
+  \item \spxentry{pair\_style e3b}, \hyperpage{2368}
+  \item \spxentry{pair\_style eam}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy/gpu}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy/intel}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy/kk}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy/omp}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/alloy/opt}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/cd}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/cd/old}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs/gpu}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs/intel}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs/kk}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs/omp}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/fs/opt}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/gpu}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/he}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/intel}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/kk}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/omp}, \hyperpage{2371}
+  \item \spxentry{pair\_style eam/opt}, \hyperpage{2371}
+  \item \spxentry{pair\_style edip}, \hyperpage{2378}
+  \item \spxentry{pair\_style edip/multi}, \hyperpage{2378}
+  \item \spxentry{pair\_style edip/omp}, \hyperpage{2378}
+  \item \spxentry{pair\_style edpd}, \hyperpage{2529}
+  \item \spxentry{pair\_style edpd/gpu}, \hyperpage{2529}
+  \item \spxentry{pair\_style eff/cut}, \hyperpage{2381}
+  \item \spxentry{pair\_style eim}, \hyperpage{2386}
+  \item \spxentry{pair\_style eim/omp}, \hyperpage{2386}
+  \item \spxentry{pair\_style exp6/rx}, \hyperpage{2388}
+  \item \spxentry{pair\_style exp6/rx/kk}, \hyperpage{2388}
+  \item \spxentry{pair\_style extep}, \hyperpage{2391}
+  \item \spxentry{pair\_style gauss}, \hyperpage{2400}
+  \item \spxentry{pair\_style gauss/cut}, \hyperpage{2400}
+  \item \spxentry{pair\_style gauss/cut/omp}, \hyperpage{2400}
+  \item \spxentry{pair\_style gauss/gpu}, \hyperpage{2400}
+  \item \spxentry{pair\_style gauss/omp}, \hyperpage{2400}
+  \item \spxentry{pair\_style gayberne}, \hyperpage{2403}
+  \item \spxentry{pair\_style gayberne/gpu}, \hyperpage{2403}
+  \item \spxentry{pair\_style gayberne/intel}, \hyperpage{2403}
+  \item \spxentry{pair\_style gayberne/omp}, \hyperpage{2403}
+  \item \spxentry{pair\_style gran/hertz/history}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hertz/history/omp}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hooke}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hooke/history}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hooke/history/kk}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hooke/history/omp}, \hyperpage{2406}
+  \item \spxentry{pair\_style gran/hooke/omp}, \hyperpage{2406}
+  \item \spxentry{pair\_style granular}, \hyperpage{2410}
+  \item \spxentry{pair\_style gw}, \hyperpage{2424}
+  \item \spxentry{pair\_style gw/zbl}, \hyperpage{2424}
+  \item \spxentry{pair\_style harmonic/cut}, \hyperpage{2426}
+  \item \spxentry{pair\_style harmonic/cut/omp}, \hyperpage{2426}
+  \item \spxentry{pair\_style hbond/dreiding/lj}, \hyperpage{2427}
+  \item \spxentry{pair\_style hbond/dreiding/lj/omp}, \hyperpage{2427}
+  \item \spxentry{pair\_style hbond/dreiding/morse}, \hyperpage{2427}
+  \item \spxentry{pair\_style hbond/dreiding/morse/omp}, \hyperpage{2427}
+  \item \spxentry{pair\_style hdnnp}, \hyperpage{2432}
+  \item \spxentry{pair\_style hippo}, \hyperpage{2270}
+  \item \spxentry{pair\_style hippo/gpu}, \hyperpage{2270}
+  \item \spxentry{pair\_style hybrid}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/kk}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/molecular}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/molecular/omp}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/omp}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/overlay}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/overlay/kk}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/overlay/omp}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/scaled}, \hyperpage{2435}
+  \item \spxentry{pair\_style hybrid/scaled/omp}, \hyperpage{2435}
+  \item \spxentry{pair\_style ilp/graphene/hbn}, \hyperpage{2442}
+  \item \spxentry{pair\_style ilp/graphene/hbn/opt}, \hyperpage{2442}
+  \item \spxentry{pair\_style ilp/tmd}, \hyperpage{2445}
+  \item \spxentry{pair\_style ilp/tmd/opt}, \hyperpage{2445}
+  \item \spxentry{pair\_style kim}, \hyperpage{2448}
+  \item \spxentry{pair\_style kolmogorov/crespi/full}, \hyperpage{2450}
+  \item \spxentry{pair\_style kolmogorov/crespi/z}, \hyperpage{2452}
+  \item \spxentry{pair\_style lcbop}, \hyperpage{2453}
+  \item \spxentry{pair\_style lebedeva/z}, \hyperpage{2455}
+  \item \spxentry{pair\_style lennard/mdf}, \hyperpage{2512}
+  \item \spxentry{pair\_style lepton}, \hyperpage{2456}
+  \item \spxentry{pair\_style lepton/coul}, \hyperpage{2456}
+  \item \spxentry{pair\_style lepton/coul/omp}, \hyperpage{2456}
+  \item \spxentry{pair\_style lepton/omp}, \hyperpage{2456}
+  \item \spxentry{pair\_style lepton/sphere}, \hyperpage{2456}
+  \item \spxentry{pair\_style lepton/sphere/omp}, \hyperpage{2456}
+  \item \spxentry{pair\_style line/lj}, \hyperpage{2461}
+  \item \spxentry{pair\_style list}, \hyperpage{2463}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/gpu}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/implicit}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/implicit/kk}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/implicit/omp}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/intel}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/kk}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/charmm/omp}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/gpu}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/intel}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/kk}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/omp}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/opt}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/charmm/coul/long/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/charmm/coul/msm}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmm/coul/msm/omp}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmmfsw/coul/charmmfsh}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmmfsw/coul/long}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/charmmfsw/coul/long/kk}, \hyperpage{2312}
+  \item \spxentry{pair\_style lj/class2}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/cut}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/cut/kk}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/cut/omp}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/cut/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/class2/coul/long}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/long/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style lj/class2/coul/long/gpu}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/long/kk}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/long/omp}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/coul/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/class2/gpu}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/kk}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/omp}, \hyperpage{2316}
+  \item \spxentry{pair\_style lj/class2/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cubic}, \hyperpage{2469}
+  \item \spxentry{pair\_style lj/cubic/gpu}, \hyperpage{2469}
+  \item \spxentry{pair\_style lj/cubic/omp}, \hyperpage{2469}
+  \item \spxentry{pair\_style lj/cut}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/coul/cut}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/cut/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/cut/dielectric/omp}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/cut/gpu}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/cut/kk}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/cut/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/cut/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/cut/soft/gpu}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/cut/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/debye}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/debye/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/debye/dielectric/omp}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/debye/gpu}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/debye/kk}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/debye/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/dsf}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/dsf/gpu}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/dsf/kk}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/dsf/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/cs}, \hyperpage{2340}
+  \item \spxentry{pair\_style lj/cut/coul/long/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/long/dielectric/omp}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/long/gpu}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/intel}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/kk}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/opt}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/long/soft/gpu}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/long/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/coul/msm}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/msm/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/cut/coul/msm/gpu}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/msm/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/wolf}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/coul/wolf/omp}, \hyperpage{2471}
+  \item \spxentry{pair\_style lj/cut/dipole/cut}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/dipole/cut/gpu}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/dipole/cut/kk}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/dipole/cut/omp}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/dipole/long}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/dipole/long/gpu}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/cut/gpu}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/intel}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/kk}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/omp}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/opt}, \hyperpage{2465}
+  \item \spxentry{pair\_style lj/cut/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/sphere}, \hyperpage{2476}
+  \item \spxentry{pair\_style lj/cut/sphere/omp}, \hyperpage{2476}
+  \item \spxentry{pair\_style lj/cut/thole/long}, \hyperpage{2689}
+  \item \spxentry{pair\_style lj/cut/thole/long/omp}, \hyperpage{2689}
+  \item \spxentry{pair\_style lj/cut/tip4p/cut}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/cut/omp}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/long}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/long/gpu}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/long/omp}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/long/opt}, \hyperpage{2479}
+  \item \spxentry{pair\_style lj/cut/tip4p/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/cut/tip4p/long/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style lj/expand}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/coul/long}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/coul/long/gpu}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/coul/long/kk}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/gpu}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/kk}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/omp}, \hyperpage{2482}
+  \item \spxentry{pair\_style lj/expand/sphere}, \hyperpage{2484}
+  \item \spxentry{pair\_style lj/expand/sphere/omp}, \hyperpage{2484}
+  \item \spxentry{pair\_style lj/gromacs}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/coul/gromacs}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/coul/gromacs/kk}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/coul/gromacs/omp}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/gpu}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/kk}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/gromacs/omp}, \hyperpage{2421}
+  \item \spxentry{pair\_style lj/long/coul/long}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/long/coul/long/dielectric}, \hyperpage{2344}
+  \item \spxentry{pair\_style lj/long/coul/long/intel}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/long/coul/long/omp}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/long/coul/long/opt}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/long/dipole/long}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/long/tip4p/long}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/long/tip4p/long/omp}, \hyperpage{2487}
+  \item \spxentry{pair\_style lj/mdf}, \hyperpage{2512}
+  \item \spxentry{pair\_style lj/relres}, \hyperpage{2491}
+  \item \spxentry{pair\_style lj/relres/omp}, \hyperpage{2491}
+  \item \spxentry{pair\_style lj/sf/dipole/sf}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/sf/dipole/sf/gpu}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/sf/dipole/sf/omp}, \hyperpage{2346}
+  \item \spxentry{pair\_style lj/smooth}, \hyperpage{2495}
+  \item \spxentry{pair\_style lj/smooth/gpu}, \hyperpage{2495}
+  \item \spxentry{pair\_style lj/smooth/linear}, \hyperpage{2498}
+  \item \spxentry{pair\_style lj/smooth/linear/omp}, \hyperpage{2498}
+  \item \spxentry{pair\_style lj/smooth/omp}, \hyperpage{2495}
+  \item \spxentry{pair\_style lj/spica}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/long}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/long/gpu}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/long/kk}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/long/omp}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/msm}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/coul/msm/omp}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/gpu}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/kk}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/spica/omp}, \hyperpage{2645}
+  \item \spxentry{pair\_style lj/switch3/coulgauss/long}, \hyperpage{2499}
+  \item \spxentry{pair\_style lj96/cut}, \hyperpage{2468}
+  \item \spxentry{pair\_style lj96/cut/gpu}, \hyperpage{2468}
+  \item \spxentry{pair\_style lj96/cut/omp}, \hyperpage{2468}
+  \item \spxentry{pair\_style local/density}, \hyperpage{2502}
+  \item \spxentry{pair\_style lubricate}, \hyperpage{2505}
+  \item \spxentry{pair\_style lubricate/omp}, \hyperpage{2505}
+  \item \spxentry{pair\_style lubricate/poly}, \hyperpage{2505}
+  \item \spxentry{pair\_style lubricate/poly/omp}, \hyperpage{2505}
+  \item \spxentry{pair\_style lubricateU}, \hyperpage{2509}
+  \item \spxentry{pair\_style lubricateU/poly}, \hyperpage{2509}
+  \item \spxentry{pair\_style mdpd}, \hyperpage{2529}
+  \item \spxentry{pair\_style mdpd/gpu}, \hyperpage{2529}
+  \item \spxentry{pair\_style mdpd/rhosum}, \hyperpage{2529}
+  \item \spxentry{pair\_style meam}, \hyperpage{2514}
+  \item \spxentry{pair\_style meam/kk}, \hyperpage{2514}
+  \item \spxentry{pair\_style meam/ms}, \hyperpage{2514}
+  \item \spxentry{pair\_style meam/ms/kk}, \hyperpage{2514}
+  \item \spxentry{pair\_style meam/spline}, \hyperpage{2521}
+  \item \spxentry{pair\_style meam/spline/omp}, \hyperpage{2521}
+  \item \spxentry{pair\_style meam/sw/spline}, \hyperpage{2524}
+  \item \spxentry{pair\_style mesocnt}, \hyperpage{2526}
+  \item \spxentry{pair\_style mesocnt/viscous}, \hyperpage{2526}
+  \item \spxentry{pair\_style mgpt}, \hyperpage{2535}
+  \item \spxentry{pair\_style mie/cut}, \hyperpage{2538}
+  \item \spxentry{pair\_style mie/cut/gpu}, \hyperpage{2538}
+  \item \spxentry{pair\_style mliap}, \hyperpage{2540}
+  \item \spxentry{pair\_style mliap/kk}, \hyperpage{2540}
+  \item \spxentry{pair\_style mm3/switch3/coulgauss/long}, \hyperpage{2499}
+  \item \spxentry{pair\_style momb}, \hyperpage{2544}
+  \item \spxentry{pair\_style morse}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/gpu}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/kk}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/omp}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/opt}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/smooth/linear}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/smooth/linear/omp}, \hyperpage{2546}
+  \item \spxentry{pair\_style morse/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style multi/lucy}, \hyperpage{2548}
+  \item \spxentry{pair\_style multi/lucy/rx}, \hyperpage{2551}
+  \item \spxentry{pair\_style multi/lucy/rx/kk}, \hyperpage{2551}
+  \item \spxentry{pair\_style nb3b/harmonic}, \hyperpage{2554}
+  \item \spxentry{pair\_style nb3b/screened}, \hyperpage{2554}
+  \item \spxentry{pair\_style nm/cut}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/coul/cut}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/coul/cut/omp}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/coul/long}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/coul/long/omp}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/omp}, \hyperpage{2556}
+  \item \spxentry{pair\_style nm/cut/split}, \hyperpage{2556}
+  \item \spxentry{pair\_style none}, \hyperpage{2559}
+  \item \spxentry{pair\_style oxdna/coaxstk}, \hyperpage{2560}
+  \item \spxentry{pair\_style oxdna/excv}, \hyperpage{2560}
+  \item \spxentry{pair\_style oxdna/hbond}, \hyperpage{2560}
+  \item \spxentry{pair\_style oxdna/stk}, \hyperpage{2560}
+  \item \spxentry{pair\_style oxdna/xstk}, \hyperpage{2560}
+  \item \spxentry{pair\_style oxdna2/coaxstk}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxdna2/dh}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxdna2/excv}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxdna2/hbond}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxdna2/stk}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxdna2/xstk}, \hyperpage{2565}
+  \item \spxentry{pair\_style oxrna2/coaxstk}, \hyperpage{2569}
+  \item \spxentry{pair\_style oxrna2/dh}, \hyperpage{2569}
+  \item \spxentry{pair\_style oxrna2/excv}, \hyperpage{2569}
+  \item \spxentry{pair\_style oxrna2/hbond}, \hyperpage{2569}
+  \item \spxentry{pair\_style oxrna2/stk}, \hyperpage{2569}
+  \item \spxentry{pair\_style oxrna2/xstk}, \hyperpage{2569}
+  \item \spxentry{pair\_style pace}, \hyperpage{2574}
+  \item \spxentry{pair\_style pace/extrapolation}, \hyperpage{2574}
+  \item \spxentry{pair\_style pace/extrapolation/kk}, \hyperpage{2574}
+  \item \spxentry{pair\_style pace/kk}, \hyperpage{2574}
+  \item \spxentry{pair\_style pedone}, \hyperpage{2577}
+  \item \spxentry{pair\_style pedone/omp}, \hyperpage{2577}
+  \item \spxentry{pair\_style peri/eps}, \hyperpage{2579}
+  \item \spxentry{pair\_style peri/lps}, \hyperpage{2579}
+  \item \spxentry{pair\_style peri/lps/omp}, \hyperpage{2579}
+  \item \spxentry{pair\_style peri/pmb}, \hyperpage{2579}
+  \item \spxentry{pair\_style peri/pmb/omp}, \hyperpage{2579}
+  \item \spxentry{pair\_style peri/ves}, \hyperpage{2579}
+  \item \spxentry{pair\_style pod}, \hyperpage{2583}
+  \item \spxentry{pair\_style pod/kk}, \hyperpage{2583}
+  \item \spxentry{pair\_style polymorphic}, \hyperpage{2585}
+  \item \spxentry{pair\_style python}, \hyperpage{2590}
+  \item \spxentry{pair\_style quip}, \hyperpage{2594}
+  \item \spxentry{pair\_style rann}, \hyperpage{2596}
+  \item \spxentry{pair\_style reaxff}, \hyperpage{2602}
+  \item \spxentry{pair\_style reaxff/kk}, \hyperpage{2602}
+  \item \spxentry{pair\_style reaxff/omp}, \hyperpage{2602}
+  \item \spxentry{pair\_style rebo}, \hyperpage{2266}
+  \item \spxentry{pair\_style rebo/intel}, \hyperpage{2266}
+  \item \spxentry{pair\_style rebo/omp}, \hyperpage{2266}
+  \item \spxentry{pair\_style rebomos}, \hyperpage{2607}
+  \item \spxentry{pair\_style rebomos/omp}, \hyperpage{2607}
+  \item \spxentry{pair\_style resquared}, \hyperpage{2610}
+  \item \spxentry{pair\_style resquared/gpu}, \hyperpage{2610}
+  \item \spxentry{pair\_style resquared/omp}, \hyperpage{2610}
+  \item \spxentry{pair\_style rheo}, \hyperpage{2613}
+  \item \spxentry{pair\_style rheo/solid}, \hyperpage{2614}
+  \item \spxentry{pair\_style saip/metal}, \hyperpage{2616}
+  \item \spxentry{pair\_style saip/metal/opt}, \hyperpage{2616}
+  \item \spxentry{pair\_style sdpd/taitwater/isothermal}, \hyperpage{2618}
+  \item \spxentry{pair\_style smatb}, \hyperpage{2620}
+  \item \spxentry{pair\_style smatb/single}, \hyperpage{2620}
+  \item \spxentry{pair\_style smd/hertz}, \hyperpage{2622}
+  \item \spxentry{pair\_style smd/tlsph}, \hyperpage{2623}
+  \item \spxentry{pair\_style smd/tri\_surface}, \hyperpage{2624}
+  \item \spxentry{pair\_style smd/ulsph}, \hyperpage{2625}
+  \item \spxentry{pair\_style smtbq}, \hyperpage{2627}
+  \item \spxentry{pair\_style snap}, \hyperpage{2631}
+  \item \spxentry{pair\_style snap/intel}, \hyperpage{2631}
+  \item \spxentry{pair\_style snap/kk}, \hyperpage{2631}
+  \item \spxentry{pair\_style soft}, \hyperpage{2635}
+  \item \spxentry{pair\_style soft/gpu}, \hyperpage{2635}
+  \item \spxentry{pair\_style soft/kk}, \hyperpage{2635}
+  \item \spxentry{pair\_style soft/omp}, \hyperpage{2635}
+  \item \spxentry{pair\_style sph/heatconduction}, \hyperpage{2637}
+  \item \spxentry{pair\_style sph/heatconduction/gpu}, \hyperpage{2637}
+  \item \spxentry{pair\_style sph/idealgas}, \hyperpage{2639}
+  \item \spxentry{pair\_style sph/lj}, \hyperpage{2640}
+  \item \spxentry{pair\_style sph/lj/gpu}, \hyperpage{2640}
+  \item \spxentry{pair\_style sph/rhosum}, \hyperpage{2641}
+  \item \spxentry{pair\_style sph/taitwater}, \hyperpage{2642}
+  \item \spxentry{pair\_style sph/taitwater/gpu}, \hyperpage{2642}
+  \item \spxentry{pair\_style sph/taitwater/morris}, \hyperpage{2644}
+  \item \spxentry{pair\_style spin/dipole/cut}, \hyperpage{2648}
+  \item \spxentry{pair\_style spin/dipole/long}, \hyperpage{2648}
+  \item \spxentry{pair\_style spin/dmi}, \hyperpage{2649}
+  \item \spxentry{pair\_style spin/exchange}, \hyperpage{2651}
+  \item \spxentry{pair\_style spin/exchange/biquadratic}, \hyperpage{2651}
+  \item \spxentry{pair\_style spin/magelec}, \hyperpage{2654}
+  \item \spxentry{pair\_style spin/neel}, \hyperpage{2655}
+  \item \spxentry{pair\_style srp}, \hyperpage{2657}
+  \item \spxentry{pair\_style srp/react}, \hyperpage{2657}
+  \item \spxentry{pair\_style sw}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/angle/table}, \hyperpage{2664}
+  \item \spxentry{pair\_style sw/gpu}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/intel}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/kk}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/mod}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/mod/omp}, \hyperpage{2660}
+  \item \spxentry{pair\_style sw/omp}, \hyperpage{2660}
+  \item \spxentry{pair\_style table}, \hyperpage{2668}
+  \item \spxentry{pair\_style table/gpu}, \hyperpage{2668}
+  \item \spxentry{pair\_style table/kk}, \hyperpage{2668}
+  \item \spxentry{pair\_style table/omp}, \hyperpage{2668}
+  \item \spxentry{pair\_style table/rx}, \hyperpage{2672}
+  \item \spxentry{pair\_style table/rx/kk}, \hyperpage{2672}
+  \item \spxentry{pair\_style tdpd}, \hyperpage{2529}
+  \item \spxentry{pair\_style tersoff}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/gpu}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/intel}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/kk}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/mod}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/mod/c}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/mod/c/omp}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/mod/gpu}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/mod/kk}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/mod/omp}, \hyperpage{2680}
+  \item \spxentry{pair\_style tersoff/omp}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/table}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/table/omp}, \hyperpage{2676}
+  \item \spxentry{pair\_style tersoff/zbl}, \hyperpage{2684}
+  \item \spxentry{pair\_style tersoff/zbl/gpu}, \hyperpage{2684}
+  \item \spxentry{pair\_style tersoff/zbl/kk}, \hyperpage{2684}
+  \item \spxentry{pair\_style tersoff/zbl/omp}, \hyperpage{2684}
+  \item \spxentry{pair\_style thole}, \hyperpage{2689}
+  \item \spxentry{pair\_style threebody/table}, \hyperpage{2692}
+  \item \spxentry{pair\_style tip4p/cut}, \hyperpage{2327}
+  \item \spxentry{pair\_style tip4p/cut/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style tip4p/long}, \hyperpage{2327}
+  \item \spxentry{pair\_style tip4p/long/omp}, \hyperpage{2327}
+  \item \spxentry{pair\_style tip4p/long/soft}, \hyperpage{2392}
+  \item \spxentry{pair\_style tip4p/long/soft/omp}, \hyperpage{2392}
+  \item \spxentry{pair\_style tracker}, \hyperpage{2696}
+  \item \spxentry{pair\_style tri/lj}, \hyperpage{2698}
+  \item \spxentry{pair\_style uf3}, \hyperpage{2700}
+  \item \spxentry{pair\_style uf3/kk}, \hyperpage{2700}
+  \item \spxentry{pair\_style ufm}, \hyperpage{2703}
+  \item \spxentry{pair\_style ufm/gpu}, \hyperpage{2703}
+  \item \spxentry{pair\_style ufm/omp}, \hyperpage{2703}
+  \item \spxentry{pair\_style ufm/opt}, \hyperpage{2703}
+  \item \spxentry{pair\_style vashishta}, \hyperpage{2706}
+  \item \spxentry{pair\_style vashishta/gpu}, \hyperpage{2706}
+  \item \spxentry{pair\_style vashishta/kk}, \hyperpage{2706}
+  \item \spxentry{pair\_style vashishta/omp}, \hyperpage{2706}
+  \item \spxentry{pair\_style vashishta/table}, \hyperpage{2706}
+  \item \spxentry{pair\_style vashishta/table/omp}, \hyperpage{2706}
+  \item \spxentry{pair\_style wf/cut}, \hyperpage{2709}
+  \item \spxentry{pair\_style ylz}, \hyperpage{2711}
+  \item \spxentry{pair\_style yukawa}, \hyperpage{2714}
+  \item \spxentry{pair\_style yukawa/colloid}, \hyperpage{2715}
+  \item \spxentry{pair\_style yukawa/colloid/gpu}, \hyperpage{2715}
+  \item \spxentry{pair\_style yukawa/colloid/kk}, \hyperpage{2715}
+  \item \spxentry{pair\_style yukawa/colloid/omp}, \hyperpage{2715}
+  \item \spxentry{pair\_style yukawa/gpu}, \hyperpage{2714}
+  \item \spxentry{pair\_style yukawa/kk}, \hyperpage{2714}
+  \item \spxentry{pair\_style yukawa/omp}, \hyperpage{2714}
+  \item \spxentry{pair\_style zbl}, \hyperpage{2718}
+  \item \spxentry{pair\_style zbl/gpu}, \hyperpage{2718}
+  \item \spxentry{pair\_style zbl/kk}, \hyperpage{2718}
+  \item \spxentry{pair\_style zbl/omp}, \hyperpage{2718}
+  \item \spxentry{pair\_style zero}, \hyperpage{2720}
+  \item \spxentry{pair\_write}, \hyperpage{1148}
+  \item \spxentry{partition}, \hyperpage{1149}
+  \item \spxentry{platform::chdir}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::compiler\_info}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{platform::compress\_info}\spxextra{C++ function}, \hyperpage{854}
+  \item \spxentry{platform::compressed\_read}\spxextra{C++ function}, \hyperpage{860}
+  \item \spxentry{platform::compressed\_write}\spxextra{C++ function}, \hyperpage{860}
+  \item \spxentry{platform::cputime}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{platform::current\_directory}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::cxx\_standard}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{platform::disk\_free}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::dlclose}\spxextra{C++ function}, \hyperpage{859}
+  \item \spxentry{platform::dlerror}\spxextra{C++ function}, \hyperpage{859}
+  \item \spxentry{platform::dlopen}\spxextra{C++ function}, \hyperpage{859}
+  \item \spxentry{platform::dlsym}\spxextra{C++ function}, \hyperpage{859}
+  \item \spxentry{platform::END\_OF\_FILE}\spxextra{C++ member}, \hyperpage{857}
+  \item \spxentry{platform::file\_is\_readable}\spxextra{C++ function}, \hyperpage{855}
+  \item \spxentry{platform::filepathsep}\spxextra{C++ member}, \hyperpage{854}
+  \item \spxentry{platform::find\_exe\_path}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::fseek}\spxextra{C++ function}, \hyperpage{857}
+  \item \spxentry{platform::ftell}\spxextra{C++ function}, \hyperpage{857}
+  \item \spxentry{platform::ftruncate}\spxextra{C++ function}, \hyperpage{857}
+  \item \spxentry{platform::guesspath}\spxextra{C++ function}, \hyperpage{855}
+  \item \spxentry{platform::has\_compress\_extension}\spxextra{C++ function}, \hyperpage{860}
+  \item \spxentry{platform::is\_console}\spxextra{C++ function}, \hyperpage{855}
+  \item \spxentry{platform::list\_directory}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::list\_pathenv}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::mkdir}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::mpi\_info}\spxextra{C++ function}, \hyperpage{854}
+  \item \spxentry{platform::mpi\_vendor}\spxextra{C++ function}, \hyperpage{854}
+  \item \spxentry{platform::openmp\_standard}\spxextra{C++ function}, \hyperpage{854}
+  \item \spxentry{platform::os\_info}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{platform::path\_basename}\spxextra{C++ function}, \hyperpage{855}
+  \item \spxentry{platform::path\_is\_directory}\spxextra{C++ function}, \hyperpage{856}
+  \item \spxentry{platform::path\_join}\spxextra{C++ function}, \hyperpage{855}
+  \item \spxentry{platform::pathvarsep}\spxextra{C++ member}, \hyperpage{854}
+  \item \spxentry{platform::pclose}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::popen}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::putenv}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::rmdir}\spxextra{C++ function}, \hyperpage{857}
+  \item \spxentry{platform::unlink}\spxextra{C++ function}, \hyperpage{857}
+  \item \spxentry{platform::unsetenv}\spxextra{C++ function}, \hyperpage{858}
+  \item \spxentry{platform::usleep}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{platform::walltime}\spxextra{C++ function}, \hyperpage{853}
+  \item \spxentry{plugin}, \hyperpage{1150}
+  \item \spxentry{plugin\_count()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{670}
+  \item \spxentry{plugin\_name()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{670}
+  \item \spxentry{Pointers}\spxextra{C++ class}, \hyperpage{847}
+  \item \spxentry{position}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{position}\spxextra{lammps.Atom2D property}, \hyperpage{731}
+  \item \spxentry{PotentialFileReader}\spxextra{C++ class}, \hyperpage{889}
+  \item \spxentry{PotentialFileReader::\textasciitilde{}PotentialFileReader}\spxextra{C++ function}, 
+		\hyperpage{889}
+  \item \spxentry{PotentialFileReader::ignore\_comments}\spxextra{C++ function}, \hyperpage{889}
+  \item \spxentry{PotentialFileReader::next\_bigint}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_double}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_dvector}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_int}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_line}\spxextra{C++ function}, \hyperpage{889}
+  \item \spxentry{PotentialFileReader::next\_string}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_tagint}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::next\_values}\spxextra{C++ function}, \hyperpage{890}
+  \item \spxentry{PotentialFileReader::PotentialFileReader}\spxextra{C++ function}, \hyperpage{889}
+  \item \spxentry{PotentialFileReader::rewind}\spxextra{C++ function}, \hyperpage{889}
+  \item \spxentry{PotentialFileReader::skip\_line}\spxextra{C++ function}, \hyperpage{889}
+  \item \spxentry{prd}, \hyperpage{1152}
+  \item \spxentry{print}, \hyperpage{1156}
+  \item \spxentry{processors}, \hyperpage{1158}
+  \item \spxentry{PyLammps}\spxextra{class in lammps}, \hyperpage{726}
+  \item \spxentry{python}, \hyperpage{1163}
+
+  \indexspace
+  \bigletter Q
+  \item \spxentry{quit}, \hyperpage{1170}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{radius}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{read\_data}, \hyperpage{1171}
+  \item \spxentry{read\_dump}, \hyperpage{1195}
+  \item \spxentry{read\_restart}, \hyperpage{1201}
+  \item \spxentry{region}, \hyperpage{1204}
+  \item \spxentry{replicate}, \hyperpage{1210}
+  \item \spxentry{rerun}, \hyperpage{1212}
+  \item \spxentry{reset\_atoms}, \hyperpage{1215}
+  \item \spxentry{reset\_box()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{642}
+  \item \spxentry{reset\_box()}\spxextra{lammps.lammps method}, \hyperpage{705}
+  \item \spxentry{reset\_timestep}, \hyperpage{1219}
+  \item \spxentry{restart}, \hyperpage{1220}
+  \item \spxentry{run}, \hyperpage{1222}
+  \item \spxentry{run()}\spxextra{lammps.PyLammps method}, \hyperpage{727}
+  \item \spxentry{run\_style}, \hyperpage{1225}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{scatter()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{660}
+  \item \spxentry{scatter\_atoms()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{654}
+  \item \spxentry{scatter\_atoms\_subset()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{655}
+  \item \spxentry{scatter\_subset()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{661}
+  \item \spxentry{set}, \hyperpage{1230}
+  \item \spxentry{set\_fix\_external\_callback()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{672}
+  \item \spxentry{set\_fix\_external\_callback()}\spxextra{lammps.lammps method}, \hyperpage{717}
+  \item \spxentry{set\_fix\_external\_set\_virial\_peratom()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{676}
+  \item \spxentry{set\_internal\_variable()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{652}
+  \item \spxentry{set\_internal\_variable()}\spxextra{lammps.lammps method}, \hyperpage{711}
+  \item \spxentry{set\_string\_variable()}\spxextra{fortran subroutine}, 
+		\hyperindexformat{\spxpagem}{652}
+  \item \spxentry{set\_string\_variable()}\spxextra{lammps.lammps method}, \hyperpage{711}
+  \item \spxentry{set\_variable()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{651}
+  \item \spxentry{set\_variable()}\spxextra{lammps.lammps method}, \hyperpage{710}
+  \item \spxentry{shell}, \hyperpage{1238}
+  \item \spxentry{size}\spxextra{lammps.NeighList property}, \hyperpage{734}
+  \item \spxentry{special\_bonds}, \hyperpage{1240}
+  \item \spxentry{style\_count()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{669}
+  \item \spxentry{style\_name()}\spxextra{fortran subroutine}, \hyperindexformat{\spxpagem}{669}
+  \item \spxentry{suffix}, \hyperpage{1244}
+  \item \spxentry{system}\spxextra{lammps.PyLammps property}, \hyperpage{728}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{tad}, \hyperpage{1246}
+  \item \spxentry{temper}, \hyperpage{1250}
+  \item \spxentry{temper/grem}, \hyperpage{1252}
+  \item \spxentry{temper/npt}, \hyperpage{1254}
+  \item \spxentry{TextFileReader}\spxextra{C++ class}, \hyperpage{887}
+  \item \spxentry{TextFileReader::\textasciitilde{}TextFileReader}\spxextra{C++ function}, 
+		\hyperpage{888}
+  \item \spxentry{TextFileReader::ignore\_comments}\spxextra{C++ member}, \hyperpage{889}
+  \item \spxentry{TextFileReader::next\_dvector}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::next\_line}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::next\_values}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::rewind}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::set\_bufsize}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::skip\_line}\spxextra{C++ function}, \hyperpage{888}
+  \item \spxentry{TextFileReader::TextFileReader}\spxextra{C++ function}, \hyperpage{887}
+  \item \spxentry{thermo}, \hyperpage{1255}
+  \item \spxentry{thermo\_modify}, \hyperpage{1256}
+  \item \spxentry{thermo\_style}, \hyperpage{1260}
+  \item \spxentry{third\_order}, \hyperpage{1267}
+  \item \spxentry{third\_order/kk}, \hyperpage{1267}
+  \item \spxentry{timer}, \hyperpage{1268}
+  \item \spxentry{timestep}, \hyperpage{1270}
+  \item \spxentry{Tokenizer}\spxextra{C++ class}, \hyperpage{879}
+  \item \spxentry{Tokenizer::as\_vector}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::contains}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::count}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::has\_next}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::matches}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::next}\spxextra{C++ function}, \hyperpage{880}
+  \item \spxentry{Tokenizer::reset}\spxextra{C++ function}, \hyperpage{879}
+  \item \spxentry{Tokenizer::skip}\spxextra{C++ function}, \hyperpage{879}
+  \item \spxentry{Tokenizer::Tokenizer}\spxextra{C++ function}, \hyperpage{879}
+  \item \spxentry{TokenizerException}\spxextra{C++ class}, \hyperpage{880}
+  \item \spxentry{TokenizerException::TokenizerException}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{TokenizerException::what}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{torque}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{type}\spxextra{lammps.Atom property}, \hyperpage{729}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry{ubuf}\spxextra{C++ union}, \hyperpage{895}
+  \item \spxentry{ubuf::d}\spxextra{C++ member}, \hyperpage{896}
+  \item \spxentry{ubuf::i}\spxextra{C++ member}, \hyperpage{896}
+  \item \spxentry{ubuf::ubuf}\spxextra{C++ function}, \hyperpage{896}
+  \item \spxentry{uncompute}, \hyperpage{1271}
+  \item \spxentry{undump}, \hyperpage{1272}
+  \item \spxentry{unfix}, \hyperpage{1273}
+  \item \spxentry{units}, \hyperpage{1274}
+  \item \spxentry{utils::binary\_search}\spxextra{C++ function}, \hyperpage{875}
+  \item \spxentry{utils::bnumeric}\spxextra{C++ function}, \hyperpage{863, 864}
+  \item \spxentry{utils::bounds}\spxextra{C++ function}, \hyperpage{871}
+  \item \spxentry{utils::bounds\_typelabel}\spxextra{C++ function}, \hyperpage{872}
+  \item \spxentry{utils::check\_packages\_for\_style}\spxextra{C++ function}, \hyperpage{874}
+  \item \spxentry{utils::count\_words}\spxextra{C++ function}, \hyperpage{867}
+  \item \spxentry{utils::current\_date}\spxextra{C++ function}, \hyperpage{875}
+  \item \spxentry{utils::date2num}\spxextra{C++ function}, \hyperpage{875}
+  \item \spxentry{utils::errorurl}\spxextra{C++ function}, \hyperpage{874}
+  \item \spxentry{utils::expand\_args}\spxextra{C++ function}, \hyperpage{872}
+  \item \spxentry{utils::expand\_type}\spxextra{C++ function}, \hyperpage{873}
+  \item \spxentry{utils::fgets\_trunc}\spxextra{C++ function}, \hyperpage{861}
+  \item \spxentry{utils::flush\_buffers}\spxextra{C++ function}, \hyperpage{874}
+  \item \spxentry{utils::get\_conversion\_factor}\spxextra{C++ function}, \hyperpage{871}
+  \item \spxentry{utils::get\_potential\_date}\spxextra{C++ function}, \hyperpage{870}
+  \item \spxentry{utils::get\_potential\_file\_path}\spxextra{C++ function}, \hyperpage{870}
+  \item \spxentry{utils::get\_potential\_units}\spxextra{C++ function}, \hyperpage{870}
+  \item \spxentry{utils::get\_supported\_conversions}\spxextra{C++ function}, \hyperpage{870}
+  \item \spxentry{utils::getsyserror}\spxextra{C++ function}, \hyperpage{874}
+  \item \spxentry{utils::has\_utf8}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::inumeric}\spxextra{C++ function}, \hyperpage{863}
+  \item \spxentry{utils::is\_double}\spxextra{C++ function}, \hyperpage{869}
+  \item \spxentry{utils::is\_id}\spxextra{C++ function}, \hyperpage{869}
+  \item \spxentry{utils::is\_integer}\spxextra{C++ function}, \hyperpage{869}
+  \item \spxentry{utils::is\_type}\spxextra{C++ function}, \hyperpage{870}
+  \item \spxentry{utils::join\_words}\spxextra{C++ function}, \hyperpage{868}
+  \item \spxentry{utils::logical}\spxextra{C++ function}, \hyperpage{864, 865}
+  \item \spxentry{utils::logmesg}\spxextra{C++ function}, \hyperpage{873, 874}
+  \item \spxentry{utils::lowercase}\spxextra{C++ function}, \hyperpage{865}
+  \item \spxentry{utils::merge\_sort}\spxextra{C++ function}, \hyperpage{876}
+  \item \spxentry{utils::missing\_cmd\_args}\spxextra{C++ function}, \hyperpage{874}
+  \item \spxentry{utils::numeric}\spxextra{C++ function}, \hyperpage{862, 863}
+  \item \spxentry{utils::open\_potential}\spxextra{C++ function}, \hyperpage{871}
+  \item \spxentry{utils::parse\_grid\_id}\spxextra{C++ function}, \hyperpage{873}
+  \item \spxentry{utils::read\_lines\_from\_file}\spxextra{C++ function}, \hyperpage{861}
+  \item \spxentry{utils::sfgets}\spxextra{C++ function}, \hyperpage{860}
+  \item \spxentry{utils::sfread}\spxextra{C++ function}, \hyperpage{861}
+  \item \spxentry{utils::split\_lines}\spxextra{C++ function}, \hyperpage{868}
+  \item \spxentry{utils::split\_words}\spxextra{C++ function}, \hyperpage{868}
+  \item \spxentry{utils::star\_subst}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::strdup}\spxextra{C++ function}, \hyperpage{865}
+  \item \spxentry{utils::strfind}\spxextra{C++ function}, \hyperpage{869}
+  \item \spxentry{utils::strip\_style\_suffix}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::strmatch}\spxextra{C++ function}, \hyperpage{868}
+  \item \spxentry{utils::timespec2seconds}\spxextra{C++ function}, \hyperpage{875}
+  \item \spxentry{utils::tnumeric}\spxextra{C++ function}, \hyperpage{864}
+  \item \spxentry{utils::trim}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::trim\_and\_count\_words}\spxextra{C++ function}, \hyperpage{868}
+  \item \spxentry{utils::trim\_comment}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::uppercase}\spxextra{C++ function}, \hyperpage{866}
+  \item \spxentry{utils::utf8\_subst}\spxextra{C++ function}, \hyperpage{867}
+
+  \indexspace
+  \bigletter V
+  \item \spxentry{ValueTokenizer}\spxextra{C++ class}, \hyperpage{881}
+  \item \spxentry{ValueTokenizer::contains}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::count}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::has\_next}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::matches}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::next\_bigint}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{ValueTokenizer::next\_double}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::next\_int}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::next\_string}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{ValueTokenizer::next\_tagint}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{ValueTokenizer::skip}\spxextra{C++ function}, \hyperpage{882}
+  \item \spxentry{ValueTokenizer::ValueTokenizer}\spxextra{C++ function}, \hyperpage{881}
+  \item \spxentry{variable}, \hyperpage{1278}
+  \item \spxentry{variables}\spxextra{lammps.PyLammps property}, \hyperpage{729}
+  \item \spxentry{velocity}, \hyperpage{1301}
+  \item \spxentry{velocity}\spxextra{lammps.Atom property}, \hyperpage{730}
+  \item \spxentry{velocity}\spxextra{lammps.Atom2D property}, \hyperpage{731}
+  \item \spxentry{version()}\spxextra{fortran function}, \hyperindexformat{\spxpagem}{664}
+  \item \spxentry{version()}\spxextra{lammps.lammps method}, \hyperpage{704}
+  \item \spxentry{version()}\spxextra{lammps.PyLammps method}, \hyperpage{726}
+  \item \spxentry{video()}\spxextra{lammps.IPyLammps method}, \hyperpage{732}
+
+  \indexspace
+  \bigletter W
+  \item \spxentry{write\_coeff}, \hyperpage{1304}
+  \item \spxentry{write\_data}, \hyperpage{1305}
+  \item \spxentry{write\_dump}, \hyperpage{1308}
+  \item \spxentry{write\_restart}, \hyperpage{1309}
+  \item \spxentry{write\_script()}\spxextra{lammps.PyLammps method}, \hyperpage{727}
+
+\end{sphinxtheindex}

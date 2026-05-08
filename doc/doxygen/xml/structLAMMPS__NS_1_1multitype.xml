@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structLAMMPS__NS_1_1multitype" kind="struct" language="C++" prot="public">
+    <compoundname>LAMMPS_NS::multitype</compoundname>
+    <includes refid="lmptype_8h" local="no">lmptype.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>_LMP_DATATYPE_CONST</name>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a2092f040c8fd7fd46efa6591c4f03515" prot="public">
+          <name>LAMMPS_NONE</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>no data type assigned (yet) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a6f4597ad5c533e63a78fe90151d4d348" prot="public">
+          <name>LAMMPS_INT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>32-bit integer (array) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5acdc5b9e5771b685c0f5c0377a06380da" prot="public">
+          <name>LAMMPS_INT_2D</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>two-dimensional 32-bit integer array </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a5a6c3a30d227047ab64e210c8a2fd468" prot="public">
+          <name>LAMMPS_DOUBLE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>64-bit double (array) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a515e6e960fa5de1f4e22596ede33fdeb" prot="public">
+          <name>LAMMPS_DOUBLE_2D</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>two-dimensional 64-bit double array </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a3e0db9f4dfd611ebb971372cc245e80c" prot="public">
+          <name>LAMMPS_INT64</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>64-bit integer (array) </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5abfc022018c51b292be00cbc87760ab60" prot="public">
+          <name>LAMMPS_INT64_2D</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>two-dimensional 64-bit integer array </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5ae8c997bf96560c2d658a3d2a01518d72" prot="public">
+          <name>LAMMPS_STRING</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>C-String </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data type constants for extracting data from atoms, computes and fixes</para>
+<para>This enum must be kept in sync with the corresponding enum or constants in <computeroutput>python/lammps/constants.py</computeroutput>, <computeroutput>fortran/lammps.f90</computeroutput>, <computeroutput>tools/swig/lammps.i</computeroutput>, <computeroutput><ref refid="library_8h_source" kindref="compound">src/library.h</ref></computeroutput>, and <computeroutput>examples/COUPLE/plugin/liblammpsplugin.h</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="272" column="3" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="272" bodyend="281"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1multitype_1ac765329451135abec74c45e1897abf26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="283" column="7" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1multitype_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="285" column="12" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1multitype_1acb559820d9ca11295b4500f179ef6392" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="286" column="9" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1multitype_1a9293e4d29cac928301645070dd307683" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="287" column="13" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structLAMMPS__NS_1_1multitype_1ac9d644403136865b34627b2b6c931e61" prot="public" static="no" mutable="no">
+        <type>union LAMMPS_NS::multitype::@4</type>
+        <definition>union LAMMPS_NS::multitype::@4 data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="288" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1a99d8f53d43461ad478ac5d7f7a687c28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>multitype</definition>
+        <argsstring>()</argsstring>
+        <name>multitype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="290" column="3" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="290" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1a49f5aadd804c42b29831048a2589c139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>multitype</definition>
+        <argsstring>(const multitype &amp;)=default</argsstring>
+        <name>multitype</name>
+        <param>
+          <type>const <ref refid="structLAMMPS__NS_1_1multitype" kindref="compound">multitype</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="291" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1ace48ae88fcae3161e63dcff32089c1c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>multitype</definition>
+        <argsstring>(multitype &amp;&amp;)=default</argsstring>
+        <name>multitype</name>
+        <param>
+          <type><ref refid="structLAMMPS__NS_1_1multitype" kindref="compound">multitype</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="292" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1a74840fb25e1798e9c396716d419313d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~multitype</definition>
+        <argsstring>()=default</argsstring>
+        <name>~multitype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="293" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1af43434f9de3c985c6d24aa40e582258c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structLAMMPS__NS_1_1multitype" kindref="compound">multitype</ref> &amp;</type>
+        <definition>multitype&amp; operator=</definition>
+        <argsstring>(const double &amp;_d)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>_d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="295" column="13" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="295" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1ad5d371f85220ba93454891f91d095d32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structLAMMPS__NS_1_1multitype" kindref="compound">multitype</ref> &amp;</type>
+        <definition>multitype&amp; operator=</definition>
+        <argsstring>(const int &amp;_i)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const int &amp;</type>
+          <declname>_i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="301" column="13" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="301" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structLAMMPS__NS_1_1multitype_1a6bd399a96da05e6e48e3d750cbdd9a5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structLAMMPS__NS_1_1multitype" kindref="compound">multitype</ref> &amp;</type>
+        <definition>multitype&amp; operator=</definition>
+        <argsstring>(const int64_t &amp;_b)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const int64_t &amp;</type>
+          <declname>_b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="307" column="13" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="307" bodyend="312"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Data structure for dynamic typing of int, bigint, and double</para>
+<para>Using this union allows to store any of the supported data types in the same container and allows to &quot;see&quot; its current type. <verbatim>embed:rst
+
+**Usage:**
+
+.. code-block:: c++
+   :caption: To store data in multitype array:
+
+   multitype m[5];
+   int    foo = 1;
+   double bar = 2.5;
+   bigint baz = 1&lt;&lt;40 - 1;
+   m[0] = foo;
+   m[1] = bar;
+   m[2] = -1;
+   m[3] = 2.0;
+   m[4] = baz;
+
+.. code-block:: c++
+   :caption: To format data from multitype array into a space separated string:
+
+   std::string str;
+   for (int i = 0; i &lt; 5; ++i) {
+       switch (m[i].type) {
+           case multitype::DOUBLE:
+               str += std::to_string(m[i].data.d) + &apos; &apos;;
+               break;
+           case multitype::INT:
+               str += std::to_string(m[i].data.i) + &apos; &apos;;
+               break;
+           case multitype::BIGINT:
+               str += std::to_string(m[i].data.b) + &apos; &apos;;
+               break;
+           default:
+               break;
+       }
+   }
+</verbatim> </para>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" line="266" column="1" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/lmptype.h" bodystart="266" bodyend="313"/>
+    <listofallmembers>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>_LMP_DATATYPE_CONST</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a9293e4d29cac928301645070dd307683" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>b</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>d</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1ac9d644403136865b34627b2b6c931e61" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>data</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1acb559820d9ca11295b4500f179ef6392" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>i</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a5a6c3a30d227047ab64e210c8a2fd468" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_DOUBLE</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a515e6e960fa5de1f4e22596ede33fdeb" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_DOUBLE_2D</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a6f4597ad5c533e63a78fe90151d4d348" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_INT</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a3e0db9f4dfd611ebb971372cc245e80c" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_INT64</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5abfc022018c51b292be00cbc87760ab60" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_INT64_2D</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5acdc5b9e5771b685c0f5c0377a06380da" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_INT_2D</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5a2092f040c8fd7fd46efa6591c4f03515" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_NONE</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a8f60df5cd520b67959d22185afcdacc5ae8c997bf96560c2d658a3d2a01518d72" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>LAMMPS_STRING</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a99d8f53d43461ad478ac5d7f7a687c28" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>multitype</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a49f5aadd804c42b29831048a2589c139" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>multitype</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1ace48ae88fcae3161e63dcff32089c1c0" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>multitype</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1af43434f9de3c985c6d24aa40e582258c" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>operator=</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1ad5d371f85220ba93454891f91d095d32" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>operator=</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a6bd399a96da05e6e48e3d750cbdd9a5c" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>operator=</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1ac765329451135abec74c45e1897abf26" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>type</name></member>
+      <member refid="structLAMMPS__NS_1_1multitype_1a74840fb25e1798e9c396716d419313d5" prot="public" virt="non-virtual"><scope>LAMMPS_NS::multitype</scope><name>~multitype</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structregex__context__t" kind="struct" language="C++" prot="public">
+    <compoundname>regex_context_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structregex__context__t_1aa619903a5002660319e47187f4b22eda" prot="public" static="no" mutable="no">
+        <type>regex_t</type>
+        <definition>regex_t re_compiled[MAX_REGEXP_OBJECTS]</definition>
+        <argsstring>[MAX_REGEXP_OBJECTS]</argsstring>
+        <name>re_compiled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="2002" column="11" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="2002" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structregex__context__t_1a8c595d24ed00cd806a553c5b6c069d85" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char ccl_buf[MAX_CHAR_CLASS_LEN]</definition>
+        <argsstring>[MAX_CHAR_CLASS_LEN]</argsstring>
+        <name>ccl_buf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="2003" column="17" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="2003" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" line="1999" column="1" bodyfile="/home/coldstream/LAMMPS/test_lammpsdev/src/utils.cpp" bodystart="1999" bodyend="2004"/>
+    <listofallmembers>
+      <member refid="structregex__context__t_1a8c595d24ed00cd806a553c5b6c069d85" prot="public" virt="non-virtual"><scope>regex_context_t</scope><name>ccl_buf</name></member>
+      <member refid="structregex__context__t_1aa619903a5002660319e47187f4b22eda" prot="public" virt="non-virtual"><scope>regex_context_t</scope><name>re_compiled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
