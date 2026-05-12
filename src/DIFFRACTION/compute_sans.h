@@ -44,6 +44,7 @@ class ComputeSANS : public Compute {
   double R_Ewald;    // Radius of Ewald sphere (distance units)
   double kmin, kmax;     // min and max Radiation frequency (inverse distance units)
   int nk;      // maximum integer value for K points in each dimension
+  int nkstart;      // maximum integer value for K points in each dimension
   double ikmax;       // Maximum reciprocal distance to explore
   int maxdeg;
 
@@ -51,6 +52,7 @@ class ComputeSANS : public Compute {
   double scatteringsum;
 
   bool logdist;
+  bool logdrewald;
   bool scatteringlengths;
 
   const char *filename = nullptr;

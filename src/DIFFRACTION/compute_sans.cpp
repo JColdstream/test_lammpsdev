@@ -113,6 +113,12 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       logdist = true;
       iarg += 1;
 
+    } else if (strcmp(arg[iarg],"logdrewald") == 0) {
+      logdrewald = true;
+      // need this for later so we don't have to store an extra array
+      nkstart = nk;
+      iarg += 1;
+
     } else if (strcmp(arg[iarg],"lengthpath") == 0) {
       if (iarg+2 > narg) error->all(FLERR,"Illegal Compute SANS Command");
       scatteringlengths = true;
@@ -366,10 +372,20 @@ void ComputeSANS::init()
   int initnkvec;
   int tempksq;
   double tempmodk;
+  // declare incase we need for logdist
+  double logkmin = log10(kmin);
+  double logkmax = log10(kmax);
+  double scale;
+  double start_dR_Ewald = dR_Ewald;
   std::vector<std::vector<int>> tempkvec;
   // calculate the number of vectors to allocate arrays
   initnkvec = 0;
   for (int ik = 0; ik < nk; ik++){
+    if (logdrewald) {
+      // work back to the initial value of ik to scale the dR_Ewald
+      scale = 1 + nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
+      dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nk);
+    }
      for (int ix = 0; ix <= kmax; ix++) {
       for (int iy = -kmax; iy <= kmax; iy++) {
         for (int iz = -kmax; iz <= kmax; iz++) {
