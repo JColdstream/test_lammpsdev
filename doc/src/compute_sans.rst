@@ -12,9 +12,8 @@ Syntax
 
 * ID, group-ID are documented in :doc:`compute <compute>` command
 * sans = style name of this compute command
-* kmax = maximum wave vector magnitude to explore (inverse length units)
 * zero or more keyword/value pairs may be appended
-* keyword = *kmin* or *kmax* or *Nk* or *dR_Ewald* or *maxdeg* or *logdist* or *lengthpath*
+* keyword = *kmin* or *kmax* or *Nk* or *dR_Ewald* or *maxdeg* or *logdist* or *logdR_Ewald* or *lengthpath*
 
   .. parsed-literal::
 
@@ -22,13 +21,18 @@ Syntax
                       (default: .. math:: 1.0 \, \text{Å}^{-1})
        *kmax* value = maximum wave vector magnitude to calculate (inverse length units)
                       (default: .. math:: 30.0 \, \text{Å}^{-1})
+       *ikmax* value = maximum number of periods in each dimension of the wavevector
+                      (default: .. math:: 50)
        *Nk* value = number of wave vectors distributed between kmin and kmax
                     (default: 100)
        *dR_Ewald* value = thickness of Ewald sphere slice around target q values
-                          (inverse length units)
-       *maxdeg* value = maximum degeneracy allowed for wave vector selection
+                          (default: (kmax-kmin)/nk or (log10(kmax)-log10(kmin))/nk for logdist)
+       *maxdeg* value = maximum degeneracy allowed per value of *k* selection
+                     (default: 100)
        *logdist* = flag to use logarithmic distribution of wave vectors instead
                    of linear distribution
+       *logdR_Ewald* = flag to scale the value of dR_Ewald with magnitude of the wavevector
+
        *lengthpath* file = path to file containing custom neutron scattering lengths
 
 Examples
@@ -61,7 +65,7 @@ type i, and :math:`\mathbf{k}` is the scattering wave vector with magnitude k.
 
 The compute generates a set of wave vectors distributed within reciprocal
 space. By default, we sample *Nk* intensities distributed evenly between *kmin*
-and *kmax*. If the logdist flag is used they are distributed logarithmically.
+and *kmax*. If the logdist flag is used they are distributed logarithmically betweek *kmin* and *kmax*.
 
 At each value of *k* a number of wavevectors *\textbf{k} = (kx, ky, kz)* with magnitude *k* = 2*\pi/L (\textbf{k}) are selected at random.
 The parameter *kmax* determines the maximum value of *kx*, *ky*, and *kz* explored. 
@@ -69,13 +73,16 @@ The parameter *kmax* determines the maximum value of *kx*, *ky*, and *kz* explor
 Wave vectors are selected to lie approximately at the specified k magnitudes, within a
 tolerance defined by *dR_Ewald* (the thickness of the Ewald sphere slice).
 
+If the values of *k* are distributed logarithmically, it can be useful to scale the size of *dR_Ewald* with the magnitude of the wavevector.
+If this is the case include the keyword *logdR_Ewald* in the command, in this case the value of dR_Ewald will refer to the width of the ewald sphere of the smallest vector.
+The width of the ewald sphere surrounding the largest wavevector will be .. math:: dR_Ewald*kmax/kmin.
+
 **Scattering Lengths**
 
-By default, scattering lengths are set to 1.0 for all atom types, which
-gives an unweighted calculation. For comparison with actual neutron
+By default, scattering lengths are set to 1.0 for all atom types. For comparison with actual neutron
 scattering experiments, custom neutron scattering lengths can be provided
 via the *lengthpath* keyword, which specifies a file containing scattering
-length values for each atom type.
+length values for each atom type. A table of neutron scattering lengths can be found on the NIST website: https://www.ncnr.nist.gov/resources/n-lengths/list.html
 
 The scattering lengths file should contain one line per atom type with the
 format:
@@ -87,16 +94,19 @@ format:
 where type_number is the LAMMPS atom type (starting from 1) and
 scattering_length is the neutron scattering length in inverse length
 units (typically in fm or $10^{-15}$ m for neutrons).
+The first line is reserved as a comment line and should not be used for data input.
+
+Note: This file does \textbf{not} need to include a value for every atom type, but does need to include a value for every atom type in the group specified for the compute.
 
 **Degeneracy and Ewald Sphere**
 
-The *dR_Ewald* parameter controls how many wave vectors are selected
-around each target k value. A smaller value results in fewer selected
-wave vectors but more precise targeting of specific k values. A larger
-value samples a thicker sphere in reciprocal space around each k value.
+The *dR_Ewald* parameter controls the thickness of the slice in reciprocal space.
+A smaller value results in fewer selected wave vectors but more precise targeting of specific k values.
+A larger value samples a thicker sphere in reciprocal space around each k value. 
+If the value of *dR_Ewald* is large enough, points at adjacent values of *k* will overlap and they may sample from the same set of wavevectors.
 
-The *maxdeg* parameter can be used to limit the degeneracy (number of
-equivalent wave vectors) selected for each k value.
+The *maxdeg* parameter can be used to limit the degeneracy (number of equivalent wave vectors) selected for each k value.
+If there are fewer than *maxdeg* wavevectors, they will all be used.
 
 Output info
 """""""""""
@@ -108,11 +118,11 @@ This compute calculates a global array with dimensions of Nq rows and
 * Column 2: Wave vector magnitude (k) in inverse length units
 * Column 3: Normalized scattering intensity S(k)/N
 
+If a value of S(k) you are expecting is missing, it is because the compute has failed to find any wave vectors at that magnitude, given your input parameters.
+
 The array can be accessed by any command that uses global values from
 a compute as input. See the :doc:`Howto output <Howto_output>` doc page
 for an overview of LAMMPS output options.
-
-All array values calculated by this compute are "intensive".
 
 Restrictions
 """"""""""""
@@ -125,6 +135,9 @@ The compute_sans command does not work for triclinic cells.
 
 The compute_sans command only works with 3-dimensional systems.
 
+The compute_sans command does work with simulations changing their box sized, however the wavevectors are initialised using the box sized defined at the time of the compute. 
+If the simulation box changes size significantly during this time, the results will be rubbish and unphysical.
+
 Related commands
 """"""""""""""""
 
@@ -133,5 +146,5 @@ Related commands
 Default
 """""""
 
-The option defaults are qmin = 1.0, qmax = 30.0, Nq = 100, dR_Ewald = 0.2,
+The option defaults are qmin = 1.0, qmax = 30.0, Nk = 100, dR_Ewald = 0.2,
 logdist = off (linear distribution)

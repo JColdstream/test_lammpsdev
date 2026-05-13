@@ -5,7 +5,6 @@
 #include "atom.h" 
 #include "citeme.h" 
 #include "comm.h" 
-//#include "compute_sans_consts.h" 
 #include "domain.h" 
 #include "error.h" 
 #include "group.h" 
@@ -45,7 +44,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   // Checking errors specific to the compute
   if (dimension == 2)
     error->all(FLERR,"Compute SANS does not work with 2d structures");
-  if (narg < 4)
+  if (narg < 3)
     error->all(FLERR,"Illegal Compute SANS Command");
   if (triclinic == 1)
     error->all(FLERR,"Compute SANS does not work with triclinic structures");
@@ -53,22 +52,18 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   array_flag = 1;
   extarray = 0;
 
-  // gets kmax
-  kmax = utils::numeric(FLERR,arg[3],false,lmp);
-  if (kmax < 0)
-    error->all(FLERR,"Compute SANS: kmax must be greater than zero");
-
   // Define atom types for atomic scattering factor coefficients
   // first arg after required
-  int iarg = 4;
+  int iarg = 3;
   // utils::logmesg(lmp,"READ INPUT VALUES");
   
   // Set defaults for optional args
   kmax = 30;
   kmin = 1;
   nk = 100;
-  dR_Ewald = 0.2;
+  dR_Ewald = (kmax - kmin) / nk;
   logdist = 0;
+  logdrewald = 0;
   scatteringlengths=0;
 
   // utils::logmesg(lmp,"arg[0] = {}\n", arg[0]);
@@ -86,6 +81,13 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       kmax = utils::numeric(FLERR,arg[iarg+1],false,lmp);
       if (kmax < kmin)
         error->all(FLERR,"Compute SANS: kmax must be greater than kmin");
+      iarg += 2;
+
+    } else if (strcmp(arg[iarg],"ikmax") == 0) {
+      if (iarg+2 > narg) error->all(FLERR,"Illegal Compute SANS Command");
+      ikmax = utils::numeric(FLERR,arg[iarg+1],false,lmp);
+      if (ikmax < 0)
+        error->all(FLERR,"Compute SANS: ikmax must be greater than zero");
       iarg += 2;
 
     } else if (strcmp(arg[iarg],"nk") == 0) {
@@ -112,8 +114,9 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     } else if (strcmp(arg[iarg],"logdist") == 0) {
       logdist = true;
       iarg += 1;
+      dR_Ewald = log10(kmax/kmin) / nk;
 
-    } else if (strcmp(arg[iarg],"logdrewald") == 0) {
+    } else if (strcmp(arg[iarg],"logdR_Ewald") == 0) {
       logdrewald = true;
       // need this for later so we don't have to store an extra array
       nkstart = nk;
@@ -128,8 +131,15 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     } else error->all(FLERR,"Illegal Compute SANS Command");
   }
 
-  utils::logmesg(lmp, "DEBUG :: Reading scattering lengths \n");
-  utils::logmesg(lmp, "DEBUG :: scatteringlengths = {} \n", scatteringlengths);
+
+  // // Get all npt fixes style
+  // auto npt_fixes = modify->get_fix_by_style("npt");
+  // if (!npt_fixes.empty()) {
+  //   error->warning(FLERR, "NPT barostat in use. If your box size changes significantly during the simulation, the results will be rubbish.");
+  // }
+
+  // utils::logmesg(lmp, "DEBUG :: Reading scattering lengths \n");
+  // utils::logmesg(lmp, "DEBUG :: scatteringlengths = {} \n", scatteringlengths);
 
   // Read custom scattering lengths if required and assign them to the array b.
 
@@ -197,11 +207,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
         b[i] = 1.0;
       }
     }
-  //}
-
-  for (int i = 0; i < 2*ntypes; i++) {
-    utils::logmesg(lmp, "DEBUG :: b[{}] = {}\n", i, b[i]);
-  }
 
   utils::logmesg(lmp,"-----\nComputing SANS things\n");
 
@@ -252,9 +257,9 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   double tempmodk;
   // calculate the number of vectors to allocate arrays
   for (int ik = 0; ik < nk; ik++){
-     for (int ix = 0; ix <= kmax; ix++) {
-      for (int iy = -kmax; iy <= kmax; iy++) {
-        for (int iz = -kmax; iz <= kmax; iz++) {
+     for (int ix = 0; ix <= ikmax; ix++) {
+      for (int iy = -ikmax; iy <= ikmax; iy++) {
+        for (int iz = -ikmax; iz <= ikmax; iz++) {
             tempksq = ix*ix + iy*iy + iz*iz;
             tempmodk = twopi_L * sqrt((double)tempksq);
             if (fabs(tempmodk - tempk[ik]) < dR_Ewald/2) {
@@ -381,14 +386,14 @@ void ComputeSANS::init()
   // calculate the number of vectors to allocate arrays
   initnkvec = 0;
   for (int ik = 0; ik < nk; ik++){
-    if (logdrewald) {
-      // work back to the initial value of ik to scale the dR_Ewald
-      scale = 1 + nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
-      dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nk);
-    }
-     for (int ix = 0; ix <= kmax; ix++) {
-      for (int iy = -kmax; iy <= kmax; iy++) {
-        for (int iz = -kmax; iz <= kmax; iz++) {
+     if (logdrewald) {
+       // work back to the initial value of ik to scale the dR_Ewald
+       scale = 1 + nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
+       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nk);
+     }
+     for (int ix = 0; ix <= ikmax; ix++) {
+      for (int iy = -ikmax; iy <= ikmax; iy++) {
+        for (int iz = -ikmax; iz <= ikmax; iz++) {
             tempksq = ix*ix + iy*iy + iz*iz;
             tempmodk = twopi_L * sqrt((double)tempksq);
             if (fabs(tempmodk - k[ik]) < dR_Ewald/2) {
@@ -421,7 +426,7 @@ void ComputeSANS::init()
     }
 
     if (initnkvec != nkvec) {
-      utils::logmesg(lmp,"DEBUG :: initnkvec = {}, nkvec = {}\n", initnkvec, nkvec);
+      // utils::logmesg(lmp,"DEBUG :: initnkvec = {}, nkvec = {}\n", initnkvec, nkvec);
       error->all(FLERR,"ComputeSANS: Number of wavevectors is inconsistent. Contact the developers.");
     }
 
@@ -449,7 +454,7 @@ void ComputeSANS::init()
 
     // calculate total scattering sum and broadcast to all processes
     MPI_Allreduce(&proc_scatteringsum, &scatteringsum, 1, MPI_DOUBLE, MPI_SUM, world);
-    utils::logmesg(lmp,"DEBUG :: scatteringsum = {}\n", scatteringsum);
+    // utils::logmesg(lmp,"DEBUG :: scatteringsum = {}\n", scatteringsum);
   } else {
     scatteringsum = natoms;
   }
@@ -552,7 +557,7 @@ for (int ik = 0; ik < nkvec; ik++){
     array[i][0] = k[i];
     array[i][1] = (cossinsum_total[2*i+0]*cossinsum_total[2*i+0]+cossinsum_total[2*i+1]*cossinsum_total[2*i+1])*natoms/skdeg[i]/scatteringsum/scatteringsum;
   }
-  
+
   // // normalise the output and assign to array
   // for (int i = 0; i < Nq; i++){
   //   array[i][0] = q[i];
@@ -569,7 +574,7 @@ for (int ik = 0; ik < nkvec; ik++){
   double t1 = platform::walltime();
 
   if (me == 0) {
-    utils::logmesg(lmp,"Scattering sum = {}\n", scatteringsum);
+    // utils::logmesg(lmp,"Scattering sum = {}\n", scatteringsum);
     utils::logmesg(lmp,"Time for SANS calculation: {} seconds\n", t1-t0);
   }
 
@@ -579,10 +584,19 @@ for (int ik = 0; ik < nkvec; ik++){
  memory usage of arrays
  ------------------------------------------------------------------------- */
 
-// double ComputeSANS::memory_usage()
-// {
-  // double bytes = 0.0;
+double ComputeSANS::memory_usage()
+{
+  double bytes = 0.0;
+  
+  bytes += (double) 3 * nkvec * sizeof(double);      // kvec
+  bytes += (double) nkvec * sizeof(int);             // iksq
+  bytes += (double) nRows * nCols * sizeof(double);  // array
+  bytes += (double) nk * sizeof(double);             // k
+  bytes += (double) nk * sizeof(double);             // skdeg
+  bytes += (double) 2 * ntypes * sizeof(double);     // b (scattering lengths + flags)
+  
+  return bytes;
+}
 
-  // return bytes;
-// }
+
 

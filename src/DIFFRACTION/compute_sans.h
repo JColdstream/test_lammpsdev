@@ -30,7 +30,7 @@ class ComputeSANS : public Compute {
   ~ComputeSANS() override;
   void init() override;
   void compute_array() override;
-  //double memory_usage() override;
+  double memory_usage() override;
   //testing
   //double sans_var[10];
 
@@ -45,7 +45,7 @@ class ComputeSANS : public Compute {
   double kmin, kmax;     // min and max Radiation frequency (inverse distance units)
   int nk;      // maximum integer value for K points in each dimension
   int nkstart;      // maximum integer value for K points in each dimension
-  double ikmax;       // Maximum reciprocal distance to explore
+  int ikmax;       // Maximum reciprocal distance to explore
   int maxdeg;
 
   double mypi = 3.141592653589;
