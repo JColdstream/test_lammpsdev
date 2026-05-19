@@ -114,10 +114,14 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     } else if (strcmp(arg[iarg],"logdist") == 0) {
       logdist = true;
       iarg += 1;
-      dR_Ewald = log10(kmax/kmin) / nk;
+      // dR_Ewald = log10(kmax/kmin) / nk;
 
     } else if (strcmp(arg[iarg],"logdR_Ewald") == 0) {
       logdrewald = true;
+      double logkmax = log10(kmax);
+      double logkmin = log10(kmin);
+      dR_Ewald = pow(10, (logkmax-logkmin)/nk + logkmin) - kmin;
+      utils::logmesg(lmp, "DEBUG :: initdR_Ewald = {}\n", dR_Ewald);
       // need this for later so we don't have to store an extra array
       nkstart = nk;
       iarg += 1;
@@ -255,8 +259,17 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   int nullcount = 0;
   int tempksq;
   double tempmodk;
+  // for scaling dR_Ewald
+  double logkmin = log10(kmin);
+  double logkmax = log10(kmax);
+  double scale;
+  double start_dR_Ewald = dR_Ewald;
   // calculate the number of vectors to allocate arrays
   for (int ik = 0; ik < nk; ik++){
+     if (logdrewald) {
+       // work back to the initial value of ik to scale the dR_Ewald
+       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*ik/nkstart);
+     }
      for (int ix = 0; ix <= ikmax; ix++) {
       for (int iy = -ikmax; iy <= ikmax; iy++) {
         for (int iz = -ikmax; iz <= ikmax; iz++) {
@@ -278,6 +291,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       } else {
         tempnkvec = tempnkvec + tempskdeg[ik];
       }
+      utils::logmesg(lmp, "DEBUG :: ik = {}, skdeg = {}\n", ik, tempskdeg[ik]);
     }
   
   memory->create(k, nk-nullcount,"sans:k");
@@ -388,8 +402,8 @@ void ComputeSANS::init()
   for (int ik = 0; ik < nk; ik++){
      if (logdrewald) {
        // work back to the initial value of ik to scale the dR_Ewald
-       scale = 1 + nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
-       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nk);
+       scale = nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
+       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nkstart);
      }
      for (int ix = 0; ix <= ikmax; ix++) {
       for (int iy = -ikmax; iy <= ikmax; iy++) {
@@ -423,6 +437,7 @@ void ComputeSANS::init()
           }
       }
       tempkvec.clear();
+      utils::logmesg(lmp, "DEBUG :: ik = {}, skdeg = {}\n", scale, skdeg[ik]);
     }
 
     if (initnkvec != nkvec) {
