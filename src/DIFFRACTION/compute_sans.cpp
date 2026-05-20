@@ -63,7 +63,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   nk = 100;
   dR_Ewald = (kmax - kmin) / nk;
   logdist = 0;
-  logdrewald = 0;
   scatteringlengths=0;
 
   // utils::logmesg(lmp,"arg[0] = {}\n", arg[0]);
@@ -115,16 +114,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
       logdist = true;
       iarg += 1;
       // dR_Ewald = log10(kmax/kmin) / nk;
-
-    } else if (strcmp(arg[iarg],"logdR_Ewald") == 0) {
-      logdrewald = true;
-      double logkmax = log10(kmax);
-      double logkmin = log10(kmin);
-      dR_Ewald = pow(10, (logkmax-logkmin)/nk + logkmin) - kmin;
-      utils::logmesg(lmp, "DEBUG :: initdR_Ewald = {}\n", dR_Ewald);
-      // need this for later so we don't have to store an extra array
-      nkstart = nk;
-      iarg += 1;
 
     } else if (strcmp(arg[iarg],"lengthpath") == 0) {
       if (iarg+2 > narg) error->all(FLERR,"Illegal Compute SANS Command");
@@ -266,10 +255,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   double start_dR_Ewald = dR_Ewald;
   // calculate the number of vectors to allocate arrays
   for (int ik = 0; ik < nk; ik++){
-     if (logdrewald) {
-       // work back to the initial value of ik to scale the dR_Ewald
-       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*ik/nkstart);
-     }
      for (int ix = 0; ix <= ikmax; ix++) {
       for (int iy = -ikmax; iy <= ikmax; iy++) {
         for (int iz = -ikmax; iz <= ikmax; iz++) {
@@ -363,6 +348,7 @@ ComputeSANS::~ComputeSANS()
 {
 
   memory->destroy(k);
+  memory->destroy(kvec);
   memory->destroy(iksq);
   memory->destroy(b);
   memory->destroy(skdeg);
@@ -400,11 +386,6 @@ void ComputeSANS::init()
   // calculate the number of vectors to allocate arrays
   initnkvec = 0;
   for (int ik = 0; ik < nk; ik++){
-     if (logdrewald) {
-       // work back to the initial value of ik to scale the dR_Ewald
-       scale = nkstart*(log10(k[ik])-logkmin)/(logkmax-logkmin);
-       dR_Ewald = start_dR_Ewald * pow(10, (logkmax-logkmin)*scale/nkstart);
-     }
      for (int ix = 0; ix <= ikmax; ix++) {
       for (int iy = -ikmax; iy <= ikmax; iy++) {
         for (int iz = -ikmax; iz <= ikmax; iz++) {

@@ -13,7 +13,7 @@ Syntax
 * ID, group-ID are documented in :doc:`compute <compute>` command
 * sans = style name of this compute command
 * zero or more keyword/value pairs may be appended
-* keyword = *kmin* or *kmax* or *Nk* or *dR_Ewald* or *maxdeg* or *logdist* or *logdR_Ewald* or *lengthpath*
+* keyword = *kmin* or *kmax* or *Nk* or *dR_Ewald* or *maxdeg* or *logdist* or *lengthpath*
 
   .. parsed-literal::
 
@@ -31,8 +31,6 @@ Syntax
                      (default: 100)
        *logdist* = flag to use logarithmic distribution of wave vectors instead
                    of linear distribution
-       *logdR_Ewald* = flag to scale the value of dR_Ewald with magnitude of the wavevector
-
        *lengthpath* file = path to file containing custom neutron scattering lengths
 
 Examples
@@ -72,10 +70,6 @@ The parameter *kmax* determines the maximum value of *kx*, *ky*, and *kz* explor
 
 Wave vectors are selected to lie approximately at the specified k magnitudes, within a
 tolerance defined by *dR_Ewald* (the thickness of the Ewald sphere slice).
-
-If the values of *k* are distributed logarithmically, it can be useful to scale the size of *dR_Ewald* with the magnitude of the wavevector.
-If this is the case include the keyword *logdR_Ewald* in the command, in this case the value of dR_Ewald will refer to the width of the ewald sphere of the smallest vector.
-The width of the ewald sphere surrounding the largest wavevector will be .. math:: dR_Ewald*kmax/kmin.
 
 **Scattering Lengths**
 

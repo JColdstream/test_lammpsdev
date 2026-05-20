@@ -52,7 +52,6 @@ class ComputeSANS : public Compute {
   double scatteringsum;
 
   bool logdist;
-  bool logdrewald;
   bool scatteringlengths;
 
   const char *filename = nullptr;

@@ -65,3 +65,4 @@ src/Makefile.package.settings-e
 /sans_test*
 /doc/docenv*
 /doc/doctrees*
+/atomic_test*
