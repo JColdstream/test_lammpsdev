@@ -31,8 +31,6 @@ class ComputeSANS : public Compute {
   void init() override;
   void compute_array() override;
   double memory_usage() override;
-  //testing
-  //double sans_var[10];
 
  private:
   int me;
