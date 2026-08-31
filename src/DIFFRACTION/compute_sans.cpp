@@ -28,9 +28,23 @@ static const char cite_compute_saed_c[] =
 "Test citation!!"
   "\n\n";
 
+// Combined sin+cos: on glibc this is one call instead of two separate
+// transcendental function calls, which matters here since it runs once per
+// (wavevector, atom) pair. Falls back to plain sin()/cos() elsewhere.
+static inline void sans_sincos(double x, double &s, double &c)
+{
+#if defined(__GLIBC__)
+  ::sincos(x, &s, &c);
+#else
+  s = std::sin(x);
+  c = std::cos(x);
+#endif
+}
+
 ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   Compute(lmp, narg, arg), k(nullptr), kvec(nullptr), iksq(nullptr),
-  b(nullptr), skdeg(nullptr)
+  b(nullptr), skdeg(nullptr), max_nlocalgroup(0), xlocal(nullptr),
+  typelocal(nullptr), cossinsum_ksq(nullptr), cossinsum_total(nullptr)
 {
 
   if (lmp->citeme) lmp->citeme->add(cite_compute_saed_c);
@@ -59,6 +73,8 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   // Set defaults for optional args
   kmax = 30;
   kmin = 1;
+  ikmax = 50;
+  maxdeg = 100;
   nk = 100;
   dR_Ewald = (kmax - kmin) / nk;
   logdist = 0;
@@ -200,6 +216,13 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     boxdim[i] = boxhi[i] - boxlo[i];
   }
 
+  // Compute SANS currently only supports cubic boxes: a single reciprocal
+  // spacing (twopi_L below) is used for kx, ky, and kz alike, so a non-cubic
+  // box would otherwise silently produce incorrect wavevector magnitudes.
+  if (fabs(boxdim[0]-boxdim[1]) > 1.0e-6*boxdim[0] ||
+      fabs(boxdim[0]-boxdim[2]) > 1.0e-6*boxdim[0])
+    error->all(FLERR,"Compute SANS requires a cubic simulation box (Lx = Ly = Lz)");
+
   double twopi_L = 2.0*mypi/boxdim[0];
 
   // tempk to count initial wavevectors
@@ -226,7 +249,11 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   int nullcount = 0;
   int tempksq;
   double tempmodk;
-  // calculate the number of vectors to allocate arrays
+
+  // Scan the (ix,iy,iz) grid once per k-shell and record every matching
+  // wavevector directly into shellvec[ik]. The populate loop further below
+  // reuses these lists instead of rescanning the same grid a second time.
+  std::vector<std::vector<std::vector<int>>> shellvec(nk);
   for (int ik = 0; ik < nk; ik++){
      for (int ix = 0; ix <= ikmax; ix++) {
       for (int iy = -ikmax; iy <= ikmax; iy++) {
@@ -234,11 +261,12 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
             tempksq = ix*ix + iy*iy + iz*iz;
             tempmodk = twopi_L * sqrt((double)tempksq);
             if (fabs(tempmodk - tempk[ik]) < dR_Ewald/2) {
-              tempskdeg[ik] = tempskdeg[ik] + 1;
+              shellvec[ik].push_back({ix, iy, iz});
             }
           }
         }
       }
+      tempskdeg[ik] = (int) shellvec[ik].size();
       // count the number of values of q that don't have any valid (kx, ky, kz) combinations
       // the number of forbidden q values will depend on the input parameters, as well as the box geometry
       if (tempskdeg[ik] == 0) {
@@ -256,8 +284,11 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
 
   nkvec = tempnkvec;
 
-  int nRows = nk;
-  int nCols = 2;
+  // nk is not reduced by nullcount until after the wavevector fill loop below,
+  // so use nk-nullcount here (the actual number of valid k-shells) to size
+  // the array consistently with what compute_array() will fill in.
+  nRows = nk - nullcount;
+  nCols = 2;
 
   size_array_rows = nRows;
   size_array_cols = nCols;
@@ -268,11 +299,16 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   memory->create(array, nRows, nCols, "sans:array");
 
   
+  // track which original (uncompacted) shell index each compacted k[]/skdeg[]
+  // entry came from, so the populate loop below can look back into shellvec[]
+  std::vector<int> compact_to_orig(nk - nullcount);
+
   int kcount = 0;
   for (int i = 0; i < nk; i++){
     if (tempskdeg[i] > 0) {
       k[kcount] = tempk[i];
       skdeg[kcount]=tempskdeg[i];
+      compact_to_orig[kcount] = i;
       kcount++;
     }
   }
@@ -283,6 +319,11 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   if (nk != kcount) {
     error->all(FLERR, "Compute SANS: Inconsistent number of wavevectors");
   }
+
+  // nk is fixed from here on, so the cos/sin accumulators used every call to
+  // compute_array() can be allocated once now instead of every timestep
+  memory->create(cossinsum_ksq, 2*nk, "sans:cossinsum_ksq");
+  memory->create(cossinsum_total, 2*nk, "sans:cossinsum_total");
 
   // calculate sum of all scattering lengths to normalise at the end
   // equal to number of atoms if lengths are not set by the user
@@ -325,24 +366,12 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     utils::logmesg(lmp,"-----\nComputing wavevectors for computeSANS.\n");
   }
 
-  // populate the wavevector array
+  // populate the wavevector array, reusing the candidates already found for
+  // each shell in shellvec[] above rather than rescanning the (ix,iy,iz) grid
   int initnkvec;
-  std::vector<std::vector<int>> tempkvec;
-  // calculate the number of vectors to allocate arrays
   initnkvec = 0;
   for (int ik = 0; ik < nk; ik++){
-    // utils::logmesg(lmp,"-----\nik = {}.\n", ik);
-     for (int ix = 0; ix <= ikmax; ix++) {
-      for (int iy = -ikmax; iy <= ikmax; iy++) {
-        for (int iz = -ikmax; iz <= ikmax; iz++) {
-            tempksq = ix*ix + iy*iy + iz*iz;
-            tempmodk = twopi_L * sqrt((double)tempksq);
-            if (fabs(tempmodk - k[ik]) < dR_Ewald/2) {
-              tempkvec.push_back({ix, iy, iz});
-            }
-          }
-        }
-      }
+      std::vector<std::vector<int>> &tempkvec = shellvec[compact_to_orig[ik]];
       if (skdeg[ik] == maxdeg) {
         // select a random subset of wavevectors from the allowed list if there are more than maxdeg
         std::shuffle(tempkvec.begin(), tempkvec.end(), std::default_random_engine{});
@@ -392,6 +421,10 @@ ComputeSANS::~ComputeSANS()
   memory->destroy(b);
   memory->destroy(skdeg);
   memory->destroy(array);
+  memory->destroy(xlocal);
+  memory->destroy(typelocal);
+  memory->destroy(cossinsum_ksq);
+  memory->destroy(cossinsum_total);
 }
 
 /* ---------------------------------------------------------------------- */
@@ -414,15 +447,6 @@ void ComputeSANS::compute_array()
   const auto natoms = group->count(igroup);
   const auto *mask = atom->mask;
 
-  const double* boxlo = domain->boxlo;
-  const double* boxhi = domain->boxhi;
-  auto boxdim = new double [3];
-
-  // calculate box lengths
-  for (int i = 0; i < 3; i++){
-    boxdim[i] = boxhi[i] - boxlo[i];
-  }
-
   // checks to see if atoms are included in group for compute
   nlocalgroup = 0;
   for (int ii = 0; ii < nlocal; ii++) {
@@ -431,8 +455,15 @@ void ComputeSANS::compute_array()
     }
   }
 
-  // positions for local atoms
-  auto xlocal = new double [3*nlocalgroup];
+  // xlocal/typelocal are persistent buffers (members, allocated in the
+  // constructor as nullptr). Atoms migrate between processors as the
+  // simulation runs, so nlocalgroup can grow between calls; only grow the
+  // buffers when that happens, instead of new/delete on every timestep.
+  if (nlocalgroup > max_nlocalgroup) {
+    memory->grow(xlocal, 3*nlocalgroup, "sans:xlocal");
+    memory->grow(typelocal, nlocalgroup, "sans:typelocal");
+    max_nlocalgroup = nlocalgroup;
+  }
 
   // populate positions and types
   nlocalgroup = 0;
@@ -441,13 +472,15 @@ void ComputeSANS::compute_array()
      xlocal[3*nlocalgroup+0] = atom->x[ii][0];
      xlocal[3*nlocalgroup+1] = atom->x[ii][1];
      xlocal[3*nlocalgroup+2] = atom->x[ii][2];
+     typelocal[nlocalgroup] = type[ii];
      nlocalgroup++;
     }
   }
 
-  // array for accumulating real and imaginary components
+  // cossinsum_ksq/cossinsum_total are also persistent buffers, allocated
+  // once in the constructor since their size (2*nk) never changes. Just
+  // reset the accumulator here.
   // cos elements are in (2*i) and sin are in (2*i)+1
-  auto cossinsum_ksq = new double[2*nk];
   for (int i = 0; i < 2*nk; i++) {
     cossinsum_ksq[i] = 0.0;
   }
@@ -456,6 +489,7 @@ void ComputeSANS::compute_array()
   double kx, ky, kz;
   double cossum, sinsum;
   double kdotr;
+  double sk, ck;
 
 for (int ik = 0; ik < nkvec; ik++){
   // set up wavevectors
@@ -467,8 +501,9 @@ for (int ik = 0; ik < nkvec; ik++){
   // compute the dot product
     for (int ii=0; ii < nlocalgroup; ii++) {
       kdotr = (kx*xlocal[3*ii+0] + ky*xlocal[3*ii+1] + kz*xlocal[3*ii+2]);
-      cossum += b[type[ii]-1]*cos(kdotr);
-      sinsum += b[type[ii]-1]*sin(kdotr);
+      sans_sincos(kdotr, sk, ck);
+      cossum += b[typelocal[ii]-1]*ck;
+      sinsum += b[typelocal[ii]-1]*sk;
     }
 
     cossinsum_ksq[2*iksq[ik]+0] += cossum;
@@ -476,18 +511,12 @@ for (int ik = 0; ik < nkvec; ik++){
 }
 
   // sum up cos/sin sums across processes
-  auto cossinsum_total = new double[2*nk];
   MPI_Allreduce(cossinsum_ksq, cossinsum_total, 2*nk, MPI_DOUBLE, MPI_SUM, world);
-  
+
   for (int i = 0; i < nk; i++) {
     array[i][0] = k[i];
     array[i][1] = (cossinsum_total[2*i+0]*cossinsum_total[2*i+0]+cossinsum_total[2*i+1]*cossinsum_total[2*i+1])*natoms/skdeg[i]/scatteringsum/scatteringsum;
   }
-
-  // free local memory
-  delete[] xlocal;
-  delete[] cossinsum_ksq;
-  delete[] cossinsum_total;
 
   double t1 = platform::walltime();
 

@@ -8,12 +8,12 @@ Syntax
 
 .. code-block:: LAMMPS
 
-   compute ID group-ID sans kmax keyword value ...
+   compute ID group-ID sans keyword value ...
 
 * ID, group-ID are documented in :doc:`compute <compute>` command
 * sans = style name of this compute command
 * zero or more keyword/value pairs may be appended
-* keyword = *kmin* or *kmax* or *Nk* or *dR_Ewald* or *maxdeg* or *logdist* or *lengthpath*
+* keyword = *kmin* or *kmax* or *ikmax* or *nk* or *dR_Ewald* or *maxdeg* or *logdist* or *lengthpath*
 
   .. parsed-literal::
 
@@ -22,8 +22,8 @@ Syntax
        *kmax* value = maximum wave vector magnitude to calculate (inverse length units)
                       (default: .. math:: 30.0 \, \text{Å}^{-1})
        *ikmax* value = maximum number of periods in each dimension of the wavevector
-                      (default: .. math:: 50)
-       *Nk* value = number of wave vectors distributed between kmin and kmax
+                      (default: 50)
+       *nk* value = number of wave vectors distributed between kmin and kmax
                     (default: 100)
        *dR_Ewald* value = thickness of Ewald sphere slice around target q values
                           (default: (kmax-kmin)/nk or (log10(kmax)-log10(kmin))/nk for logdist)
@@ -38,9 +38,10 @@ Examples
 
 .. code-block:: LAMMPS
 
-   compute 1 all sans 10.0 qmin 1.0 qmax 30.0 Nq 50
-   compute 2 all sans 8.0 qmax 25.0 dR_Ewald 0.15 logdist
-   compute 3 all sans 12.0 Nq 100 lengthpath scattering_lengths.txt
+   compute 1 all sans
+   compute 2 all sans kmin 1.0 kmax 30.0 nk 50
+   compute 3 all sans kmax 25.0 dR_Ewald 0.15 logdist
+   compute 4 all sans nk 100 lengthpath scattering_lengths.txt
 
 Description
 """""""""""
@@ -62,7 +63,7 @@ type i, and :math:`\mathbf{k}` is the scattering wave vector with magnitude k.
 **Wave Vector Generation**
 
 The compute generates a set of wave vectors distributed within reciprocal
-space. By default, we sample *Nk* intensities distributed evenly between *kmin*
+space. By default, we sample *nk* intensities distributed evenly between *kmin*
 and *kmax*. If the logdist flag is used they are distributed logarithmically betweek *kmin* and *kmax*.
 
 At each value of *k* a number of wavevectors *\textbf{k} = (kx, ky, kz)* with magnitude *k* = 2*\pi/L (\textbf{k}) are selected at random.
@@ -105,12 +106,11 @@ If there are fewer than *maxdeg* wavevectors, they will all be used.
 Output info
 """""""""""
 
-This compute calculates a global array with dimensions of Nq rows and
-3 columns. Each row contains:
+This compute calculates a global array with dimensions of *nk* rows and
+2 columns. Each row contains:
 
-* Column 1: Index (i) of the wave vector
-* Column 2: Wave vector magnitude (k) in inverse length units
-* Column 3: Normalized scattering intensity S(k)/N
+* Column 1: Wave vector magnitude (k) in inverse length units
+* Column 2: Normalized scattering intensity S(k)/N
 
 If a value of S(k) you are expecting is missing, it is because the compute has failed to find any wave vectors at that magnitude, given your input parameters.
 
@@ -129,6 +129,8 @@ The compute_sans command does not work for triclinic cells.
 
 The compute_sans command only works with 3-dimensional systems.
 
+The compute_sans command only works with cubic simulation boxes (Lx = Ly = Lz).
+
 The compute_sans command does work with simulations changing their box sized, however the wavevectors are initialised using the box sized defined at the time of the compute. 
 If the simulation box changes size significantly during this time, the results will be rubbish and unphysical.
 
@@ -140,5 +142,5 @@ Related commands
 Default
 """""""
 
-The option defaults are qmin = 1.0, qmax = 30.0, Nk = 100, dR_Ewald = 0.2,
-logdist = off (linear distribution)
+The option defaults are kmin = 1.0, kmax = 30.0, ikmax = 50, nk = 100,
+maxdeg = 100, dR_Ewald = (kmax-kmin)/nk, logdist = off (linear distribution)

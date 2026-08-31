@@ -34,17 +34,12 @@ class ComputeSANS : public Compute {
 
  private:
   int me;
-  int *ztype;           // Atomic number of the different atom types
   double dR_Ewald;      // Thickness of Ewald sphere slice
-  bool echo;            // echo compute_array progress
-  bool manual;          // Turn on manual recpiprocal map
 
-  double R_Ewald;    // Radius of Ewald sphere (distance units)
-  double kmin, kmax;     // min and max Radiation frequency (inverse distance units)
-  int nk;      // maximum integer value for K points in each dimension
-  int nkstart;      // maximum integer value for K points in each dimension
-  int ikmax;       // Maximum reciprocal distance to explore
-  int maxdeg;
+  double kmin, kmax;    // min and max wave vector magnitude (inverse distance units)
+  int nk;          // number of wave vectors distributed between kmin and kmax
+  int ikmax;       // maximum number of periods in each dimension of the wavevector
+  int maxdeg;      // maximum degeneracy allowed per value of k
 
   double mypi = 3.141592653589;
   double scatteringsum;
@@ -60,6 +55,13 @@ class ComputeSANS : public Compute {
   int nRows, nCols;
   int *iksq;
   double *kvec, *k, *skdeg, *b;
+
+  // persistent per-call scratch buffers, reused across invocations of
+  // compute_array() instead of being allocated and freed every timestep
+  int max_nlocalgroup;               // largest nlocalgroup seen so far (capacity of xlocal/typelocal)
+  double *xlocal;                    // positions of local atoms in the group, compacted
+  int *typelocal;                    // atom types of local atoms in the group, compacted
+  double *cossinsum_ksq, *cossinsum_total;    // cos/sin accumulators, sized 2*nk (fixed after construction)
 };
 
 }    // namespace LAMMPS_NS
