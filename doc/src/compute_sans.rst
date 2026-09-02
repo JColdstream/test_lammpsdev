@@ -18,9 +18,9 @@ Syntax
   .. parsed-literal::
 
        *kmin* value = minimum wave vector magnitude to calculate (inverse length units)
-                      (default: .. math:: 0.001)
+                      (default: 0.001)
        *kmax* value = maximum wave vector magnitude to calculate (inverse length units)
-                      (default: .. math:: 0.5)
+                      (default: 0.5)
        *ikmax* value = maximum number of periods in each dimension of the wavevector
                       (default: 50)
        *nk* value = number of wave vectors distributed between kmin and kmax
@@ -119,7 +119,7 @@ candidate wavevectors bounded by *ikmax* in each dimension, so its cost scales a
 *nk* :math:`\times\, ikmax^{3}`.
 
 *ikmax* should be set large enough to reach *kmax*: sampling a wave vector of
-magnitude *kmax* requires *ikmax* of at least :math:`k_{max} L / (2\pi)`, where
+magnitude *kmax* requires *ikmax* of at least :math:`k_{\mathrm{max}} L / (2\pi)`, where
 :math:`L` is the box length. Setting *ikmax* too low will silently omit k values above the
 reachable range from the output; setting it much higher than necessary only increases setup cost without finding any additional wave vectors.
 
