@@ -216,9 +216,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     boxdim[i] = boxhi[i] - boxlo[i];
   }
 
-  // Compute SANS currently only supports cubic boxes: a single reciprocal
-  // spacing (twopi_L below) is used for kx, ky, and kz alike, so a non-cubic
-  // box would otherwise silently produce incorrect wavevector magnitudes.
+  // Check if box is cubic
   if (fabs(boxdim[0]-boxdim[1]) > 1.0e-6*boxdim[0] ||
       fabs(boxdim[0]-boxdim[2]) > 1.0e-6*boxdim[0])
     error->all(FLERR,"Compute SANS requires a cubic simulation box (Lx = Ly = Lz)");
@@ -226,7 +224,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   double twopi_L = 2.0*mypi/boxdim[0];
 
   // tempk to count initial wavevectors
-  // we will populate the final k vector later, excluding invalid values of k
   auto tempk = new double[nk];
   if (logdist) {
     double logkmin = log10(kmin);
@@ -250,78 +247,140 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   int tempksq;
   double tempmodk;
 
-  // Scan the (ix,iy,iz) grid once per k-shell and record every matching
-  // wavevector directly into shellvec[ik]. The populate loop further below
-  // reuses these lists instead of rescanning the same grid a second time.
-  std::vector<std::vector<std::vector<int>>> shellvec(nk);
-  for (int ik = 0; ik < nk; ik++){
-     for (int ix = 0; ix <= ikmax; ix++) {
-      for (int iy = -ikmax; iy <= ikmax; iy++) {
-        for (int iz = -ikmax; iz <= ikmax; iz++) {
-            tempksq = ix*ix + iy*iy + iz*iz;
-            tempmodk = twopi_L * sqrt((double)tempksq);
-            if (fabs(tempmodk - tempk[ik]) < dR_Ewald/2) {
-              shellvec[ik].push_back({ix, iy, iz});
+  // Wavevector setup only on one rank to avoid using huge amounts of memory
+  if (me == 0) {
+
+    // First pass: count how many (ix,iy,iz) lattice points fall in each
+    // k-shell, without storing them, so the k/skdeg/kvec/iksq arrays below
+    // can be sized correctly.
+    for (int ik = 0; ik < nk; ik++){
+       for (int ix = 0; ix <= ikmax; ix++) {
+        for (int iy = -ikmax; iy <= ikmax; iy++) {
+          for (int iz = -ikmax; iz <= ikmax; iz++) {
+              tempksq = ix*ix + iy*iy + iz*iz;
+              tempmodk = twopi_L * sqrt((double)tempksq);
+              if (fabs(tempmodk - tempk[ik]) < dR_Ewald/2) {
+                tempskdeg[ik] = tempskdeg[ik] + 1;
+              }
             }
           }
         }
+        // keep track of any values of k that have no valid combinations
+        if (tempskdeg[ik] == 0) {
+          nullcount++;
+        } else if (tempskdeg[ik] > maxdeg) {
+          tempnkvec = tempnkvec + maxdeg;
+          tempskdeg[ik] = maxdeg;
+        } else {
+          tempnkvec = tempnkvec + tempskdeg[ik];
+        }
       }
-      tempskdeg[ik] = (int) shellvec[ik].size();
-      // count the number of values of q that don't have any valid (kx, ky, kz) combinations
-      // the number of forbidden q values will depend on the input parameters, as well as the box geometry
-      if (tempskdeg[ik] == 0) {
-        nullcount++;
-      } else if (tempskdeg[ik] > maxdeg) {
-        tempnkvec = tempnkvec + maxdeg;
-        tempskdeg[ik] = maxdeg;
-      } else {
-        tempnkvec = tempnkvec + tempskdeg[ik];
+
+    memory->create(k, nk-nullcount,"sans:k");
+    memory->create(skdeg, nk-nullcount,"sans:skdeg");
+
+    nkvec = tempnkvec;
+
+    nRows = nk - nullcount;
+
+    // allocate memory 4 fat arrays //
+    memory->create(kvec,3*nkvec,"sans:kvec");
+    memory->create(iksq, nkvec,"sans:iksq");
+    memory->create(array, nRows, 2, "sans:array");
+
+    int kcount = 0;
+    for (int i = 0; i < nk; i++){
+      if (tempskdeg[i] > 0) {
+        k[kcount] = tempk[i];
+        skdeg[kcount]=tempskdeg[i];
+        kcount++;
       }
     }
-  
-  memory->create(k, nk-nullcount,"sans:k");
-  memory->create(skdeg, nk-nullcount,"sans:skdeg");
 
-  nkvec = tempnkvec;
+    // update number of wavevectors to avoid values of k with no valid combinations
+    nk = nk - nullcount;
 
-  // nk is not reduced by nullcount until after the wavevector fill loop below,
-  // so use nk-nullcount here (the actual number of valid k-shells) to size
-  // the array consistently with what compute_array() will fill in.
-  nRows = nk - nullcount;
+    if (nk != kcount) {
+      error->one(FLERR, "Compute SANS: Inconsistent number of wavevectors");
+    }
+
+    utils::logmesg(lmp,"-----\nComputing wavevectors for computeSANS.\n");
+
+    int initnkvec;
+    std::vector<std::vector<int>> tempkvec;
+    initnkvec = 0;
+    for (int ik = 0; ik < nk; ik++){
+       for (int ix = 0; ix <= ikmax; ix++) {
+        for (int iy = -ikmax; iy <= ikmax; iy++) {
+          for (int iz = -ikmax; iz <= ikmax; iz++) {
+              tempksq = ix*ix + iy*iy + iz*iz;
+              tempmodk = twopi_L * sqrt((double)tempksq);
+              if (fabs(tempmodk - k[ik]) < dR_Ewald/2) {
+                tempkvec.push_back({ix, iy, iz});
+              }
+            }
+          }
+        }
+        if (skdeg[ik] == maxdeg) {
+          // select a random subset of wavevectors from the allowed list if there are more than maxdeg
+          std::shuffle(tempkvec.begin(), tempkvec.end(), std::default_random_engine{});
+          tempkvec.resize(maxdeg);
+            for (int j = 0; j < skdeg[ik]; j++) {
+              kvec[3*initnkvec+0] = twopi_L*tempkvec[j][0];
+              kvec[3*initnkvec+1] = twopi_L*tempkvec[j][1];
+              kvec[3*initnkvec+2] = twopi_L*tempkvec[j][2];
+              iksq[initnkvec] = ik;
+              initnkvec++;
+            }
+          } else if (skdeg[ik] > 0) {
+            // use all wavevectors if there are fewer than maxdeg
+            for (int j = 0; j < skdeg[ik]; j++) {
+              kvec[3*initnkvec+0] = twopi_L*tempkvec[j][0];
+              kvec[3*initnkvec+1] = twopi_L*tempkvec[j][1];
+              kvec[3*initnkvec+2] = twopi_L*tempkvec[j][2];
+              iksq[initnkvec] = ik;
+              initnkvec++;
+            }
+        }
+        tempkvec.clear();
+      }
+
+    if (initnkvec != nkvec) {
+      error->one(FLERR,"ComputeSANS: Number of wavevectors is inconsistent. Contact the developers.");
+    }
+
+    utils::logmesg(lmp,"\nFound {} wavevectors.\n", nkvec);
+  }
+
+  // Broadcast array sizes so ranks can allocate appropriate memory
+  int bcast_sizes[3];
+  if (me == 0) {
+    bcast_sizes[0] = nk;
+    bcast_sizes[1] = nkvec;
+    bcast_sizes[2] = nRows;
+  }
+  MPI_Bcast(bcast_sizes, 3, MPI_INT, 0, world);
+  nk = bcast_sizes[0];
+  nkvec = bcast_sizes[1];
+  nRows = bcast_sizes[2];
   nCols = 2;
 
   size_array_rows = nRows;
   size_array_cols = nCols;
 
-  // allocate memory 4 fat arrays //
-  memory->create(kvec,3*nkvec,"sans:kvec");
-  memory->create(iksq, nkvec,"sans:iksq");
-  memory->create(array, nRows, nCols, "sans:array");
-
-  
-  // track which original (uncompacted) shell index each compacted k[]/skdeg[]
-  // entry came from, so the populate loop below can look back into shellvec[]
-  std::vector<int> compact_to_orig(nk - nullcount);
-
-  int kcount = 0;
-  for (int i = 0; i < nk; i++){
-    if (tempskdeg[i] > 0) {
-      k[kcount] = tempk[i];
-      skdeg[kcount]=tempskdeg[i];
-      compact_to_orig[kcount] = i;
-      kcount++;
-    }
+  if (me != 0) {
+    memory->create(k, nk, "sans:k");
+    memory->create(skdeg, nk, "sans:skdeg");
+    memory->create(kvec, 3*nkvec, "sans:kvec");
+    memory->create(iksq, nkvec, "sans:iksq");
+    memory->create(array, nRows, nCols, "sans:array");
   }
 
-  // update number of wavevectors to avoid NULL values
-  nk = nk - nullcount;
+  MPI_Bcast(k, nk, MPI_DOUBLE, 0, world);
+  MPI_Bcast(skdeg, nk, MPI_DOUBLE, 0, world);
+  MPI_Bcast(kvec, 3*nkvec, MPI_DOUBLE, 0, world);
+  MPI_Bcast(iksq, nkvec, MPI_INT, 0, world);
 
-  if (nk != kcount) {
-    error->all(FLERR, "Compute SANS: Inconsistent number of wavevectors");
-  }
-
-  // nk is fixed from here on, so the cos/sin accumulators used every call to
-  // compute_array() can be allocated once now instead of every timestep
   memory->create(cossinsum_ksq, 2*nk, "sans:cossinsum_ksq");
   memory->create(cossinsum_total, 2*nk, "sans:cossinsum_total");
 
@@ -349,60 +408,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     MPI_Allreduce(&proc_scatteringsum, &scatteringsum, 1, MPI_DOUBLE, MPI_SUM, world);
   } else {
     scatteringsum = natoms;
-  }
-
-  // deal with memory
-
-
-  // for (int i = 0; i < nRows; i++) {
-  //   for (int j = 0; j < nCols; j++) {
-  //     array[i][j] = 0.0;
-  //   }
-  // }
-
-  // utils::logmesg(lmp,"DEBUG :: kmax = {}\n", kmax); 
-
-  if (me == 0) {
-    utils::logmesg(lmp,"-----\nComputing wavevectors for computeSANS.\n");
-  }
-
-  // populate the wavevector array, reusing the candidates already found for
-  // each shell in shellvec[] above rather than rescanning the (ix,iy,iz) grid
-  int initnkvec;
-  initnkvec = 0;
-  for (int ik = 0; ik < nk; ik++){
-      std::vector<std::vector<int>> &tempkvec = shellvec[compact_to_orig[ik]];
-      if (skdeg[ik] == maxdeg) {
-        // select a random subset of wavevectors from the allowed list if there are more than maxdeg
-        std::shuffle(tempkvec.begin(), tempkvec.end(), std::default_random_engine{});
-        tempkvec.resize(maxdeg);
-          for (int j = 0; j < skdeg[ik]; j++) {
-            kvec[3*initnkvec+0] = twopi_L*tempkvec[j][0];
-            kvec[3*initnkvec+1] = twopi_L*tempkvec[j][1];
-            kvec[3*initnkvec+2] = twopi_L*tempkvec[j][2];
-            iksq[initnkvec] = ik;
-            initnkvec++;
-          }
-        } else if (skdeg[ik] > 0) {
-          // use all wavevectors if there are fewer than maxdeg
-          for (int j = 0; j < skdeg[ik]; j++) {
-            kvec[3*initnkvec+0] = twopi_L*tempkvec[j][0];
-            kvec[3*initnkvec+1] = twopi_L*tempkvec[j][1];
-            kvec[3*initnkvec+2] = twopi_L*tempkvec[j][2];
-            iksq[initnkvec] = ik;
-            initnkvec++;
-          }
-      }
-      tempkvec.clear();
-    }
-
-    if (initnkvec != nkvec) {
-      // utils::logmesg(lmp,"DEBUG :: initnkvec = {}, nkvec = {}\n", initnkvec, nkvec);
-      error->all(FLERR,"ComputeSANS: Number of wavevectors is inconsistent. Contact the developers.");
-    }
-
-  if (me == 0) {
-    utils::logmesg(lmp,"\nFound {} wavevectors.\n", nkvec);
   }
 
   delete[] boxdim;
@@ -455,10 +460,7 @@ void ComputeSANS::compute_array()
     }
   }
 
-  // xlocal/typelocal are persistent buffers (members, allocated in the
-  // constructor as nullptr). Atoms migrate between processors as the
-  // simulation runs, so nlocalgroup can grow between calls; only grow the
-  // buffers when that happens, instead of new/delete on every timestep.
+  // xlocal and typelocal are persistent and grow as needed if the number of atoms on the process increases
   if (nlocalgroup > max_nlocalgroup) {
     memory->grow(xlocal, 3*nlocalgroup, "sans:xlocal");
     memory->grow(typelocal, nlocalgroup, "sans:typelocal");
@@ -477,10 +479,6 @@ void ComputeSANS::compute_array()
     }
   }
 
-  // cossinsum_ksq/cossinsum_total are also persistent buffers, allocated
-  // once in the constructor since their size (2*nk) never changes. Just
-  // reset the accumulator here.
-  // cos elements are in (2*i) and sin are in (2*i)+1
   for (int i = 0; i < 2*nk; i++) {
     cossinsum_ksq[i] = 0.0;
   }

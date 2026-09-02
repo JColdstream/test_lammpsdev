@@ -53,8 +53,9 @@ class ComputeSANS : public Compute {
   int nkvec;
   int nlocalgroup;
   int nRows, nCols;
+  double *k, *kvec;
   int *iksq;
-  double *kvec, *k, *skdeg, *b;
+  double *b, *skdeg;
 
   // persistent per-call scratch buffers, reused across invocations of
   // compute_array() instead of being allocated and freed every timestep
