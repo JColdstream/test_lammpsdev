@@ -33,7 +33,7 @@ class ComputeSANS : public Compute {
   double memory_usage() override;
 
  private:
-  int me;
+  int me, nprocs;
   double dR_Ewald;      // Thickness of Ewald sphere slice
 
   double kmin, kmax;    // min and max wave vector magnitude (inverse distance units)
