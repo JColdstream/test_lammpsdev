@@ -103,16 +103,30 @@ If the value of *dR_Ewald* is large enough, points at adjacent values of *k* wil
 The *maxdeg* parameter can be used to limit the degeneracy (number of equivalent wave vectors) selected for each k value.
 If there are fewer than *maxdeg* wavevectors, they will all be used.
 
+**Performance Considerations**
+
+The compute_sans command can be computationally expensive, especially for large systems or high values of *nk* and *maxdeg*.
+
+The initial setup of wavevectors scans, for each of the *nk* k values, a grid of
+candidate wavevectors bounded by *ikmax* in each dimension, so its cost scales as
+*nk* :math:`\times\, ikmax^{3}`.
+
+*ikmax* should be set large enough to reach *kmax*: sampling a wave vector of
+magnitude *kmax* requires *ikmax* of at least :math:`k_{max} L / (2\pi)`, where *L*
+is the box length. Setting *ikmax* too low will silently omit k values above the
+reachable range from the output; setting it much higher than necessary only increases setup cost without finding any additional wave vectors.
+
 Output info
 """""""""""
 
-This compute calculates a global array with dimensions of *nk* rows and
+This compute calculates a global array with up to *nk* rows (one row is
+omitted for any k value with no valid wavevectors, see below) and
 2 columns. Each row contains:
 
 * Column 1: Wave vector magnitude (k) in inverse length units
 * Column 2: Normalized scattering intensity S(k)/N
 
-If a value of S(k) you are expecting is missing, it is because the compute has failed to find any wave vectors at that magnitude, given your input parameters.
+Some values of k have no valid wavevector combinations, and are omitted from the output array.
 
 The array can be accessed by any command that uses global values from
 a compute as input. See the :doc:`Howto output <Howto_output>` doc page
@@ -131,8 +145,8 @@ The compute_sans command only works with 3-dimensional systems.
 
 The compute_sans command only works with cubic simulation boxes (Lx = Ly = Lz).
 
-The compute_sans command does work with simulations changing their box sized, however the wavevectors are initialised using the box sized defined at the time of the compute. 
-If the simulation box changes size significantly during this time, the results will be rubbish and unphysical.
+The compute_sans command does work with simulations that change size (such as with `fix npt`), however the wavevectors are initialised using the box sized defined at the time of the compute. 
+If the simulation box changes size significantly after this point, the results may be rubbish and unphysical.
 
 Related commands
 """"""""""""""""

@@ -72,8 +72,8 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   int iarg = 3;
   
   // Set defaults for optional args
-  kmax = 30;
-  kmin = 1;
+  kmax = 0.5;
+  kmin = 0.001;
   ikmax = 50;
   maxdeg = 100;
   nk = 100;
@@ -297,12 +297,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   memory->create(iksq, nkvec,"sans:iksq");
   memory->create(array, nRows, nCols, "sans:array");
 
-  // offset[i] = where compacted shell i's wavevectors start in
-  // kvec[]/iksq[] (i.e. how many wavevectors belong to earlier compacted
-  // shells). Computed identically on every rank since skdeg[] is now the
-  // same everywhere -- this replaces the running counter the old serial
-  // code used, since each rank here only visits its own shells, not all
-  // of them in order.
+  // offset[i] keeps track of where shell i wavevectors begin
   std::vector<int> offset(nk - nullcount);
 
   int kcount = 0;
@@ -320,9 +315,7 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
   // update number of wavevectors to avoid values of k with no valid combinations
   nk = nk - nullcount;
 
-  // this is an internal invariant, not a user-facing error; tempskdeg is
-  // identical on every rank at this point, so every rank reaches this
-  // check with the same result and it's safe to call collectively
+  // check that number of wavevectors is consistent
   if (nk != kcount) {
     error->all(FLERR, "Compute SANS: Inconsistent number of wavevectors");
   }
@@ -331,18 +324,13 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
     utils::logmesg(lmp,"-----\nComputing wavevectors for computeSANS.\n");
   }
 
-  // zero out kvec/iksq before the populate pass below: memory->create()
-  // does not zero-initialise, and every rank relies on unowned shells'
-  // slots staying exactly 0 ahead of the MPI_Allreduce(SUM) that follows.
-  for (int i = 0; i < 3*nkvec; i++) kvec[i] = 0.0;
-  for (int i = 0; i < nkvec; i++) iksq[i] = 0;
+  for (int i = 0; i < 3*nkvec; i++) {
+    kvec[i] = 0.0;
+  }
+  for (int i = 0; i < nkvec; i++) {
+    iksq[i] = 0;
+  }
 
-  // Second pass: populate the wavevector array, rescanning the grid once
-  // per owned shell into a single reused buffer (cleared at the end of
-  // every shell's iteration), so at most one shell's candidates are ever
-  // held in memory at a time. Each shell writes at its precomputed
-  // offset[] rather than a running counter, since this rank only visits
-  // its own shells, not all of them in order.
   std::vector<std::vector<int>> tempkvec;
   for (int ik = 0; ik < nk; ik++){
     if (ik % nprocs != me) continue;
@@ -358,11 +346,6 @@ ComputeSANS::ComputeSANS(LAMMPS *lmp, int narg, char **arg) :
         }
       }
 
-      // this rank's own rescan should always find at least skdeg[ik]
-      // candidates (the counting pass above already found exactly this
-      // many, or more before capping at maxdeg) -- checked per-shell,
-      // before indexing into tempkvec below, and per-rank since only
-      // this rank has scanned this shell (error->one(), not error->all())
       if ((int) tempkvec.size() < skdeg[ik]) {
         error->one(FLERR,"ComputeSANS: Number of wavevectors is inconsistent. Contact the developers.");
       }
